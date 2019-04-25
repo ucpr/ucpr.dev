@@ -13,5 +13,7 @@ services:
       DOMAINS: 'ucpr.dev -> http://nginx/'
 
   nginx:
-    image: nginx:1.15.10-alpine
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile
     restart: always
