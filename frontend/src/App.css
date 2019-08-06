@@ -1,33 +1,22 @@
-.App {
-  text-align: center;
+/*
+body: #F4F1F6
+box: #2F4052
+item: #66909E, #E1B9C9
+ mozi #E1BBCD
+*/
+
+body {
+  background-color: #F4F1F6;
+  width: 99%;
+  height: 80vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  height: 90%;
+  background: #2F4052;
+  border: 2px solid #2F4052;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  box-shadow: 0px 0px 20px -5px #2f4052; /*(横の位置, 縦の位置, ぼかし, 広がり)*/
+  margin: 6%;
+  padding: 20%;
 }
