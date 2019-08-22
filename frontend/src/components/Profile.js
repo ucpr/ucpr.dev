@@ -1,10 +1,10 @@
 import React from 'react';
-import './Profile.css';
+import Typography from '@material-ui/core/Typography';
 
-function Profile() {
+export default function Profile() {
   return (
-    
+    <Typography variant="h2">
+      nyan
+    </Typography>
   );
 }
-
-export default Profile;
