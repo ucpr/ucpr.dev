@@ -6,7 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './components/Home.js';
 import Profile from './components/Profile.js';
 import Works from './components/Home.js';
-import Skill from './components/Home.js';
+import Skills from './components/Skills.js';
 import Links from './components/Home.js';
 import Navigation from './components/Navigation.js';
 import Header from './components/Header.js';
@@ -23,6 +23,7 @@ function App() {
     <div>
       <Header />
       <Profile />
+      <Skills />
       <Footer></Footer>
     </div>
   );
