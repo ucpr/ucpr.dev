@@ -9,6 +9,7 @@ import Works from './components/Home.js';
 import Skill from './components/Home.js';
 import Links from './components/Home.js';
 import Navigation from './components/Navigation.js';
+import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 
 
@@ -20,14 +21,8 @@ function App() {
   const classes = useStyles();
   return (
     <div>
-      <BrowserRouter>
-        <Navigation />
-        <Route exact path='/' component={Home} />
-        <Route path='/profile' component={Profile} />
-        <Route path='/works' component={Works} />
-        <Route path='/skills' component={Skill} />
-        <Route path='/links' component={Links} />
-      </BrowserRouter>
+      <Header />
+      <Profile />
       <Footer></Footer>
     </div>
   );
