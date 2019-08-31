@@ -1,56 +1,95 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import {
-    BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-  } from 'recharts';
+import { Surface, Radar, RadarChart, PolarGrid, Legend, Tooltip,
+  PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
+  LabelList, Label } from 'recharts';
 
+const backend = [
+  {
+    "skill": "Python",
+    "level": 4,
+    "fullMark": 5,
+  },
+  {
+    "skill": "Golang",
+    "level": 3,
+    "fullMark": 5,
+  },
+  {
+    "skill": "REST",
+    "level": 3,
+    "fullMark": 5,
+  },
+  {
+    "skill": "Nginx",
+    "level": 2,
+    "fullMark": 5,
+  },
+  {
+    "skill": "MySQL",
+    "level": 2,
+    "fullMark": 5,
+  },
+];
 
-const skills = [
-    {
-      name: "Python3", level: 8,
-    },
-    {
-      name: "Go", level: 4,
-    },
-    {
-      name: "Linux", level: 5,
-    },
-    {
-      name: "Docker", level: 5,
-    },
-    {
-      name: "React", level: 3,
-    },
-    {
-      name: "Nim", level: 5,
-    },
-  ];
+const frontend = [
+  {
+    "skill": "HTML",
+    "level": 3,
+    "fullMark": 5,
+  },
+  {
+    "skill": "CSS",
+    "level": 1,
+    "fullMark": 5,
+  },
+  {
+    "skill": "JavaScript",
+    "level": 2,
+    "fullMark": 5,
+  },
+  {
+    "skill": "React",
+    "level": 3,
+    "fullMark": 5,
+  },
+  {
+    "skill": "jQuery",
+    "level": 2,
+    "fullMark": 5,
+  },
+];
 
-export default function Skills() {
-    const jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
-  
-      return (
-        <Grid
-        container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        >
-        <BarChart
-          width={500}
-          height={300}
-          data={skills}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis ticks={[0, 2, 4, 6, 8, 10]} />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="level" fill="#82ca9d" />
-        </BarChart>
+function createRadarChart(data) {
+  return (
+    <RadarChart outerRadius={90} width={730} height={250} data={data}>
+    <PolarGrid />
+    <PolarAngleAxis dataKey="skill" />
+    <PolarRadiusAxis angle={45} domain={[0, 5]} />
+    <Radar name="level" dataKey="level" stroke="#8884d8" fill="#8884d8" fillOpacity={0.4} />
+    <Legend />
+    <Tooltip />
+    </RadarChart>
+  );
+}
+
+export default function Skills() {  
+    return (
+      <Grid
+      container
+      direction="column"
+      justify="center"
+      alignItems="center"
+      >
+        <Grid item xs={4}>
+          {createRadarChart(backend)}
         </Grid>
-        );
+        <Grid item xs={4}>
+          {createRadarChart(frontend)}
+        </Grid>
+        <Grid item xs={4}>
+          {createRadarChart(frontend)}
+        </Grid>
+      </Grid>
+    );
 }
