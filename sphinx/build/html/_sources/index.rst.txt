@@ -7,15 +7,7 @@ ucpr.dev
 ========
 
 .. toctree::
-   :maxdepth: 2
-   :caption: abouts:
+   :maxdepth: 1
+   :caption: about ucpr:
 
-   abouts/profile
-   works
-   skills
-   links
-
-.. toctree::
-   :maxdepth: 2
-   :caption: contents:
-
+   profile
