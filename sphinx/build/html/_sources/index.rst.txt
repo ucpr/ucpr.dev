@@ -10,3 +10,8 @@ Hello World!
    :hidden:
 
    profile
+
+.. toctree::
+   :maxdepth: 1
+   :caption: blog:
+   :hidden:
