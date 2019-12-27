@@ -10,15 +10,15 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
+    minHeight: "90vh",
   },
 }));
 
 function App() {
-//  const classes = useStyles();
+  const classes = useStyles();
 
   return (
-    <div className="App">
+    <div className={classes.root}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
