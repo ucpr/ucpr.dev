@@ -14,7 +14,7 @@ active = true
 
 [[profile.work_experiences.projects]]
 name = "AbemaTV Product Backend Engineer"
-period = "2021/06 - now"
+period = "2021/04 - now"
 description = "AbemaTV のバックエンドエンジニアとして、サービスの開発・運用に従事"
 tags = ["Go", "Google Cloud", "Kubernetes", "MongoDB"]
 
