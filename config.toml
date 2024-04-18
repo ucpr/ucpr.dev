@@ -66,3 +66,6 @@ name = "Taichi Uchihara"
 
 [rss]
 urls = ["https://zenn.dev/ucpr/feed?include_scraps=1"]
+
+[google_analytics]
+tracking_id = "G-MZHE63WMP3"
