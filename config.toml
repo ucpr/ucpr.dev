@@ -1,5 +1,6 @@
 title = "ucpr.dev"
 description = "ucpr's homepage"
+url = "https://www.ucpr.dev"
 
 [profile]
 name = "Taichi Uchihara"
@@ -62,7 +63,9 @@ url = "/articles"
 name = "Taichi Uchihara"
 
 [rss]
-urls = ["https://zenn.dev/ucpr/feed?include_scraps=1"]
+external_rss_links = ["https://zenn.dev/ucpr/feed?include_scraps=1"]
+title = "ucpr.dev rss feed"
+description = "ucpr's articles rss feed"
 
 [google_analytics]
 tracking_id = "G-MZHE63WMP3"
