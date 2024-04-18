@@ -7,6 +7,7 @@ icon_url = "https://avatars.githubusercontent.com/u/17886370?s=400&u=c545fcd30a9
 introduction = """
 Hello World!
 """
+spotify_playlist_id = "3RktWZ6EsWwBXIgnJOm9EM"
 
 [[profile.work_experiences]]
 company = "CyberAgent, Inc."
