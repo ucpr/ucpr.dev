@@ -1,0 +1,68 @@
+title = "ucpr.dev"
+description = "ucpr's homepage"
+
+[profile]
+name = "Taichi Uchihara"
+icon_url = "https://avatars.githubusercontent.com/u/17886370?s=400&u=c545fcd30a9dafab3ee04e48655430482ac7d6a2&v=4"
+introduction = """
+Hello World!
+"""
+
+[[profile.work_experiences]]
+company = "CyberAgent, Inc."
+active = true
+
+[[profile.work_experiences.projects]]
+name = "AbemaTV Product Backend Engineer"
+period = "2021/06 - now"
+description = "AbemaTV のバックエンドエンジニアとして、サービスの開発・運用に従事"
+tags = ["Go", "Google Cloud", "Kubernetes", "MongoDB"]
+
+[[profile.certificates]]
+name = "Google Cloud Certified Professional Cloud Architect"
+date = "2022/02"
+description = "Default Description"
+is_expired = false
+url = "https://www.credential.net/1fe360ea-22e9-4dac-bc95-081f6108e9a5"
+
+[[profile.certificates]]
+name = "Google Cloud Certified Professional Cloud Developer"
+date = "2022/10"
+description = "Default Description"
+is_expired = false
+url = "https://www.credential.net/e5ad5f41-bf18-44a9-ade1-0005ab293c6e"
+
+[[profile.certificates]]
+name = "Google Cloud Certified Professional Cloud Security Engineer"
+date = "2023/03"
+description = "Default Description"
+is_expired = false
+url = "https://www.credential.net/a595b0d9-5297-4d2e-8045-907be4a21939"
+
+[[profile.certificates]]
+name = "Google Cloud Certified Professional Data Engineer"
+date = "2023/12"
+description = "Default Description"
+is_expired = false
+url = "https://www.credential.net/f5b24217-bd7d-46fb-a21f-d1de65976a03"
+
+[header]
+title = "ucpr.dev"
+
+[[header.links]]
+name = "home"
+url = "/"
+
+[[header.links]]
+name = "about"
+url = "/about"
+
+[[header.links]]
+name = "articles"
+url = "/articles"
+
+[footer]
+name = "Taichi Uchihara"
+
+[rss]
+urls = ["https://zenn.dev/ucpr/feed?include_scraps=1"]
