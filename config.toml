@@ -21,16 +21,10 @@ description = "AbemaTV のバックエンドエンジニアとして、サービ
 tags = ["Go", "Google Cloud", "Kubernetes", "MongoDB"]
 
 [[profile.certificates]]
-name = "Google Cloud Certified Professional Cloud Architect"
-date = "2022/02"
+name = "Google Cloud Certified Professional Data Engineer"
+date = "2023/12"
 is_expired = false
-url = "https://www.credential.net/1fe360ea-22e9-4dac-bc95-081f6108e9a5"
-
-[[profile.certificates]]
-name = "Google Cloud Certified Professional Cloud Developer"
-date = "2022/10"
-is_expired = false
-url = "https://www.credential.net/e5ad5f41-bf18-44a9-ade1-0005ab293c6e"
+url = "https://www.credential.net/f5b24217-bd7d-46fb-a21f-d1de65976a03"
 
 [[profile.certificates]]
 name = "Google Cloud Certified Professional Cloud Security Engineer"
@@ -39,10 +33,16 @@ is_expired = false
 url = "https://www.credential.net/a595b0d9-5297-4d2e-8045-907be4a21939"
 
 [[profile.certificates]]
-name = "Google Cloud Certified Professional Data Engineer"
-date = "2023/12"
+name = "Google Cloud Certified Professional Cloud Developer"
+date = "2022/10"
 is_expired = false
-url = "https://www.credential.net/f5b24217-bd7d-46fb-a21f-d1de65976a03"
+url = "https://www.credential.net/e5ad5f41-bf18-44a9-ade1-0005ab293c6e"
+
+[[profile.certificates]]
+name = "Google Cloud Certified Professional Cloud Architect"
+date = "2022/02"
+is_expired = false
+url = "https://www.credential.net/1fe360ea-22e9-4dac-bc95-081f6108e9a5"
 
 [header]
 title = "ucpr.dev"
