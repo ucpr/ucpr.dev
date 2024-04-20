@@ -1,5 +1,5 @@
 +++
-title = "markdown-rs で front matter の値を参照する"
+title = "markdown-rsでfront matterの値を参照する"
 description = "markdown-rs で front matter の値を参照する"
 date = "2024/04/18"
 tags = ["rust", "markdown"]
