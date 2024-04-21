@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var a = document.querySelectorAll('body main a');
   a.forEach(function(element) {
-    element.classList.add('text-sm','text-blue-600','hover:text-blue-800','pr-4');
+    element.classList.add('text-sm','text-blue-600','hover:text-blue-800');
   });
 
   var ul = document.querySelectorAll('body main ul');
@@ -159,7 +159,7 @@ h4:before {
       
   
     <h1># markdown-rsでfront matterの値を参照する</h1><div><h2>はじめに</h2>
-<p>markdown ファイルにメタデータを記述できる YAML front matter という仕様があります。この記事では、markdown-rs で front matter の値を取得する方法について説明します。</p>
+<p>markdown にはメタデータを記述できる <a href="https://jekyllrb.com/docs/front-matter/">YAML front matter</a> という仕様があります。この記事では、markdown-rs で front matter の値を取得する方法について説明します。</p>
 <h2>前提</h2>
 <p>この記事内での使用されている <code>ructc</code> 、クレートのバージョンは下記の通りです。</p>
 <ul>

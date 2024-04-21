@@ -6,7 +6,7 @@ tags = ["rust", "markdown"]
 +++
 
 ## はじめに
-markdown ファイルにメタデータを記述できる YAML front matter という仕様があります。この記事では、markdown-rs で front matter の値を取得する方法について説明します。
+markdown にはメタデータを記述できる [YAML front matter](https://jekyllrb.com/docs/front-matter/) という仕様があります。この記事では、markdown-rs で front matter の値を取得する方法について説明します。
 
 ## 前提
 
