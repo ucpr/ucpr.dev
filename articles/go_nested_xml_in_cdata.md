@@ -167,7 +167,7 @@ if vf.CanInterface() && vf.Type().Implements(textMarshalerType) {
 // ...
 ```
 
-ref: https://cs.opensource.google/go/go/+/refs/tags/go1.22.2:src/encoding/xml/marshal.go;l=855-877
+ref: [src/encoding/xml/marshal.go;l=855-877](https://cs.opensource.google/go/go/+/refs/tags/go1.22.2:src/encoding/xml/marshal.go;l=855-877)
 
 これは CDATA に限った仕組みではなく、XML のエンコード時に `TextMarshaler` インターフェースを実装した場合に、`MarshalText` が呼ばれるようになっています。
 そのため、通常の XML のエンコード時にも `TextMarshaler` インターフェースを実装することで、カスタムなエンコード処理を行うことができます。
