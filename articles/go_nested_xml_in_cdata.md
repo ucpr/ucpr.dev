@@ -27,11 +27,9 @@ Go で XML の CDATA を使う際に、CDATA に文字列などのデータを�
 
 ## CDATA とは
 
-振り返りとして
-
 > CDATASection インターフェースは CDATA セクションを表します。これにより、XML 内でエスケープされていないテキストの拡張部分を入れることができます。 CDATA セクションの内部では、記号 < と & は通常のようにエスケープする必要がありません。
->
-> ref. https://developer.mozilla.org/ja/docs/Web/API/CDATASection
+
+ref. https://developer.mozilla.org/ja/docs/Web/API/CDATASection
 
 とあるように CDATA は XML の一部で、エスケープされていないテキストを記述するためのものです。CDATA は、`<![CDATA[` で始まり、`]]>` で終わります。
 以下は CDATA を持つ XML の例です。
@@ -89,16 +87,16 @@ CDATA が出力されることを期待したコードになっていますが�
 これは、 `encoding/xml` パッケージが `cdata` タグがあるものは文字列として扱い、ネストした構造体は Marshal されず、スキップされるためです。
 
 > a field with tag ",cdata" is written as character data wrapped in one or more <![CDATA[ ... ]]> tags, not as an XML element.
->
-> ref. https://pkg.go.dev/encoding/xml
+
+ref. https://pkg.go.dev/encoding/xml
 
 そのため、CDATA に XML を埋め込むためには、ネストした構造体に `encoding` パッケージの `TextMarshaler` インターフェースを実装する必要があります。
 
 ## TextMarshaler インターフェースを実装して Marshal する
 
 > a field implementing encoding.TextMarshaler is written by encoding the result of its MarshalText method as text.
->
-> ref. https://pkg.go.dev/encoding/xml
+
+ref. https://pkg.go.dev/encoding/xml
 
 `encoding/xml` パッケージでは、[encoding.TextMarshaler](https://pkg.go.dev/encoding#TextMarshaler) インターフェースを実装することで、CDATA に `MarshalText` で返却されたデータを埋め込むことができます。
 

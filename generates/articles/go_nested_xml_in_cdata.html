@@ -185,11 +185,10 @@ h4:before {
 </li>
 </ul>
 <h2>CDATA とは</h2>
-<p>振り返りとして</p>
 <blockquote>
 <p>CDATASection インターフェースは CDATA セクションを表します。これにより、XML 内でエスケープされていないテキストの拡張部分を入れることができます。 CDATA セクションの内部では、記号 &lt; と &amp; は通常のようにエスケープする必要がありません。</p>
-<p>ref. <a href="https://developer.mozilla.org/ja/docs/Web/API/CDATASection">https://developer.mozilla.org/ja/docs/Web/API/CDATASection</a></p>
 </blockquote>
+<p>ref. <a href="https://developer.mozilla.org/ja/docs/Web/API/CDATASection">https://developer.mozilla.org/ja/docs/Web/API/CDATASection</a></p>
 <p>とあるように CDATA は XML の一部で、エスケープされていないテキストを記述するためのものです。CDATA は、<code>&lt;![CDATA[</code> で始まり、<code>]]&gt;</code> で終わります。
 以下は CDATA を持つ XML の例です。</p>
 <pre><code class="language-xml">&lt;!xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -237,14 +236,14 @@ func main() {
 これは、 <code>encoding/xml</code> パッケージが <code>cdata</code> タグがあるものは文字列として扱い、ネストした構造体は Marshal されず、スキップされるためです。</p>
 <blockquote>
 <p>a field with tag &quot;,cdata&quot; is written as character data wrapped in one or more &lt;![CDATA[ ... ]]&gt; tags, not as an XML element.</p>
-<p>ref. <a href="https://pkg.go.dev/encoding/xml">https://pkg.go.dev/encoding/xml</a></p>
 </blockquote>
+<p>ref. <a href="https://pkg.go.dev/encoding/xml">https://pkg.go.dev/encoding/xml</a></p>
 <p>そのため、CDATA に XML を埋め込むためには、ネストした構造体に <code>encoding</code> パッケージの <code>TextMarshaler</code> インターフェースを実装する必要があります。</p>
 <h2>TextMarshaler インターフェースを実装して Marshal する</h2>
 <blockquote>
 <p>a field implementing encoding.TextMarshaler is written by encoding the result of its MarshalText method as text.</p>
-<p>ref. <a href="https://pkg.go.dev/encoding/xml">https://pkg.go.dev/encoding/xml</a></p>
 </blockquote>
+<p>ref. <a href="https://pkg.go.dev/encoding/xml">https://pkg.go.dev/encoding/xml</a></p>
 <p><code>encoding/xml</code> パッケージでは、<a href="https://pkg.go.dev/encoding#TextMarshaler">encoding.TextMarshaler</a> インターフェースを実装することで、CDATA に <code>MarshalText</code> で返却されたデータを埋め込むことができます。</p>
 <p>以下は、<code>TextMarshaler</code> インターフェースを実装した例です。</p>
 <pre><code class="language-go">type Inner struct {
