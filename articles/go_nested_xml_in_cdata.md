@@ -29,7 +29,7 @@ Go で XML の CDATA を使う際に、CDATA に文字列などのデータを�
 
 > CDATASection インターフェースは CDATA セクションを表します。これにより、XML 内でエスケープされていないテキストの拡張部分を入れることができます。 CDATA セクションの内部では、記号 < と & は通常のようにエスケープする必要がありません。
 
-ref. https://developer.mozilla.org/ja/docs/Web/API/CDATASection
+ref. [CDATASection | MDN Web Docs][0]
 
 とあるように CDATA は XML の一部で、エスケープされていないテキストを記述するためのものです。CDATA は、`<![CDATA[` で始まり、`]]>` で終わります。
 以下は CDATA を持つ XML の例です。
@@ -88,7 +88,7 @@ CDATA が出力されることを期待したコードになっていますが�
 
 > a field with tag ",cdata" is written as character data wrapped in one or more <![CDATA[ ... ]]> tags, not as an XML element.
 
-ref. https://pkg.go.dev/encoding/xml
+ref. [encofing/xml | pkg.go.dev][1]
 
 そのため、CDATA に XML を埋め込むためには、ネストした構造体に `encoding` パッケージの `TextMarshaler` インターフェースを実装する必要があります。
 
@@ -96,7 +96,7 @@ ref. https://pkg.go.dev/encoding/xml
 
 > a field implementing encoding.TextMarshaler is written by encoding the result of its MarshalText method as text.
 
-ref. https://pkg.go.dev/encoding/xml
+ref. [encofing/xml | pkg.go.dev][1]
 
 `encoding/xml` パッケージでは、[encoding.TextMarshaler](https://pkg.go.dev/encoding#TextMarshaler) インターフェースを実装することで、CDATA に `MarshalText` で返却されたデータを埋め込むことができます。
 
@@ -178,7 +178,12 @@ ref: [src/encoding/xml/marshal.go;l=855-877](https://cs.opensource.google/go/go/
 
 ## 参考
 
-- [encoding/xml | pkg.go.dev](https://pkg.go.dev/encoding/xml)
-- [encoding | pkg.go.dev](https://pkg.go.dev/encoding)
-- [CDATASection | MDN Web Docs](https://developer.mozilla.org/ja/docs/Web/API/CDATASection)
-- [XML の構文 <![CDATA[...]]> のルーツ | Zenn](https://zenn.dev/takumi_n/articles/xml-cdata-roots)
+- [CDATASection | MDN Web Docs][0]
+- [encoding/xml | pkg.go.dev][1]
+- [encoding | pkg.go.dev][2]
+- [XML の構文 <![CDATA[...]]> のルーツ | Zenn][3]
+
+[0]: https://developer.mozilla.org/ja/docs/Web/API/CDATASection
+[1]: https://pkg.go.dev/encoding/xml
+[2]: https://pkg.go.dev/encoding
+[3]: https://zenn.dev/takumi_n/articles/xml-cdata-roots

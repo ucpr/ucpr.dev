@@ -188,7 +188,7 @@ h4:before {
 <blockquote>
 <p>CDATASection インターフェースは CDATA セクションを表します。これにより、XML 内でエスケープされていないテキストの拡張部分を入れることができます。 CDATA セクションの内部では、記号 &lt; と &amp; は通常のようにエスケープする必要がありません。</p>
 </blockquote>
-<p>ref. <a href="https://developer.mozilla.org/ja/docs/Web/API/CDATASection">https://developer.mozilla.org/ja/docs/Web/API/CDATASection</a></p>
+<p>ref. <a href="https://developer.mozilla.org/ja/docs/Web/API/CDATASection">CDATASection | MDN Web Docs</a></p>
 <p>とあるように CDATA は XML の一部で、エスケープされていないテキストを記述するためのものです。CDATA は、<code>&lt;![CDATA[</code> で始まり、<code>]]&gt;</code> で終わります。
 以下は CDATA を持つ XML の例です。</p>
 <pre><code class="language-xml">&lt;!xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
@@ -237,13 +237,13 @@ func main() {
 <blockquote>
 <p>a field with tag &quot;,cdata&quot; is written as character data wrapped in one or more &lt;![CDATA[ ... ]]&gt; tags, not as an XML element.</p>
 </blockquote>
-<p>ref. <a href="https://pkg.go.dev/encoding/xml">https://pkg.go.dev/encoding/xml</a></p>
+<p>ref. <a href="https://pkg.go.dev/encoding/xml">encofing/xml | pkg.go.dev</a></p>
 <p>そのため、CDATA に XML を埋め込むためには、ネストした構造体に <code>encoding</code> パッケージの <code>TextMarshaler</code> インターフェースを実装する必要があります。</p>
 <h2>TextMarshaler インターフェースを実装して Marshal する</h2>
 <blockquote>
 <p>a field implementing encoding.TextMarshaler is written by encoding the result of its MarshalText method as text.</p>
 </blockquote>
-<p>ref. <a href="https://pkg.go.dev/encoding/xml">https://pkg.go.dev/encoding/xml</a></p>
+<p>ref. <a href="https://pkg.go.dev/encoding/xml">encofing/xml | pkg.go.dev</a></p>
 <p><code>encoding/xml</code> パッケージでは、<a href="https://pkg.go.dev/encoding#TextMarshaler">encoding.TextMarshaler</a> インターフェースを実装することで、CDATA に <code>MarshalText</code> で返却されたデータを埋め込むことができます。</p>
 <p>以下は、<code>TextMarshaler</code> インターフェースを実装した例です。</p>
 <pre><code class="language-go">type Inner struct {
@@ -308,12 +308,11 @@ func main() {
 <p>本記事において、異なっている説明や表現がありましたらご連絡ください。</p>
 <h2>参考</h2>
 <ul>
+<li><a href="https://developer.mozilla.org/ja/docs/Web/API/CDATASection">CDATASection | MDN Web Docs</a></li>
 <li><a href="https://pkg.go.dev/encoding/xml">encoding/xml | pkg.go.dev</a></li>
 <li><a href="https://pkg.go.dev/encoding">encoding | pkg.go.dev</a></li>
-<li><a href="https://developer.mozilla.org/ja/docs/Web/API/CDATASection">CDATASection | MDN Web Docs</a></li>
 <li><a href="https://zenn.dev/takumi_n/articles/xml-cdata-roots">XML の構文 &lt;![CDATA[...]]&gt; のルーツ | Zenn</a></li>
-</ul>
-</div>
+</ul></div>
   
 <div class="pt-6 flex space-x-3">
   <a href="https://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
