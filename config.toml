@@ -64,6 +64,7 @@ name = "Taichi Uchihara"
 
 [rss]
 external_rss_links = ["https://zenn.dev/ucpr/feed?include_scraps=1"]
+url = "https://www.ucpr.dev"
 title = "ucpr.dev rss feed"
 description = "ucpr's articles rss feed"
 
