@@ -220,7 +220,7 @@ Run &quot;nvim -V1 -v&quot; for more info
 </ul>
 <h2>移行の結果</h2>
 <h3>toml でのプラグイン管理</h3>
-<p>移行後は toml でプラグインを管理するようになりました。プラグインの追加や削除がしやすくなり、管理しやすくなったと思います。</p>
+<p>移行後は toml でプラグインを管理するようになりました。プラグインの追加や削除がしやすくなり、管理が容易になったと思います。</p>
 <pre><code>[[plugins]]
 repo = 'navarasu/onedark.nvim'
 on_event = 'VimEnter'
@@ -238,7 +238,7 @@ require(&quot;onedark&quot;).load()
 </code></pre>
 <p><code>hooks_file</code> で設定するようにすることで、純粋に <code>lua_add</code>, <code>lua_source</code> などに文字列として Lua コードを記述しなくて良くなったため、LSP やその他ツールのサポートを受けながら設定を記述しやすくなったと感じています。</p>
 <h3>Neovim の起動速度</h3>
-<p>移行時にはそこまで意識して設定をしていたわけではないですが、移行した結果 Neovim の起動速度を向上させることができました。
+<p>移行時に意識して設定をしていたわけではないですが、移行した結果 Neovim の起動速度を向上させることができました。
 移行前は 50ms ほどかかっていた Neovim の起動時間が、移行後は 30ms ほどに短縮されました。</p>
 <pre><code>$ vim-startuptime -vimpath=nvim | less
 
