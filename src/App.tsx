@@ -1,25 +1,39 @@
-import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { ParentProps, lazy } from 'solid-js';
+import { MemoryRouter, createMemoryHistory, Route } from "@solidjs/router";
+import { Suspense } from "solid-js";
 
-function App() {
-  const [count, setCount] = createSignal(0)
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Profile from './pages/Profile';
+import NotFound from './pages/NotFound';
+
+const Articles = lazy(() => import('./pages/Articles'));
+const Tags = lazy(() => import('./pages/Tags'));
+
+const App = (_: ParentProps) => {
+  const history = createMemoryHistory();
 
   return (
     <>
-      <h1>Vite + Solid</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count()}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
-      </p>
+      <Header
+        toHome={() => history.set({ value: '/' })}
+        toProfile={() => history.set({ value: '/profile' })}
+        toArticles={() => history.set({ value: '/articles' })}
+        toTags={() => history.set({ value: '/tags' })}
+      />
+
+      <MemoryRouter
+        history={history}
+        root={(props) => <Suspense>{props.children}</Suspense>}
+      >
+        <Route path="/" />
+        <Route path="/profile" component={Profile} />
+        <Route path="/articles" component={Articles} />
+        <Route path="/tags" component={Tags} />
+        <Route path="*paramName" component={NotFound} />
+      </MemoryRouter>
+
+      <Footer />
     </>
   )
 }
