@@ -5,6 +5,7 @@ import { Suspense } from "solid-js";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
+import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 const Articles = lazy(() => import("./pages/Articles"));
@@ -26,7 +27,7 @@ const App = (_: ParentProps) => {
 				history={history}
 				root={(props) => <Suspense>{props.children}</Suspense>}
 			>
-				<Route path="/" />
+				<Route path="/" component={Home} />
 				<Route path="/profile" component={Profile} />
 				<Route path="/articles" component={Articles} />
 				<Route path="/tags" component={Tags} />
