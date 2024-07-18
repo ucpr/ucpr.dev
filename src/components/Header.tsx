@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import type { Component } from "solid-js";
 
 const Header: Component<{
 	toHome: () => void;
@@ -7,21 +7,31 @@ const Header: Component<{
 	toTags: () => void;
 }> = (props) => {
 	return (
-		<header class="p-4 container mx-auto flex justify-between items-center">
-			<a class="text-lg font-bold underline"># ucpr.dev</a>
+		<header class="p-4 container mx-auto flex justify-between items-center bg-red-900">
+			<a class="text-lg font-bold underline" href="/">
+				# ucpr.dev
+			</a>
 			<nav>
 				<ul class="flex space-x-5">
 					<li>
-						<button onClick={props.toHome}>Home</button>
+						<button type="button" onClick={props.toHome}>
+							Home
+						</button>
 					</li>
 					<li>
-						<button onClick={props.toProfile}>Profile</button>
+						<button type="button" onClick={props.toProfile}>
+							Profile
+						</button>
 					</li>
 					<li>
-						<button onClick={props.toArticles}>Articles</button>
+						<button type="button" onClick={props.toArticles}>
+							Articles
+						</button>
 					</li>
 					<li>
-						<button onClick={props.toTags}>Tags</button>
+						<button type="button" onClick={props.toTags}>
+							Tags
+						</button>
 					</li>
 				</ul>
 			</nav>
