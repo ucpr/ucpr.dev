@@ -1,34 +1,30 @@
 import type { ParentProps } from "solid-js";
-import { lazy } from "solid-js";
 import { Router, Route } from "@solidjs/router";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Profile from "./pages/Profile";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Article from "./pages/Articles/Article";
-
-const Articles = lazy(() => import("./pages/Articles"));
-const Tags = lazy(() => import("./pages/Tags"));
+import Profile from "./pages/profile";
+import Home from "./pages/home";
+import NotFound from "./pages/notfound";
+import Articles from "./pages/articles";
+import Tags from "./pages/tags";
 
 const App = (_: ParentProps) => {
-	return (
-		<>
-			<Header />
+  return (
+    <>
+      <Header />
 
-			<Router>
-				<Route path="/" component={Home} />
-				<Route path="/profile" component={Profile} />
-				<Route path="/articles" component={Articles} />
-				<Route path="/articles/:id" component={Article} />
-				<Route path="/tags" component={Tags} />
-				<Route path="*paramName" component={NotFound} />
-			</Router>
+      <Router>
+        <Route path="/" component={Home} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/articles" component={Articles} />
+        <Route path="/tags" component={Tags} />
+        <Route path="*paramName" component={NotFound} />
+      </Router>
 
-			<Footer />
-		</>
-	);
+      <Footer />
+    </>
+  );
 };
 
 export default App;
