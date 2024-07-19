@@ -1,11 +1,6 @@
 import type { Component } from "solid-js";
 
-const Header: Component<{
-	toHome: () => void;
-	toProfile: () => void;
-	toArticles: () => void;
-	toTags: () => void;
-}> = (props) => {
+const Header: Component = () => {
 	return (
 		<header class="p-4 container mx-auto flex justify-between items-center bg-red-900">
 			<a class="text-lg font-bold underline" href="/">
@@ -14,24 +9,24 @@ const Header: Component<{
 			<nav>
 				<ul class="flex space-x-5">
 					<li>
-						<button type="button" onClick={props.toHome}>
+						<a href="/">
 							Home
-						</button>
+						</a>
 					</li>
 					<li>
-						<button type="button" onClick={props.toProfile}>
-							Profile
-						</button>
+            <a href="/profile">
+              Profile
+            </a>
 					</li>
 					<li>
-						<button type="button" onClick={props.toArticles}>
-							Articles
-						</button>
+            <a href="/articles">
+              Articles
+            </a>
 					</li>
 					<li>
-						<button type="button" onClick={props.toTags}>
-							Tags
-						</button>
+            <a href="/tags">
+              Tags
+            </a>
 					</li>
 				</ul>
 			</nav>

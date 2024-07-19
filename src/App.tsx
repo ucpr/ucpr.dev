@@ -1,38 +1,30 @@
-import { ParentProps, lazy } from "solid-js";
-import { MemoryRouter, createMemoryHistory, Route } from "@solidjs/router";
-import { Suspense } from "solid-js";
+import type { ParentProps } from "solid-js";
+import { lazy } from "solid-js";
+import { Router, Route } from "@solidjs/router";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Article from "./pages/Articles/Article";
 
 const Articles = lazy(() => import("./pages/Articles"));
 const Tags = lazy(() => import("./pages/Tags"));
 
 const App = (_: ParentProps) => {
-	const history = createMemoryHistory();
-
 	return (
 		<>
-			<Header
-				toHome={() => history.set({ value: "/" })}
-				toProfile={() => history.set({ value: "/profile" })}
-				toArticles={() => history.set({ value: "/articles" })}
-				toTags={() => history.set({ value: "/tags" })}
-			/>
+			<Header />
 
-			<MemoryRouter
-				history={history}
-				root={(props) => <Suspense>{props.children}</Suspense>}
-			>
+			<Router>
 				<Route path="/" component={Home} />
 				<Route path="/profile" component={Profile} />
 				<Route path="/articles" component={Articles} />
+				<Route path="/articles/:id" component={Article} />
 				<Route path="/tags" component={Tags} />
 				<Route path="*paramName" component={NotFound} />
-			</MemoryRouter>
+			</Router>
 
 			<Footer />
 		</>
