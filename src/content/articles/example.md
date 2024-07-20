@@ -7,8 +7,6 @@ date: "2024-04-18T00:00:00+09:00"
 tags: ["test", "article"]
 ---
 
-## Contents
-
 ## blockquote
 
 body
@@ -136,8 +134,6 @@ tree.children().into_iter().for_each(|node| {
 ## コメント
 
 <!-- コメント -->
-
-これは使えないぽい
 
 ## GFM: Table
 
