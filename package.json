@@ -18,6 +18,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.9.0",
     "astro": "^4.12.2",
+    "remark-toc": "^9.0.0",
     "solid-js": "^1.8.18",
     "tailwindcss": "^3.4.6",
     "typescript": "^5.5.3"

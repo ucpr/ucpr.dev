@@ -1,10 +1,10 @@
 import { getCollection, getEntry } from "astro:content";
 
 const ArticleList = async () => {
-  const allArticles = await getCollection("articles");
-  console.log(allArticles);
+	const allArticles = await getCollection("articles");
+	console.log(allArticles);
 
-  return <></>;
+	return <></>;
 };
 
 export default ArticleList;
