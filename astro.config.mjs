@@ -19,7 +19,7 @@ export default defineConfig({
 			theme: "one-dark-pro",
 			// https://github.com/shikijs/shiki/blob/main/docs/languages.md
 			langs: [],
-			wrap: true,
+			wrap: false,
 		},
 	},
 	adapter: cloudflare(),

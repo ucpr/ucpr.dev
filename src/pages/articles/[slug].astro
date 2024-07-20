@@ -19,7 +19,57 @@ const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
+  <style global>
+  main ul {
+    @apply list-disc list-outside px-4 mx-4
+  }
+  main ol {
+    @apply list-decimal list-outside px-4 mx-4
+  }
+  main li {
+    @apply pt-1 py-1
+  }
+  main blockquote {
+    @apply text-sm italic font-semibold text-gray-600 border-l-4 border-gray-400 p-4 m-4
+  }
+  main pre {
+    @apply m-5
+  }
+  main hr {
+    @apply my-2 border-t-2 border-gray-200
+  }
+  main table {
+    @apply w-full text-sm text-left rtl:text-right text-gray-500 py-2
+  }
+  main table thread {
+    @apply text-xs text-gray-700 uppercase bg-gray-50
+  }
+  main table tbody tr th {
+    @apply px-6 py-3 text-xs
+  }
+  main p {
+    @apply px-4
+  }
+  .markdown-body h1, h2, h3, h4 {
+    @apply font-bold mb-4 p-4
+  }
+  .markdown-body h1, h2 {
+    @apply border-b-2 border-solid border-gray-200
+  }
+  .markdown-body h1 {
+    @apply text-3xl pb-2
+  }
+  .markdown-body h2 {
+    @apply text-2xl
+  }
+  .markdown-body h3 {
+    @apply text-lg
+  }
+  
+  </style>
+
 	<main>
+    <h1>{post.data.title}</h1>
     <Content />
 	</main>
 </Layout>
