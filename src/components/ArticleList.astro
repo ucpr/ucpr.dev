@@ -2,6 +2,10 @@
 import { getCollection } from "astro:content";
 import externalContents from "../libs/external-content/external_content.json";
 
+interface Props {
+  omit: boolean;
+}
+
 type Article = {
 	href: string;
 	source: string;
@@ -10,6 +14,8 @@ type Article = {
 		date: string;
 	};
 };
+
+const { omit } = Astro.props;
 
 // get articles from ucpr.dev
 const articles = await getCollection("articles");
@@ -40,6 +46,10 @@ allArticles.push(
 allArticles.sort((a, b) => {
 	return Date.parse(b.data.date) - Date.parse(a.data.date);
 });
+
+if (omit) {
+  allArticles.splice(5);
+}
 ---
 
 <ul class="p-3">
@@ -75,4 +85,11 @@ allArticles.sort((a, b) => {
     })()}
   </li>
   ))}
+  {omit && 
+  <div class="container mx-auto text-right">
+    <a href="/articles" class="text-blue-600 pr-4 hover:text-blue-800">
+      More Articles
+    </a>
+  </div>
+  }
 </ul>
