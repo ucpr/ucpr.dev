@@ -1,13 +1,13 @@
 ---
-import { getCollection } from "astro:content";
-import ArticleList from "../../components/ArticleList";
+import ArticleList from "../../components/ArticleList.astro";
 import Layout from "../../layouts/Layout.astro";
 
-const articles = await getCollection("articles");
 ---
 
-<Layout title="Blog">
-  <h2>Blog</h2>
+<Layout title="ucpr.dev | Articles">
+  <div class="p-4">
+    <h2 class="text-xl font-bold underline">Articles</h2>
 
-  <ArticleList />
+    <ArticleList />
+  </div>
 </Layout>

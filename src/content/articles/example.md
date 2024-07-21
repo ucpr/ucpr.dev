@@ -3,7 +3,7 @@ isDraft: false
 slug: "example"
 title: "Test Article"
 description: "Test Description"
-date: "2024-04-18T00:00:00+09:00"
+date: "1999-12-29T00:00:00+09:00"
 tags: ["test", "article"]
 ---
 

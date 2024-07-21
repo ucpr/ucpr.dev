@@ -2,7 +2,7 @@ import type { Component } from "solid-js";
 
 const Header: Component = () => {
 	return (
-		<header class="p-4 container mx-auto flex justify-between items-center bg-red-900">
+		<header class="p-4 container mx-auto flex justify-between items-center">
 			<a class="text-lg font-bold underline" href="/">
 				# ucpr.dev
 			</a>
@@ -16,9 +16,6 @@ const Header: Component = () => {
 					</li>
 					<li>
 						<a href="/articles">Articles</a>
-					</li>
-					<li>
-						<a href="/tags">Tags</a>
 					</li>
 				</ul>
 			</nav>

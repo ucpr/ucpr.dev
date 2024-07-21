@@ -6,7 +6,7 @@ const Profile: Component<{
 }> = (props) => {
 	return (
 		<div class="overflow-hidden flex md:flex-row flex-col max-w-4xl mx-auto">
-			<div class="md:w-1-2 flex justify-center items-center p-4 bg-red-100">
+			<div class="md:w-1-2 flex justify-center items-center p-4">
 				<img
 					src={props.iconUrl}
 					alt="icon"
@@ -15,7 +15,7 @@ const Profile: Component<{
 				/>
 			</div>
 
-			<div class="md:w-1/2 p-8 flex justify-center items-center bg-red-200">
+			<div class="md:w-1/2 p-8 flex justify-center items-center">
 				<p class="text-gray-600 text-sm">{props.profileText}</p>
 			</div>
 		</div>
