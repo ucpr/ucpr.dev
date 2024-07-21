@@ -17,6 +17,7 @@
     "@astrojs/solid-js": "^4.4.0",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/ts-plugin": "^1.9.0",
+    "@shikijs/transformers": "^1.10.3",
     "astro": "^4.12.2",
     "remark-toc": "^9.0.0",
     "solid-js": "^1.8.18",
