@@ -73,14 +73,14 @@ extension も記事と同じく下記を使用しました。
 
 移行後は toml でプラグインを管理するようになりました。プラグインの追加や削除がしやすくなり、管理が容易になったと思います。
 
-```
+```toml
 [[plugins]]
 repo = 'navarasu/onedark.nvim'
 on_event = 'VimEnter'
 hooks_file = '$XDG_CONFIG_HOME/nvim/lua/plugins/colorscheme/onedark.lua'
 ```
 
-```
+```toml
 -- lua_source {{{
 require("onedark").setup {
   style = "darker",
@@ -99,7 +99,7 @@ require("onedark").load()
 移行時に意識して設定をしていたわけではないですが、移行した結果 Neovim の起動速度を向上させることができました。
 移行前は 50ms ほどかかっていた Neovim の起動時間が、移行後は 30ms ほどに短縮されました。
 
-```
+```bash
 $ vim-startuptime -vimpath=nvim | less
 
 Extra options: []
