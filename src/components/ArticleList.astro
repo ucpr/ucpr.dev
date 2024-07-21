@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import externalContents from "../libs/external-content/external_content.json";
 
 interface Props {
-  omit: boolean;
+	omit: boolean;
 }
 
 type Article = {
@@ -48,7 +48,7 @@ allArticles.sort((a, b) => {
 });
 
 if (omit) {
-  allArticles.splice(5);
+	allArticles.splice(5);
 }
 ---
 

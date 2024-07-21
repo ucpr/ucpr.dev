@@ -15,6 +15,7 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   integrations: [solidJs(), tailwind()],
+  site: 'https://ucpr.dev',
   output: "server",
   markdown: {
     remarkPlugins: [[remarkToc, { heading: "contents" }]],
