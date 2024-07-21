@@ -26,14 +26,14 @@ const workExperiences: Experience[] = [
       {
         name: "Developer Productivity Engineer",
         period: "2024/04 ~ now",
-        description: "",
-        tags: ["Go", "Google Cloud", "Kubernetes", "MongoDB"],
+        description: "developer productivity engineer として、開発者生産性向上に取り組む",
+        tags: ["Go", "GoogleCloud", "Kubernetes", "MongoDB"],
       },
       {
         name: "Product Backend Engineer",
         period: "2021/04 ~ 2024/03",
-        description: "バックエンドエンジニアとして、サービスの開発・運用に従事",
-        tags: ["Go", "Google Cloud", "Kubernetes", "MongoDB"],
+        description: "Backend Engineer として、サービスの開発・運用に従事",
+        tags: ["Go", "GoogleCloud", "Kubernetes", "MongoDB"],
       },
     ],
   },
@@ -65,56 +65,38 @@ const certificates: Certification[] = [
 ---
 
 <Layout title="ucpr.dev | profile">
-  <div class="px-4">
-    <div>
-      <h2 class="text-xl font-bold underline">
-        Work Experiences
-      </h2>
-
-      <div class="space-y-2 mx-auto">
-        {workExperiences.map((experience) => (
-          <div class="px-2 pt-2">
-            <h3 class="font-semibold text-lg py-2">&gt; {experience.company}</h3>
-            {experience.projects.map((project) => (
-              <div class="space-y-3 mt-2 px-2 py-2">
-                <div class="mx-auto">
-                  <div class="flex justify-between items-center">
-                    <h4 class="text-md font-semibold">{project.name}</h4>
-                    <p class="text-gray-500 text-xs">{project.period}</p>
-                  </div>
-                  <p class="text-sm text-gray-600 text-pretty py-4">{project.description}</p>
-                  <div class="gap-3">
-                    {project.tags.map((tag) => (
-                      <span class="text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+  <div class="px-4 py-3">
+    <h2 class="text-xl font-bold underline">Work Experiences</h2>
+    <div class="py-3">
+      {workExperiences.map((experience) => (
+        <div>
+          <h3 class="text-lg font-bold py-2">{experience.company}</h3>
+          {experience.projects.map((project) => (
+            <div class="px-2">
+              <div class="flex justify-between items-center">
+                <h4 class="text-md font-bold">{project.name}</h4>
+                <p class="text-sm text-gray-500">{project.period}</p>
               </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-    
-    <div class="py-5">
-      <h2 class="text-xl font-bold underline">
-        Certifications
-      </h2>
-
-      <div class="space-y-2 px-2">
-        {certificates.map((certification) => (
-        <div class="px-2 mx-auto">
-          <div class="flex justify-between items-center pb-2">
-            <a href={ certification.url } class="text-blue-500 hover:text-blue-700 font-semibold text-sm">
-              { certification.name }
-            </a>
-            <p class="text-gray-500 text-xs">{ certification.date }</p>
-          </div>
+              <p class="px-2 py-2 text-sm text-gray-500">{project.description}</p>
+              <div class="flex flex-wrap pb-2">
+                {project.tags.map((tag) => (
+                  <a href=`tags/${tag}` class="px-2 py-1 text-xs font-semibold ">{tag}</a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-        ))}
-      </div>
+      ))}
+    </div>
+
+    <h2 class="text-xl font-bold underline">Certifications</h2>
+    <div class="py-3">
+      {certificates.map((certificate) => (
+        <div class="flex justify-between items-center">
+          <a href={certificate.url} target="_blank" rel="noopener" class="text-base font-bold py-2">{certificate.name}</a>
+          <p class="text-sm text-gray-500">{certificate.date}</p>
+        </div>
+      ))}
     </div>
   </div>
 </Layout>
