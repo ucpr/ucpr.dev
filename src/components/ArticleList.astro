@@ -1,42 +1,44 @@
 ---
 import { getCollection } from "astro:content";
-import externalContents from "../libs/external-content/external_content.json"
+import externalContents from "../libs/external-content/external_content.json";
 
 type Article = {
-  href: string;
-  source: string;
-  data: {
-    title: string;
-    date: string;
-  };
+	href: string;
+	source: string;
+	data: {
+		title: string;
+		date: string;
+	};
 };
 
 // get articles from ucpr.dev
 const articles = await getCollection("articles");
 const allArticles: Article[] = articles.map((article) => {
-  return {
-    href: `articles/${article.slug}`,
-    source: "ucpr.dev",
-    data: article.data
-  };
+	return {
+		href: `articles/${article.slug}`,
+		source: "ucpr.dev",
+		data: article.data,
+	};
 });
 
 // get articles from external source
 // merge articles from ucpr.dev and external source.
-allArticles.push(...externalContents.map((article) => {
-  return {
-    href: article.url,
-    source: article.source,
-    data: {
-      title: article.title,
-      date: article.publishedDate,
-    },
-  };
-}));
+allArticles.push(
+	...externalContents.map((article) => {
+		return {
+			href: article.url,
+			source: article.source,
+			data: {
+				title: article.title,
+				date: article.publishedDate,
+			},
+		};
+	}),
+);
 
 // sort articles by date in descending order
 allArticles.sort((a, b) => {
-  return Date.parse(b.data.date) - Date.parse(a.data.date);
+	return Date.parse(b.data.date) - Date.parse(a.data.date);
 });
 ---
 
