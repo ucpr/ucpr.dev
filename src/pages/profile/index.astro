@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+type Project = {
+  name: string;
+  period: string;
+  description: string;
+  tags: string[];
+};
+
+type Experience = {
+  company: string;
+  projects: Project[];
+};
+
+type Certification = {
+  name: string;
+  url: string;
+  date: string;
+};
+
+const workExperiences: Experience[] = [
+  {
+    company: "AbemaTV, Inc.",
+    projects: [
+      {
+        name: "Developer Productivity Engineer",
+        period: "2024/04 ~ now",
+        description: "",
+        tags: ["Go", "Google Cloud", "Kubernetes", "MongoDB"],
+      },
+      {
+        name: "Product Backend Engineer",
+        period: "2021/04 ~ 2024/03",
+        description: "バックエンドエンジニアとして、サービスの開発・運用に従事",
+        tags: ["Go", "Google Cloud", "Kubernetes", "MongoDB"],
+      },
+    ],
+  },
+];
+
+const certificates: Certification[] = [
+  {
+    name: "Google Cloud Certified Professional Data Engineer",
+    url: "https://www.credential.net/f5b24217-bd7d-46fb-a21f-d1de65976a03",
+    date: "2023/12",
+  },
+  {
+    name: "Google Cloud Certified Professional Cloud Security Engineer",
+    url: "https://www.credential.net/a595b0d9-5297-4d2e-8045-907be4a21939",
+    date: "2023/03",
+  },
+  {
+    name: "Google Cloud Certified Professional Cloud Developer",
+    url: "https://www.credential.net/e5ad5f41-bf18-44a9-ade1-0005ab293c6e",
+    date: "2022/10",
+  },
+  {
+    name: "Google Cloud Certified Professional Cloud Architect",
+    url: "https://www.credential.net/1fe360ea-22e9-4dac-bc95-081f6108e9a5",
+    date: "2022/02",
+  },
+];
+
+---
+
+<Layout title="ucpr.dev | profile">
+  <div class="px-4">
+    <div>
+      <h2 class="text-xl font-bold underline">
+        Work Experiences
+      </h2>
+
+      <div class="space-y-2 mx-auto">
+        {workExperiences.map((experience) => (
+          <div class="px-2 pt-2">
+            <h3 class="font-semibold text-lg py-2">&gt; {experience.company}</h3>
+            {experience.projects.map((project) => (
+              <div class="space-y-3 mt-2 px-2 py-2">
+                <div class="mx-auto">
+                  <div class="flex justify-between items-center">
+                    <h4 class="text-md font-semibold">{project.name}</h4>
+                    <p class="text-gray-500 text-xs">{project.period}</p>
+                  </div>
+                  <p class="text-sm text-gray-600 text-pretty py-4">{project.description}</p>
+                  <div class="gap-3">
+                    {project.tags.map((tag) => (
+                      <span class="text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <div class="py-5">
+      <h2 class="text-xl font-bold underline">
+        Certifications
+      </h2>
+
+      <div class="space-y-2 px-2">
+        {certificates.map((certification) => (
+        <div class="px-2 mx-auto">
+          <div class="flex justify-between items-center pb-2">
+            <a href={ certification.url } class="text-blue-500 hover:text-blue-700 font-semibold text-sm">
+              { certification.name }
+            </a>
+            <p class="text-gray-500 text-xs">{ certification.date }</p>
+          </div>
+        </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
