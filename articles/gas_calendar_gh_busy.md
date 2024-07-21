@@ -30,7 +30,7 @@ GitHub にはプロフィールにステータスという、ユーザーの状�
 - clasp
   - 2.4.2
 
-## GitHub のステータスを API で変更する
+## GitHub のステータスの変更
 
 ステータスを変更するために、GitHub の GraphQL API を使用します。
 `changeUserStatus` mutation を使用することで、ステータスを変更することができます。
@@ -53,16 +53,19 @@ api graphql -f query='mutation($message: String!, $emoji: String!, $limitedAvail
 
 注意点として、`limitedAvailability` のパラメータのみ指定してリクエストした場合、ステータスが `busy` にならず初期化されてしまうようです。そのため、 `message` もしくは `emoji` のどちらかを一緒に指定する必要があります。
 
-## GAS でカレンダー
+## GAS でカレンダーの予定を取得する
 
-Google Apps Script のプロジェクトの管理ツールとして、Google が提供している [Clasp][3] というツールを使用します。
+Google Apps Script(GAS) を使用して、Google カレンダーの予定を取得します。
+カレンダーID は、Google カレンダーの設定画面から取得できます。
 
-Clasp は TypeScript で実装されているツールで、プロジェクトの作成やデプロイ、削除などの操作をコマンドライン上から行うことができます。
+ref. []
 
-### プロジェクトの作成
+```typescript
+const CALENDAR_ID = 'カレンダーID';
 
-```
-clasp create --type standalone --title "isogac"
+const calendar = CalendarApp.getCalendarById(CALENDAR_ID);
+// 今日の予定を取得
+const events = calendar.getEventsForDay(now);
 ```
 
 ## おわりに
