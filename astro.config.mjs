@@ -34,4 +34,7 @@ export default defineConfig({
     },
   },
   adapter: cloudflare(),
+  devOptions: {
+    tailwindConfig: './tailwind.config.js',
+  },
 });
