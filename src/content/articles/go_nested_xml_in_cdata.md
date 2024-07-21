@@ -1,9 +1,10 @@
-+++
-title = "GoでXMLのCDATAにXMLを埋め込む"
-description = "GoでXMLのCDATAにXMLをネストさせて、Marshalする方法について紹介します"
-date = "2024-04-25T00:00:00+09:00"
-tags = ["Go", "xml"]
-+++
+---
+isDraft: false
+title: "GoでXMLのCDATAにXMLを埋め込む"
+description: "GoでXMLのCDATAにXMLをネストさせて、Marshalする方法について紹介します"
+date: "2024-04-25T00:00:00+09:00"
+tags: ["Go", "xml"]
+---
 
 ## はじめに
 

@@ -1,9 +1,10 @@
-+++
-title = "Neovimのプラグイン管理をdpp.vimに移行した"
-description = "Neovimのプラグイン管理をdpp.vimに移行しました"
-date = "2024-05-09T00:00:00+09:00"
-tags = ["neovim"]
-+++
+---
+isDraft: false
+title: "Neovimのプラグイン管理をdpp.vimに移行した"
+description: "Neovimのプラグイン管理をdpp.vimに移行しました"
+date: "2024-05-09T00:00:00+09:00"
+tags: ["neovim"]
+---
 
 ## はじめに
 

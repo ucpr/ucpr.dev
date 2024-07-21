@@ -1,9 +1,10 @@
-+++
-title = "markdown-rsでfront matterの値を参照する"
-description = "markdown-rs で front matter の値を参照する"
-date = "2024-04-18T00:00:00+09:00"
-tags = ["Rust", "Markdown"]
-+++
+---
+isDraft: false
+title: "markdown-rsでfront matterの値を参照する"
+description: "markdown-rs で front matter の値を参照する"
+date: "2024-04-18T00:00:00+09:00"
+tags: ["Rust", "Markdown"]
+---
 
 ## はじめに
 markdown にはメタデータを記述できる [YAML front matter](https://jekyllrb.com/docs/front-matter/) という仕様があります。この記事では、markdown-rs で front matter の値を取得する方法について説明します。
