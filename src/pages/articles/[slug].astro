@@ -20,7 +20,12 @@ const { Content } = await post.render();
 const pubDate = post.data.date.split("T", 1)[0];
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} ogp={{
+  title: post.data.title,
+  description: post.data.description,
+  url: `https://ucpr.dev/articles/${post.slug}`,
+  url_path: `/articles/${post.slug}`,
+}}>
   <style is:global>
   .content h2 {
     @apply text-xl font-bold py-3;
