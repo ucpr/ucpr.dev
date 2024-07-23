@@ -13,10 +13,10 @@ function createMarkdownFile(
 		console.error(`Directory not found: ${directory}`);
 		return 1;
 	}
-  if (fs.existsSync(filePath)) {
-    console.error(`File already exists at ${filePath}`);
-    process.exit(1);
-  }
+	if (fs.existsSync(filePath)) {
+		console.error(`File already exists at ${filePath}`);
+		process.exit(1);
+	}
 
 	fs.writeFileSync(filePath, template, "utf8");
 	console.log(`File created at ${filePath}`);
