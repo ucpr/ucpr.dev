@@ -11,10 +11,11 @@ interface OGP {
 
 interface Props {
 	title: string;
+  noindex?: boolean;
 	ogp?: OGP;
 }
 
-const { title, ogp } = Astro.props;
+const { title, noindex, ogp } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +25,9 @@ const { title, ogp } = Astro.props;
 		<meta name="description" content="ucpr.dev" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+    { noindex === true &&
+      <meta name="robots" content="noindex,nofollow" />
+    }
     { ogp !== undefined &&
       <meta property="og:url" content={ogp.url} />
       <meta property="og:type" content="article" />
