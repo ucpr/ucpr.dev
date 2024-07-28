@@ -28,19 +28,19 @@ const pubDate = post.data.date.split("T", 1)[0];
 }}>
   <style is:global>
   .content h2 {
-    @apply text-xl font-bold py-3;
+    @apply text-xl font-bold py-3 cursor-pointer;
   }
   .content h2:before {
     content: "# "
   }
   .content h3 {
-    @apply text-lg font-bold py-3;
+    @apply text-lg font-bold py-3 cursor-pointer;
   }
   .content h3:before {
     content: "## "
   }
   .content h4 {
-    @apply text-base font-bold py-3;
+    @apply text-base font-bold py-3 cursor-pointer;
   }
   .content h4:before {
     content: "### "
@@ -91,6 +91,18 @@ const pubDate = post.data.date.split("T", 1)[0];
     @apply my-2 border-t border-gray-300;
   }
   </style>
+  <script>
+    function addClickEventToHeaders() {
+      const headers = document.querySelectorAll('.content > h1, h2, h3, h4');
+      headers.forEach(header => {
+        header.addEventListener('click', function() {
+          const headerId = this.id;
+          window.location.href = window.location.origin + window.location.pathname + '#' + headerId;
+        });
+      });
+    }
+    document.addEventListener('DOMContentLoaded', addClickEventToHeaders);
+  </script>
 
   <div class="p-4">
     <div class="py-4 flex justify-center items-center text-center">
