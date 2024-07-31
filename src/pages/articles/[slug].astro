@@ -96,6 +96,7 @@ const pubDate = post.data.date.split("T", 1)[0];
       const headers = document.querySelectorAll('.content > h1, h2, h3, h4');
       headers.forEach(header => {
         header.addEventListener('click', function() {
+          /* @ts-ignore */
           const headerId = this.id;
           window.location.href = window.location.origin + window.location.pathname + '#' + headerId;
         });
