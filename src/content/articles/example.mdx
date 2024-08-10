@@ -7,6 +7,8 @@ date: "1999-12-29T00:00:00+09:00"
 tags: ["test", "article"]
 ---
 
+import { Info, Warn, Error } from "../../components/Note";
+
 ## h2
 
 h1 は使わない。
@@ -161,3 +163,11 @@ md ではこう
 |---|---|---|
 |align left|align right|align center|
 |a|b|c|
+
+## Custom Note
+
+<Info text="これは Info のメッセージです" />
+
+<Warn text="これは Warn のメッセージです" />
+
+<Error text="これは Error のメッセージです" />
