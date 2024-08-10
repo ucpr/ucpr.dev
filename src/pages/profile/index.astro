@@ -79,7 +79,7 @@ const certificates: Certification[] = [
 
   <div class="px-4 py-3">
     <h2 class="text-xl font-bold underline">{"> "}Profile</h2>
-    <div class="py-3">
+    <div class="py-5">
       <ul class="list-disc list-inside px-2 pb-3">
         <li>name: Taichi Uchihara</li>
         <li>age: 24</li>
@@ -88,7 +88,7 @@ const certificates: Certification[] = [
     </div>
 
     <h2 class="text-xl font-bold underline">{"> "}Work Experiences</h2>
-    <div class="py-3">
+    <div class="py-5">
       {workExperiences.map((experience) => (
         <div>
           <h3 class="text-lg font-bold py-2">{experience.company}</h3>
@@ -111,7 +111,7 @@ const certificates: Certification[] = [
     </div>
 
     <h2 class="text-xl font-bold underline">{"> "}Certifications</h2>
-    <div class="py-3">
+    <div class="py-5">
       {certificates.map((certificate) => (
         <div class="flex justify-between items-center">
           <a href={certificate.url} target="_blank" rel="noopener" class="text-base font-bold py-2">{certificate.name}</a>
