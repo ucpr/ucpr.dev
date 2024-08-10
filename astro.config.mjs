@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import solidJs from "@astrojs/solid-js";
 import tailwind from "@astrojs/tailwind";
 import remarkToc from "remark-toc";
+import mdx from '@astrojs/mdx';
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import { transformerNotationDiff, transformerNotationFocus, transformerMetaHighlight } from "@shikijs/transformers";
 import cloudflare from "@astrojs/cloudflare";
@@ -10,7 +11,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [solidJs(), tailwind(), partytown({
+  integrations: [solidJs(), tailwind(), mdx(), partytown({
     config: {
       forward: ['dataLayer.push'],
     },

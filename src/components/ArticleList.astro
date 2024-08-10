@@ -24,7 +24,7 @@ const allArticles: Article[] = articles.map((article) => {
   const slug = article.slug.replace(/\/$/, "");
 
 	return {
-		href: `articles/${slug}`,
+		href: slug,
 		source: "ucpr.dev",
 		data: article.data,
 	};
