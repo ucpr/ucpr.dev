@@ -183,7 +183,7 @@ $ telemetrygen traces --otlp-insecure --duration 10s --rate 500 --workers 10
 コマンド実行後にGrafana から OpenTelemetry Collector のメトリクスを確認すると、Trace データを受け取り徐々に Refused と Dropped が増加していることが確認できます。
 
 <Image
-  src="/public/otelcol-loadtest-with-telemetrygen-01.png"
+  src="/otelcol-loadtest-with-telemetrygen-01.png"
   alt=""
   width="800"
   height="600"
@@ -203,7 +203,7 @@ OpenTelemetry Collector の設定で memory_limiter を利用しているため�
 次は、CPU: 1, メモリ: 1G のリソースに制限した OpenTelemetry Collector に対してトレースデータを送信します。
 
 <Image
-  src="/public/otelcol-loadtest-with-telemetrygen-00.png"
+  src="/otelcol-loadtest-with-telemetrygen-00.png"
   alt=""
   width="800"
   height="600"
