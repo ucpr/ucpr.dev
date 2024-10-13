@@ -20,11 +20,8 @@ const { omit } = Astro.props;
 // get articles from ucpr.dev
 const articles = await getCollection("articles");
 const allArticles: Article[] = articles.map((article) => {
-  // remove trailing slash
-  const slug = article.slug.replace(/\/$/, "");
-
 	return {
-		href: `articles/${slug}`,
+		href: `articles/${article.slug}`,
 		source: "ucpr.dev",
 		data: article.data,
 	};
