@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 
 const { tag } = Astro.params;
 
-const allArticles = await Astro.glob("../../content/articles/*.md");
+const allArticles = await Astro.glob("../../content/articles/*.(md|mdx)");
 const filteredArticles = allArticles.filter((article) =>
 	article.frontmatter.tags?.includes(tag),
 );
