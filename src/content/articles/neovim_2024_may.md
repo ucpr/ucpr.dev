@@ -54,10 +54,10 @@ Run "nvim -V1 -v" for more info
 
 extension も記事と同じく下記を使用しました。
 
-- [Shougo/dpp-ext-toml](github.com/Shougo/dpp-ext-toml)
-- [Shougo/dpp-ext-lazy](github.com/Shougo/dpp-ext-lazy)
-- [Shougo/dpp-ext-installer](github.com/Shougo/dpp-ext-installer)
-- [Shougo/dpp-protocol-git](github.com/Shougo/dpp-protocol-git)
+- [Shougo/dpp-ext-toml](https://github.com/Shougo/dpp-ext-toml)
+- [Shougo/dpp-ext-lazy](https://github.com/Shougo/dpp-ext-lazy)
+- [Shougo/dpp-ext-installer](https://github.com/Shougo/dpp-ext-installer)
+- [Shougo/dpp-protocol-git](https://github.com/Shougo/dpp-protocol-git)
 
 ### toml でのプラグイン管理
 

@@ -4,7 +4,7 @@ slug: "otelcol-loadtest-with-telemetrygen"
 title: "telemetrygenで行うOpenTelemetry Collectorの負荷試験"
 description: "telemetrygen を利用して OpenTelemetry Collector の負荷試験を行う方法について紹介します"
 date: "2024-08-25T02:34:24+09:00"
-tags: ["Observebility", "OpenTelemetry"]
+tags: ["Observability", "OpenTelemetry"]
 ---
 
 import { Image } from 'astro:assets';
@@ -13,7 +13,7 @@ import LinkCard from "../../components/LinkCard";
 
 ## はじめに
 
-OpenTelemetry は Observebility において広く採用されており、アプリケーションやインフラの監視には欠かせないツールです。OpenTelemetry を導入する際テレメトリデータを収集・処理・転送するために、OpenTelemetry Collector を利用することがあります。
+OpenTelemetry は Observability において広く採用されており、アプリケーションやインフラの監視には欠かせないツールです。OpenTelemetry を導入する際テレメトリデータを収集・処理・転送するために、OpenTelemetry Collector を利用することがあります。
 
 OpenTelemetry Collector を運用していく際には、Collector がどの程度の負荷に耐えられるかを事前に検証しておくことが重要です。本記事では、[telemetrygen][telemetrygen] を利用して OpenTelemetry Collector の負荷試験を簡易的に行う方法について紹介します。
 

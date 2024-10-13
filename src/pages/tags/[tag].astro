@@ -9,10 +9,9 @@ const filteredArticles = allArticles.filter((article) =>
 );
 ---
 
-<Layout title={`ucpr.dev | tags | ${tag}`}>
+<Layout title={`ucpr.dev | tags | ${tag}`} noindex={true}>
   <div class="p-4">
     <h2 class="text-xl font-bold underline">{tag} のタグが付いた記事</h2>
-
 
     <ul class="p-3">
       {filteredArticles.map((article) => (
