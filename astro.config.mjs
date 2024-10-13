@@ -28,6 +28,9 @@ export default defineConfig({
 	site: "https://ucpr.dev",
 	output: "server",
 	trailingSlash: "never",
+	build: {
+		format: "file",
+	},
 	markdown: {
 		remarkPlugins: [
 			[
