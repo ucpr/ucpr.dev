@@ -1,14 +1,14 @@
 [
-	{
-		"title": "log/slog への移行について考えてみる",
-		"url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
-		"source": "Zenn Scraps",
-		"publishedDate": "2024-04-27T04:49:57.000Z"
-	},
-	{
-		"title": "Atlantis on Cloud Run の動作検証",
-		"url": "https://zenn.dev/ucpr/scraps/d9760b961f7e48",
-		"source": "Zenn Scraps",
-		"publishedDate": "2024-04-02T07:19:00.000Z"
-	}
+  {
+    "title": "log/slog への移行について考えてみる",
+    "url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
+    "source": "Zenn Scraps",
+    "publishedDate": "2024-04-27T04:49:57.000Z"
+  },
+  {
+    "title": "Atlantis on Cloud Run の動作検証",
+    "url": "https://zenn.dev/ucpr/scraps/d9760b961f7e48",
+    "source": "Zenn Scraps",
+    "publishedDate": "2024-04-02T07:19:00.000Z"
+  }
 ]

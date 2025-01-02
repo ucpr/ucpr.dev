@@ -3,16 +3,16 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 interface OGP {
-	title: string;
-	description: string;
-	url: string;
-	url_path: string;
+  title: string;
+  description: string;
+  url: string;
+  url_path: string;
 }
 
 interface Props {
-	title: string;
-	noindex?: boolean;
-	ogp?: OGP;
+  title: string;
+  noindex?: boolean;
+  ogp?: OGP;
 }
 
 const { title, noindex, ogp } = Astro.props;
@@ -24,7 +24,7 @@ const { title, noindex, ogp } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="ucpr.dev" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+    <meta name="generator" content={Astro.generator} />
     { noindex === true &&
       <meta name="robots" content="noindex,nofollow" />
     }
