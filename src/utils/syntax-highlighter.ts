@@ -1,13 +1,14 @@
 import * as shiki from "shiki";
 import type { Highlighter } from "shiki";
 
-// ハイライターのインスタンスをキャッシュ
+// シングルトンインスタンスをキャッシュ
 let highlighter: Highlighter | null = null;
 
 /**
- * Shikiハイライターを初期化して返す
+ * Shikiハイライターのシングルトンインスタンスを取得する
+ * シングルトンパターンを使用してインスタンスを一度だけ作成する
  */
-export async function getShikiHighlighter(): Promise<Highlighter> {
+export async function getSingletonHighlighter(): Promise<Highlighter> {
 	if (!highlighter) {
 		highlighter = await shiki.createHighlighter({
 			themes: ["github-dark"],
@@ -26,6 +27,17 @@ export async function getShikiHighlighter(): Promise<Highlighter> {
 		});
 	}
 	return highlighter;
+}
+
+/**
+ * ハイライターのインスタンスを破棄する
+ * アプリケーション終了時などに呼び出すことでメモリリークを防ぐ
+ */
+export function disposeHighlighter(): void {
+	if (highlighter) {
+		highlighter.dispose();
+		highlighter = null;
+	}
 }
 
 /**
@@ -48,7 +60,7 @@ export async function highlightCode(
 	lang: string = "typescript",
 ): Promise<string> {
 	try {
-		const highlighter = await getShikiHighlighter();
+		const highlighter = await getSingletonHighlighter();
 		return highlighter.codeToHtml(code, {
 			lang,
 			theme: "github-dark",

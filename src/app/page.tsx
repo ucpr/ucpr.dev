@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 // 最新の記事データ
 const latestArticles = [
@@ -26,27 +27,21 @@ const latestArticles = [
 			"OpenTelemetry Collector の性能評価と負荷テストのアプローチについて解説します。",
 		slug: "telemetrygen-otel-collector-load-testing",
 	},
-	{
-		id: "4",
-		title: "Astro+SolidJS+Tailwindでブログを作り直した",
-		date: "2024-07-22",
-		excerpt: "ブログサイトをAstroとSolidJSを使って再構築した経験を共有します。",
-		slug: "rebuild-blog-with-astro-solidjs-tailwind",
-	},
-	{
-		id: "5",
-		title: "Neovimのプラグイン管理をdpp.vimに移行した",
-		date: "2024-05-09",
-		excerpt:
-			"Neovimのプラグイン管理システムをdpp.vimに切り替えた理由と方法について解説します。",
-		slug: "neovim-plugin-manager-dpp-vim",
-	},
 ];
 
 export default function Home() {
 	return (
 		<main className="container mx-auto px-4 py-8 max-w-3xl">
-			<h1 className="text-3xl font-bold mb-8">Hello World</h1>
+			<div className="flex flex-col items-center mb-8">
+				<Image
+					src="https://avatars.githubusercontent.com/u/17886370"
+					alt="icon"
+					width={120}
+					height={120}
+					className="rounded-full mb-4"
+				/>
+				<p className="text-lg">Hello World</p>
+			</div>
 
 			<section>
 				<h2 className="text-2xl font-bold mb-4">Recent Articles</h2>
@@ -66,15 +61,16 @@ export default function Home() {
 					))}
 				</div>
 
-				<div className="mt-6">
+				<div className="mt-6 text-right">
 					<Link
 						href="/articles"
 						className="text-blue-600 dark:text-blue-400 hover:underline"
+						style={{ color: "#3B6BF6" }}
 					>
 						More Articles
 					</Link>
 				</div>
 			</section>
-		 </main>
+		</main>
 	);
 }

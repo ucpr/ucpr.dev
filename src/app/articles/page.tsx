@@ -31,6 +31,6 @@ export default async function ArticlesPage() {
 					</article>
 				))}
 			</div>
-		 </main>
+		</main>
 	);
 }

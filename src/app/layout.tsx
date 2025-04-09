@@ -28,25 +28,25 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200`}
 			>
-				<div className="max-w-5xl mx-auto px-4 py-8">
-					<header className="mb-10">
+				<div className="max-w-5xl mx-auto px-4 py-8 ">
+					<header className="mb-10 border-b pb-6 px-4">
 						<nav className="flex justify-between items-center">
 							<Link href="/" className="text-xl font-bold">
-								ucpr.dev
+								# ucpr.dev
 							</Link>
 							<ul className="flex space-x-5">
 								<li>
-									<Link href="/" className="hover:underline">
+									<Link href="/" className="hover:underline font-bold">
 										Home
 									</Link>
 								</li>
 								<li>
-									<Link href="/profile" className="hover:underline">
+									<Link href="/profile" className="hover:underline font-bold">
 										Profile
 									</Link>
 								</li>
 								<li>
-									<Link href="/articles" className="hover:underline">
+									<Link href="/articles" className="hover:underline font-bold">
 										Articles
 									</Link>
 								</li>
@@ -54,8 +54,8 @@ export default function RootLayout({
 						</nav>
 					</header>
 					<main className="mb-16">{children}</main>
-					<footer className="border-t pt-6 text-sm text-gray-600 dark:text-gray-400">
-						<div className="flex flex-wrap gap-4 mb-4">
+					<footer className="border-t pt-6 text-sm text-gray-600 dark:text-gray-400 text-center">
+						<div className="flex flex-wrap gap-4 mb-4 flex-row justify-center">
 							<a
 								href="https://github.com/ucpr"
 								target="_blank"
