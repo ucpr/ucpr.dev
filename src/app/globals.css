@@ -31,6 +31,27 @@ a {
   text-decoration: none;
 }
 
+/* 記事コンテンツ内のリンクスタイル */
+.article-content a {
+  color: #3b82f6; /* Tailwind blue-500 */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.article-content a:hover {
+  color: #2563eb; /* Tailwind blue-600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .article-content a {
+    color: #60a5fa; /* Tailwind blue-400 */
+  }
+  
+  .article-content a:hover {
+    color: #93c5fd; /* Tailwind blue-300 */
+  }
+}
+
 .prose {
   max-width: none;
   line-height: 1.75;

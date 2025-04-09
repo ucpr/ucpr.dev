@@ -7,12 +7,71 @@
 - ホームページ
 - プロフィールページ
 - ブログ記事
+  - Markdownファイルによるコンテンツ管理
+  - シンタックスハイライト付きコードブロック
+  - 記事一覧と詳細表示
 
 ## 技術スタック
 
 - Next.js (App Router)
 - TypeScript
 - TailwindCSS
+- gray-matter (Markdownのフロントマターパーサー)
+- Shiki (シンタックスハイライト)
+
+## コンテンツ管理
+
+このプロジェクトではブログ記事をMarkdownファイルで管理しています。
+
+### ディレクトリ構造
+
+```
+content/
+  articles/
+    article-slug.md
+    another-article.md
+    ...
+```
+
+### Markdownファイルのフォーマット
+
+記事は以下のようなフォーマットで作成します:
+
+```markdown
+---
+title: 記事のタイトル
+description: 記事の簡単な説明
+publishedAt: '2023-04-09'
+---
+
+# 記事のタイトル
+
+記事の本文...
+
+## 見出し2
+
+コードブロックの例:
+
+```typescript
+function hello() {
+  console.log('Hello, world!');
+}
+```
+
+```
+
+`gray-matter`ライブラリを使用して、Markdownファイルのフロントマター（`---`で囲まれた部分）とコンテンツを解析しています。
+
+### 記事の取得
+
+`src/utils/article.ts`ファイルに、記事を取得するための関数が定義されています:
+
+- `getAllArticles()`: すべての記事の一覧を取得
+- `getArticleBySlug(slug)`: 特定のスラッグに一致する記事を取得
+
+### シンタックスハイライト
+
+コードブロックのシンタックスハイライトには`shiki`ライブラリを使用しています。`src/utils/syntax-highlighter.ts`ファイルに実装されています。
 
 ## 開発方法
 

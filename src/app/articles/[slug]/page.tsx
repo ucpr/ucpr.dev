@@ -91,7 +91,7 @@ function formatContent(content: string): string {
     let processedLine = line
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // 太字
       .replace(/\*(.*?)\*/g, '<em>$1</em>') // 斜体
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'); // リンク
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>'); // リンク
     
     formattedContent += `<p>${processedLine}</p>\n`;
   }
