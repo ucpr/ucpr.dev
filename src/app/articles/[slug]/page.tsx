@@ -181,36 +181,36 @@ export default function ArticlePage({
       .split("\n")
       .map((line, i) => {
         if (line.startsWith("# ")) {
-          return <h1 key={i} className="text-3xl font-bold my-4">{line.replace("# ", "")}</h1>;
+          return <h1 key={i} className="text-2xl font-bold my-4">{line.replace("# ", "")}</h1>;
         } else if (line.startsWith("## ")) {
-          return <h2 key={i} className="text-2xl font-bold my-3">{line.replace("## ", "")}</h2>;
+          return <h2 key={i} className="text-xl font-bold my-3">{line.replace("## ", "")}</h2>;
         } else if (line.startsWith("- ")) {
-          return <li key={i} className="ml-6 list-disc">{line.replace("- ", "")}</li>;
+          return <li key={i} className="ml-6 list-disc my-1">{line.replace("- ", "")}</li>;
         } else if (line.trim() === "```jsx" || line.trim() === "```typescript" || line.trim() === "```") {
           return null; // コードブロックのマーカーは表示しない
         } else if (line.trim().length === 0) {
           return <br key={i} />;
         } else {
-          return <p key={i} className="my-2">{line}</p>;
+          return <p key={i} className="my-2 leading-relaxed">{line}</p>;
         }
       });
   };
   
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="mb-6">
+    <div>
+      <div className="mb-8">
         <Link href="/articles" className="text-blue-600 dark:text-blue-400 hover:underline">
-          ← 記事一覧に戻る
+          ← Articles
         </Link>
       </div>
       
-      <article className="prose dark:prose-invert lg:prose-lg max-w-none">
+      <article>
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-3">{article.title}</h1>
           <p className="text-gray-600 dark:text-gray-400">{article.date}</p>
         </header>
         
-        <div className="article-content">
+        <div className="prose dark:prose-invert max-w-none leading-relaxed">
           {formatContent(article.content)}
         </div>
       </article>

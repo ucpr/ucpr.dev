@@ -26,26 +26,33 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200`}
       >
-        <header className="p-4 border-b">
-          <nav className="container mx-auto flex justify-between items-center">
-            <Link href="/" className="text-xl font-bold">ucpr.dev</Link>
-            <ul className="flex space-x-6">
-              <li><Link href="/" className="hover:underline">ホーム</Link></li>
-              <li><Link href="/profile" className="hover:underline">プロフィール</Link></li>
-              <li><Link href="/articles" className="hover:underline">ブログ</Link></li>
-            </ul>
-          </nav>
-        </header>
-        <main className="container mx-auto py-8 px-4">
-          {children}
-        </main>
-        <footer className="p-4 border-t mt-auto">
-          <div className="container mx-auto text-center">
-            <p>© {new Date().getFullYear()} ucpr.dev</p>
-          </div>
-        </footer>
+        <div className="max-w-3xl mx-auto px-4 py-8">
+          <header className="mb-10">
+            <nav className="flex justify-between items-center">
+              <Link href="/" className="text-xl font-bold">ucpr.dev</Link>
+              <ul className="flex space-x-5">
+                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/profile" className="hover:underline">Profile</Link></li>
+                <li><Link href="/articles" className="hover:underline">Articles</Link></li>
+              </ul>
+            </nav>
+          </header>
+          <main className="mb-16">
+            {children}
+          </main>
+          <footer className="border-t pt-6 text-sm text-gray-600 dark:text-gray-400">
+            <div className="flex flex-wrap gap-4 mb-4">
+              <a href="https://github.com/ucpr" target="_blank" rel="noopener noreferrer" className="hover:underline">GitHub</a>
+              <a href="https://twitter.com/ucpr_" target="_blank" rel="noopener noreferrer" className="hover:underline">X</a>
+              <a href="https://bsky.app/profile/ucpr.dev" target="_blank" rel="noopener noreferrer" className="hover:underline">Bluesky</a>
+              <a href="/rss.xml" target="_blank" rel="noopener noreferrer" className="hover:underline">RSS</a>
+            </div>
+            <p className="mb-2">© {new Date().getFullYear()} @ucpr. All rights reserved.</p>
+            <p className="text-xs">このサイトでは Google Analytics を使用しています。</p>
+          </footer>
+        </div>
       </body>
     </html>
   );
