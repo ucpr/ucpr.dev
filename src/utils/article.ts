@@ -92,3 +92,35 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 		return null;
 	}
 }
+
+/**
+ * 特定のタグを持つすべての記事を取得
+ */
+export async function getArticlesByTag(tag: string): Promise<Article[]> {
+	const allArticles = await getAllArticles();
+	return allArticles.filter((article) =>
+		article.tags.some((t) => t.toLowerCase() === tag.toLowerCase()),
+	);
+}
+
+/**
+ * すべてのタグを取得
+ */
+export async function getAllTags(): Promise<{ tag: string; count: number }[]> {
+	const articles = await getAllArticles();
+
+	// すべての記事からタグを収集
+	const tagMap = new Map<string, number>();
+
+	articles.forEach((article) => {
+		article.tags.forEach((tag) => {
+			const normalizedTag = tag.toLowerCase();
+			tagMap.set(normalizedTag, (tagMap.get(normalizedTag) || 0) + 1);
+		});
+	});
+
+	// タグと記事数の配列に変換
+	return Array.from(tagMap.entries())
+		.map(([tag, count]) => ({ tag, count }))
+		.sort((a, b) => b.count - a.count); // 記事数が多い順にソート
+}
