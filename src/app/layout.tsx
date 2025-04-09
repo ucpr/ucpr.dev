@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200`}
       >
-        <div className="max-w-3xl mx-auto px-4 py-8">
+        <div className="max-w-5xl mx-auto px-4 py-8">
           <header className="mb-10">
             <nav className="flex justify-between items-center">
               <Link href="/" className="text-xl font-bold">ucpr.dev</Link>

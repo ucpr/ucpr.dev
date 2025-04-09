@@ -32,7 +32,7 @@ a {
 }
 
 .prose {
-  max-width: 65ch;
+  max-width: none;
   line-height: 1.75;
 }
 
