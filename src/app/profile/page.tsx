@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ProfilePage() {
 	return (
-		<div>
+		<main className="container mx-auto px-4 py-8 max-w-3xl">
 			<h1 className="text-3xl font-bold mb-8">Profile</h1>
 
 			<div className="space-y-8">
@@ -67,6 +67,6 @@ export default function ProfilePage() {
 					</ul>
 				</section>
 			</div>
-		</div>
+			</main>
 	);
 }

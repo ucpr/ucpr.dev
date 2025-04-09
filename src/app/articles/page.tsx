@@ -13,7 +13,7 @@ export default async function ArticlesPage() {
 	const articles = await getAllArticles();
 
 	return (
-		<div>
+		<main className="container mx-auto px-4 py-8 max-w-3xl">
 			<h1 className="text-3xl font-bold mb-8">Articles</h1>
 
 			<div className="space-y-4">
@@ -31,6 +31,6 @@ export default async function ArticlesPage() {
 					</article>
 				))}
 			</div>
-		</div>
+		 </main>
 	);
 }

@@ -45,7 +45,7 @@ const latestArticles = [
 
 export default function Home() {
 	return (
-		<div>
+		<main className="container mx-auto px-4 py-8 max-w-3xl">
 			<h1 className="text-3xl font-bold mb-8">Hello World</h1>
 
 			<section>
@@ -75,6 +75,6 @@ export default function Home() {
 					</Link>
 				</div>
 			</section>
-		</div>
+		 </main>
 	);
 }
