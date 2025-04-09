@@ -138,11 +138,11 @@ type Point = {
 };
 
 // 動的メタデータの生成
-export async function generateMetadata({ 
+export function generateMetadata({ 
   params 
 }: { 
   params: { slug: string } 
-}): Promise<Metadata> {
+}): Metadata {
   const article = articlesData[params.slug];
   
   if (!article) {
@@ -155,6 +155,13 @@ export async function generateMetadata({
     title: `${article.title} | ucpr.dev`,
     description: article.content.substring(0, 160),
   };
+}
+
+// 静的生成のためのパラメータを生成
+export function generateStaticParams() {
+  return Object.keys(articlesData).map((slug) => ({
+    slug,
+  }));
 }
 
 export default function ArticlePage({ 

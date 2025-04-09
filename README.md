@@ -1,8 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ucpr.dev
 
-## Getting Started
+個人用ホームページ [ucpr.dev](https://ucpr.dev) のソースコードです。
 
-First, run the development server:
+## 機能
+
+- ホームページ
+- プロフィールページ
+- ブログ記事
+
+## 技術スタック
+
+- Next.js (App Router)
+- TypeScript
+- TailwindCSS
+
+## 開発方法
+
+開発サーバーを起動する:
 
 ```bash
 npm run dev
@@ -14,11 +28,53 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) をブラウザで開くと結果が表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 静的サイト生成 (SSG)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+このプロジェクトはNext.jsの静的サイト生成 (SSG) 機能を使用して、静的HTMLファイルを生成します。
+
+### 静的ビルドの実行
+
+以下のコマンドを実行すると、静的ファイルが生成されます:
+
+```bash
+npm run export
+# or
+yarn export
+# or
+pnpm export
+# or
+bun export
+```
+
+ビルドが完了すると、`out` ディレクトリに静的ファイルが生成されます。
+これらのファイルは任意のウェブサーバーでホストできます。
+
+### 静的サイトの特徴
+
+- サーバーサイドの処理が不要
+- CDNによる高速配信が可能
+- セキュリティが向上
+- ホスティングコストが削減
+- SEOに優れている
+
+### 注意点
+
+- APIルートは使用できません
+- サーバーサイドコードは実行できません
+- 動的ルーティングには `generateStaticParams` の実装が必要です
+
+## デプロイ
+
+静的ファイルは以下のサービスにデプロイできます:
+
+- Vercel
+- Netlify
+- GitHub Pages
+- Firebase Hosting
+- Amazon S3
+- その他の静的ホスティングサービス
 
 ## Learn More
 
