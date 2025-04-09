@@ -95,6 +95,12 @@ a {
 .shiki code {
   counter-reset: step;
   counter-increment: step 0;
+  display: grid;
+}
+
+.shiki code .line {
+  @apply pl-5 border-l-2 border-transparent relative;
+  min-height: 1.5rem;
 }
 
 .shiki code .line::before {
@@ -103,12 +109,29 @@ a {
   width: 1rem;
   margin-right: 1.5rem;
   display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
   text-align: right;
   color: rgba(115, 138, 148, 0.4);
+  font-size: 0.8rem;
+}
+
+.shiki code .line:hover {
+  @apply border-l-2 border-gray-500;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+pre.code-block {
+  @apply p-4 text-sm overflow-auto my-4 rounded-md font-mono bg-gray-900;
 }
 
 @media (prefers-color-scheme: dark) {
   .shiki {
     background-color: #0d1117 !important;
+  }
+  
+  pre.code-block {
+    @apply bg-gray-900;
   }
 }

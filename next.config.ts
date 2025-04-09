@@ -1,13 +1,20 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "export",
-  // trailingSlashはオプション。URLの末尾にスラッシュを追加するかどうか
-  trailingSlash: true,
-  // 画像最適化を無効化（静的エクスポートでは必要）
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  // ビルド出力を標準モードに設定
+  // output: 'export',
   images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+    // 'export' output時はunoptimizedをtrueにする必要があります
     unoptimized: true,
   },
+  // 静的エクスポートが必要な場合はtrueに設定
+  trailingSlash: true,
   // TypeScriptエラーを無視してビルドを続行
   typescript: {
     // ビルド時の型チェックを無効化（開発時には有効のまま）

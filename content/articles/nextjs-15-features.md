@@ -2,6 +2,7 @@
 title: Next.js 15の新機能について
 description: Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。
 publishedAt: '2023-04-09'
+tags: ['Next.js', 'JavaScript', 'Web Development']
 ---
 
 # Next.js 15の新機能について
@@ -27,6 +28,10 @@ module.exports = {
 ```bash
 next dev --turbo
 ```
+
+[[カードOGP:Next.js公式サイト]](https://nextjs.org/)
+
+[[カードOGP:GitHub]](https://github.com/ucpr/ucpr.dev)
 
 ## Server Actionsの改善
 
@@ -60,6 +65,8 @@ export default function Page() {
   )
 }
 ```
+
+[[カード:React公式ドキュメント]](https://react.dev/)
 
 ## パフォーマンスの最適化
 

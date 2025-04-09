@@ -8,6 +8,8 @@ export type Article = {
   description: string;
   content: string;
   publishedAt: string;
+  date: string; // 表示用の日付
+  tags: string[]; // タグのリスト
 };
 
 const articlesDirectory = path.join(process.cwd(), 'content', 'articles');
@@ -44,6 +46,8 @@ export async function getAllArticles(): Promise<Article[]> {
           description: matterResult.data.description || '',
           content: matterResult.content,
           publishedAt: matterResult.data.publishedAt || new Date().toISOString(),
+          date: matterResult.data.date || new Date().toISOString(),
+          tags: matterResult.data.tags || [],
         };
       })
       .sort((a, b) => (new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()));
@@ -76,6 +80,8 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
       description: matterResult.data.description || '',
       content: matterResult.content,
       publishedAt: matterResult.data.publishedAt || new Date().toISOString(),
+      date: matterResult.data.date || new Date().toISOString(),
+      tags: matterResult.data.tags || [],
     };
   } catch (error) {
     console.error(`記事 ${slug} の取得中にエラーが発生しました:`, error);
