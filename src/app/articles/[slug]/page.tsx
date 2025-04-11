@@ -39,6 +39,10 @@ function formatContent(content: string): string {
 	let codeBlockContent = "";
 	let codeBlockLang = "";
 	let foundFirstHeading = false;
+	let inList = false;
+	let listType = ""; // "ul" または "ol"
+	let listContent = "";
+	let listIndentLevel = 0;
 
 	// テキスト行の装飾を処理する関数
 	const formatTextLine = (text: string): string => {
@@ -100,7 +104,10 @@ function formatContent(content: string): string {
 	};
 
 	// アラートブロックを処理する関数
-	const processAlertBlock = (line: string, currentIndex: number): { content: string; newIndex: number } => {
+	const processAlertBlock = (
+		line: string,
+		currentIndex: number,
+	): { content: string; newIndex: number } => {
 		const match = line.match(/> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/);
 		if (!match) return { content: "", newIndex: currentIndex };
 
@@ -132,12 +139,70 @@ function formatContent(content: string): string {
 		return { content: alertHtml, newIndex: i2 - 1 };
 	};
 
+	// リスト行を処理する関数
+	const processListItem = (
+		line: string,
+	): {
+		isListItem: boolean;
+		type: string;
+		content: string;
+		indentLevel: number;
+	} => {
+		// 箇条書きリスト（Unordered List）
+		const ulMatch = line.match(/^(\s*)[-*] (.+)$/);
+		if (ulMatch) {
+			const indentLevel = Math.floor(ulMatch[1].length / 2);
+			return {
+				isListItem: true,
+				type: "ul",
+				content: formatTextLine(ulMatch[2]),
+				indentLevel,
+			};
+		}
+
+		// 番号付きリスト（Ordered List）
+		const olMatch = line.match(/^(\s*)(\d+)\. (.+)$/);
+		if (olMatch) {
+			const indentLevel = Math.floor(olMatch[1].length / 2);
+			return {
+				isListItem: true,
+				type: "ol",
+				content: formatTextLine(olMatch[3]),
+				indentLevel,
+			};
+		}
+
+		return { isListItem: false, type: "", content: "", indentLevel: 0 };
+	};
+
+	// リストを完了する関数
+	const finalizeList = (): string => {
+		if (!inList) return "";
+
+		inList = false;
+		// リストタイプに応じたスタイルを適用
+		const listClasses =
+			listType === "ul"
+				? "list-disc pl-5 my-4 space-y-2"
+				: "list-decimal pl-5 my-4 space-y-2";
+		const result = `<${listType} class="${listClasses}">${listContent}</${listType}>\n`;
+		listContent = "";
+		listType = "";
+		listIndentLevel = 0;
+		return result;
+	};
+
 	// 各行を処理
 	for (let i = 0; i < lines.length; i++) {
 		const line = lines[i];
 
 		// コードブロックの開始を処理
 		if (line.trim().startsWith("```") && !inCodeBlock) {
+			// リストの途中でコードブロックが始まった場合、リストを閉じる
+			if (inList) {
+				formattedContent += finalizeList();
+			}
+
 			inCodeBlock = true;
 			codeBlockLang = line.trim().substring(3).trim();
 			codeBlockContent = "";
@@ -156,6 +221,35 @@ function formatContent(content: string): string {
 		if (inCodeBlock) {
 			codeBlockContent += line + "\n";
 			continue;
+		}
+
+		// リスト項目の処理
+		const listItemResult = processListItem(line);
+		if (listItemResult.isListItem) {
+			// リスト項目を検出
+
+			// まだリスト内でない、または異なるタイプのリストが始まる場合
+			if (!inList || listType !== listItemResult.type) {
+				// 以前のリストがあれば閉じる
+				if (inList) {
+					formattedContent += finalizeList();
+				}
+
+				// 新しいリストを開始
+				inList = true;
+				listType = listItemResult.type;
+				listIndentLevel = listItemResult.indentLevel;
+				listContent = `<li>${listItemResult.content}</li>`;
+			} else {
+				// 既存のリストに項目を追加
+				listContent += `<li>${listItemResult.content}</li>`;
+			}
+			continue;
+		}
+
+		// 非リスト行に到達した場合、リストを終了
+		if (inList && line.trim() !== "") {
+			formattedContent += finalizeList();
 		}
 
 		// 見出しの処理
@@ -183,12 +277,20 @@ function formatContent(content: string): string {
 
 		// 空行の処理
 		if (line.trim() === "") {
-			formattedContent += "<p></p>\n";
+			// リスト内の空行は無視（リストを終了しない）
+			if (!inList) {
+				formattedContent += "<p></p>\n";
+			}
 			continue;
 		}
 
 		// 通常のテキスト行を処理
 		formattedContent += `<p>${formatTextLine(line)}</p>\n`;
+	}
+
+	// 文書の最後にリストが閉じられていない場合は閉じる
+	if (inList) {
+		formattedContent += finalizeList();
 	}
 
 	return formattedContent;
