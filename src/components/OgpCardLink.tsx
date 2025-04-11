@@ -29,7 +29,9 @@ export const OgpCardLink: FC<OgpCardLinkProps> = ({ url, title }) => {
 				// OGPデータを取得するAPIを呼び出す
 				// 実際の実装では、OGPデータを取得するためのAPIエンドポイントを用意する必要があります
 				// この例では、フロントエンドでの表示のみを考慮しています
-				const response = await fetch(`/api/ogp?url=${encodeURIComponent(url)}`);
+				const response = await fetch(
+					`https://ogpinfo.ucpr.workers.dev/ogp?url=${encodeURIComponent(url)}`,
+				);
 
 				if (!response.ok) {
 					throw new Error("OGPデータの取得に失敗しました");
