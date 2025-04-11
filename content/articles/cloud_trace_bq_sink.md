@@ -13,9 +13,8 @@ Cloud Trace は Google Cloud のサービスの一つで、アプリケーショ
 
 [[カードOGP:Google Cloud - Trace data exports overview]](https://cloud.google.com/trace/docs/trace-export-overview)
 
-<Warn>
-  本記事の執筆時点 (2024/12/02) では、Cloud Trace の BigQuery Sink はベータ版の機能として提供されています。そのため、本記事で紹介する内容は今後変更される可能性があるため、利用時は公式ドキュメントも合わせてご確認ください。
-</Warn>
+> [!WARNING]
+> 本記事の執筆時点 (2024/12/02) では、Cloud Trace の BigQuery Sink はベータ版の機能として提供されています。そのため、本記事で紹介する内容は今後変更される可能性があるため、利用時は公式ドキュメントも合わせてご確認ください。
 
 ## セットアップ
 

@@ -84,6 +84,81 @@ function formatContent(content: string): string {
 			formattedContent += `<h3>${line.substring(4)}</h3>\n`;
 			continue;
 		}
+		if (line.startsWith("#### ")) {
+			formattedContent += `<h4>${line.substring(5)}</h4>\n`;
+			continue;
+		}
+
+		// アラートブロックの処理
+		if (
+			line.trim().startsWith("> [!NOTE]") ||
+			line.trim().startsWith("> [!TIP]") ||
+			line.trim().startsWith("> [!IMPORTANT]") ||
+			line.trim().startsWith("> [!WARNING]") ||
+			line.trim().startsWith("> [!CAUTION]")
+		) {
+			// アラートタイプを抽出
+			const match = line.match(/> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/);
+			if (match) {
+				const alertType = match[1].toLowerCase();
+				let alertContent = "";
+				let i2 = i + 1;
+
+				// アラートの内容を収集
+				while (i2 < lines.length && lines[i2].trim().startsWith(">")) {
+					// '> ' の後の内容を追加
+					alertContent += lines[i2].replace(/^>\s?/, "") + "\n";
+					i2++;
+				}
+
+				// アラートコンテンツを処理
+				alertContent = alertContent
+					.trim()
+					.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+					.replace(/\*(.*?)\*/g, "<em>$1</em>")
+					.replace(
+						/\[([^\]]+)\]\(([^)]+)\)/g,
+						'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>',
+					);
+
+				// アラートタイプに基づいてスタイルを設定
+				let alertIcon = "";
+				let alertClass = "";
+
+				switch (alertType) {
+					case "note":
+						alertClass = "bg-gray-50 border-blue-500";
+						break;
+					case "tip":
+						alertClass = "bg-gray-50 border-purple-500";
+						break;
+					case "important":
+						alertClass = "bg-gray-50 border-indigo-500";
+						break;
+					case "warning":
+						alertClass = "bg-gray-50 border-yellow-500";
+						break;
+					case "caution":
+						alertClass = "bg-gray-50 border-red-500";
+						break;
+				}
+
+				// アラートHTML生成
+				formattedContent += `<div class="alert ${alertClass} p-4 my-4 border-l-4 rounded-r">
+					<div class="flex">
+						${alertIcon}
+						<div>
+							<div class="font-bold mb-1">${alertType.toUpperCase()}</div>
+							<div>${alertContent}</div>
+						</div>
+					</div>
+				</div>\n`;
+
+				// 処理済みの行をスキップ
+				i = i2 - 1;
+				continue;
+			}
+		}
 
 		// 空行の処理
 		if (line.trim() === "") {
