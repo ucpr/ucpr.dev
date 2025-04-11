@@ -49,6 +49,7 @@ function formatContent(content: string): string {
 		return text
 			.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // 太字
 			.replace(/\*(.*?)\*/g, "<em>$1</em>") // 斜体
+			.replace(/~~(.*?)~~/g, "<del>$1</del>") // 打ち消し線
 			.replace(
 				/\[\[カードOGP:(.*?)\]\]\(([^)]+)\)/g,
 				'<div data-ogp-card-link data-title="$1" data-url="$2"></div>',
@@ -273,6 +274,12 @@ function formatContent(content: string): string {
 				i = alertResult.newIndex;
 				continue;
 			}
+		}
+
+		// 水平線（HR）の処理
+		if (line.trim() === "---" || line.trim() === "***" || line.trim() === "___") {
+			formattedContent += "<hr class=\"my-8 border-t border-gray-700\" />\n";
+			continue;
 		}
 
 		// 空行の処理
