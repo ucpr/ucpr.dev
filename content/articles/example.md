@@ -134,15 +134,7 @@ tree.children().into_iter().for_each(|node| {
 
 {/* コメント */}
 
-mdx ではこう
-
-```mdx
-{/* コメント */}
-```
-
-md ではこう
-
-```
+```markdown
 <!-- コメント -->
 ```
 
@@ -153,22 +145,8 @@ md ではこう
 |align left|align right|align center|
 |a|b|c|
 
-## Custom Note
-
-<Info>これは Info のコンポーネントです</Info>
-
-<Warn>これは Warn のメッセージです</Warn>
-
-<Error>これは Error のメッセージです</Error>
-
 ## LinkCard
 
-<LinkCard
-  title="SolidJS Official Site"
-  url="https://solidjs.com/"
-/>
+[[カードOGP:SolidJS]](https://solidjs.com/)
 
-<LinkCard
-  title="ucpr.dev"
-  url="https://ucpr.dev"
-/>
+[[カードOGP:ucpr.dev]](https://ucpr.dev)
