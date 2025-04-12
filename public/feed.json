@@ -1,0 +1,44 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "ucpr.dev",
+    "home_page_url": "https://ucpr.dev",
+    "description": "ucpr's personal website",
+    "author": {
+        "name": "ucpr",
+        "url": "https://ucpr.dev"
+    },
+    "items": [
+        {
+            "id": "https://ucpr.dev/articles/example",
+            "content_html": "Test Description",
+            "url": "https://ucpr.dev/articles/example",
+            "title": "Test Article",
+            "summary": "Test Description",
+            "date_modified": "2024-12-02T00:00:00.000Z"
+        },
+        {
+            "id": "https://ucpr.dev/articles/cloud_trace_bq_sink",
+            "content_html": "Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。",
+            "url": "https://ucpr.dev/articles/cloud_trace_bq_sink",
+            "title": "Cloud Trace のデータを BigQuery にエクスポートする",
+            "summary": "Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。",
+            "date_modified": "2024-12-02T00:00:00.000Z"
+        },
+        {
+            "id": "https://ucpr.dev/articles/nextjs-15-features",
+            "content_html": "Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。",
+            "url": "https://ucpr.dev/articles/nextjs-15-features",
+            "title": "Next.js 15の新機能について",
+            "summary": "Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。",
+            "date_modified": "2023-04-09T00:00:00.000Z"
+        },
+        {
+            "id": "https://ucpr.dev/articles/typescript-type-system-introduction",
+            "content_html": "TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。",
+            "url": "https://ucpr.dev/articles/typescript-type-system-introduction",
+            "title": "TypeScriptの型システム入門",
+            "summary": "TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。",
+            "date_modified": "2023-03-10T00:00:00.000Z"
+        }
+    ]
+}

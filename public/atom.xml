@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://ucpr.dev</id>
+    <title>ucpr.dev</title>
+    <updated>2025-04-12T06:08:02.247Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>ucpr</name>
+        <uri>https://ucpr.dev</uri>
+    </author>
+    <link rel="alternate" href="https://ucpr.dev"/>
+    <subtitle>ucpr's personal website</subtitle>
+    <icon>https://ucpr.dev/favicon.ico</icon>
+    <rights>All rights reserved 2025, ucpr</rights>
+    <entry>
+        <title type="html"><![CDATA[Test Article]]></title>
+        <id>https://ucpr.dev/articles/example</id>
+        <link href="https://ucpr.dev/articles/example"/>
+        <updated>2024-12-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Test Description]]></summary>
+        <content type="html"><![CDATA[Test Description]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cloud Trace のデータを BigQuery にエクスポートする]]></title>
+        <id>https://ucpr.dev/articles/cloud_trace_bq_sink</id>
+        <link href="https://ucpr.dev/articles/cloud_trace_bq_sink"/>
+        <updated>2024-12-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。]]></summary>
+        <content type="html"><![CDATA[Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Next.js 15の新機能について]]></title>
+        <id>https://ucpr.dev/articles/nextjs-15-features</id>
+        <link href="https://ucpr.dev/articles/nextjs-15-features"/>
+        <updated>2023-04-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。]]></summary>
+        <content type="html"><![CDATA[Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[TypeScriptの型システム入門]]></title>
+        <id>https://ucpr.dev/articles/typescript-type-system-introduction</id>
+        <link href="https://ucpr.dev/articles/typescript-type-system-introduction"/>
+        <updated>2023-03-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。]]></summary>
+        <content type="html"><![CDATA[TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。]]></content>
+    </entry>
+</feed>

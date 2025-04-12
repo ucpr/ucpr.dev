@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>ucpr.dev</title>
+        <link>https://ucpr.dev</link>
+        <description>ucpr's personal website</description>
+        <lastBuildDate>Sat, 12 Apr 2025 06:08:02 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>ja</language>
+        <copyright>All rights reserved 2025, ucpr</copyright>
+        <item>
+            <title><![CDATA[Test Article]]></title>
+            <link>https://ucpr.dev/articles/example</link>
+            <guid>https://ucpr.dev/articles/example</guid>
+            <pubDate>Mon, 02 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Test Description]]></description>
+            <content:encoded><![CDATA[Test Description]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Cloud Trace のデータを BigQuery にエクスポートする]]></title>
+            <link>https://ucpr.dev/articles/cloud_trace_bq_sink</link>
+            <guid>https://ucpr.dev/articles/cloud_trace_bq_sink</guid>
+            <pubDate>Mon, 02 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。]]></description>
+            <content:encoded><![CDATA[Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Next.js 15の新機能について]]></title>
+            <link>https://ucpr.dev/articles/nextjs-15-features</link>
+            <guid>https://ucpr.dev/articles/nextjs-15-features</guid>
+            <pubDate>Sun, 09 Apr 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。]]></description>
+            <content:encoded><![CDATA[Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[TypeScriptの型システム入門]]></title>
+            <link>https://ucpr.dev/articles/typescript-type-system-introduction</link>
+            <guid>https://ucpr.dev/articles/typescript-type-system-introduction</guid>
+            <pubDate>Fri, 10 Mar 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。]]></description>
+            <content:encoded><![CDATA[TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。]]></content:encoded>
+        </item>
+    </channel>
+</rss>
