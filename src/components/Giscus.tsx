@@ -13,6 +13,9 @@ export default function Giscus() {
       if (iframe) iframe.remove();
     }
 
+    // ダークモードの設定を取得
+    const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
     // スクリプトを作成
     const script = document.createElement('script');
     script.src = "https://giscus.app/client.js";
@@ -25,7 +28,7 @@ export default function Giscus() {
     script.setAttribute('data-reactions-enabled', "1");
     script.setAttribute('data-emit-metadata', "1");
     script.setAttribute('data-input-position', "top");
-    script.setAttribute('data-theme', "light");
+    script.setAttribute('data-theme', isDarkMode ? "dark" : "light");
     script.setAttribute('data-lang', "ja");
     script.setAttribute('data-loading', "lazy");
     script.setAttribute('crossorigin', "anonymous");

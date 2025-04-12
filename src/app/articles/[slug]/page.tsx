@@ -57,7 +57,7 @@ function formatContent(content: string): string {
 			.replace(/~~(.*?)~~/g, "<del>$1</del>") // 打ち消し線
 			.replace(
 				/`([^`]+)`/g,
-				'<code class="bg-gray-200  px-1.5 py-0.5 rounded font-mono text-sm">$1</code>',
+				'<code class="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded font-mono text-sm">$1</code>',
 			) // コードスパン
 			.replace(
 				/!\[([^\]]*)\]\(([^)]+)(?:\s+"([^"]+)")?\)/g,
@@ -103,17 +103,17 @@ function formatContent(content: string): string {
 	const getAlertStyle = (alertType: string): { className: string } => {
 		switch (alertType) {
 			case "note":
-				return { className: "bg-gray-50 border-blue-500" };
+				return { className: "bg-gray-50 dark:bg-gray-800 border-blue-500" };
 			case "tip":
-				return { className: "bg-gray-50 border-purple-500" };
+				return { className: "bg-gray-50 dark:bg-gray-800 border-purple-500" };
 			case "important":
-				return { className: "bg-gray-50 border-indigo-500" };
+				return { className: "bg-gray-50 dark:bg-gray-800 border-indigo-500" };
 			case "warning":
-				return { className: "bg-gray-50 border-yellow-500" };
+				return { className: "bg-gray-50 dark:bg-gray-800 border-yellow-500" };
 			case "caution":
-				return { className: "bg-gray-50 border-red-500" };
+				return { className: "bg-gray-50 dark:bg-gray-800 border-red-500" };
 			default:
-				return { className: "bg-gray-50 border-gray-500" };
+				return { className: "bg-gray-50 dark:bg-gray-800 border-gray-500" };
 		}
 	};
 
@@ -190,7 +190,7 @@ function formatContent(content: string): string {
 			.join("<br>");
 
 		// 引用ブロックHTML生成
-		const blockquoteHtml = `<blockquote class="border-l-4 border-gray-500 bg-gray-50 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">
+		const blockquoteHtml = `<blockquote class="border-l-4 border-gray-500 bg-gray-50 dark:bg-gray-800 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">
 			${quoteContent}
 		</blockquote>\n`;
 
@@ -277,14 +277,14 @@ function formatContent(content: string): string {
 			.map((cell) => {
 				const cellContent = formatTextLine(cell.trim());
 				return isHeader
-					? `<th class="border border-gray-300 px-4 py-2">${cellContent}</th>`
-					: `<td class="border border-gray-300 px-4 py-2">${cellContent}</td>`;
+					? `<th class="border border-gray-300 dark:border-gray-600 px-4 py-2">${cellContent}</th>`
+					: `<td class="border border-gray-300 dark:border-gray-600 px-4 py-2">${cellContent}</td>`;
 			})
 			.join("");
 
 		return isHeader
-			? `<tr class="bg-gray-100">${cellsHtml}</tr>`
-			: `<tr>${cellsHtml}</tr>`;
+			? `<tr class="bg-gray-100 dark:bg-gray-800">${cellsHtml}</tr>`
+			: `<tr class="dark:bg-gray-900">${cellsHtml}</tr>`;
 	};
 
 	// テーブルを完了する関数
