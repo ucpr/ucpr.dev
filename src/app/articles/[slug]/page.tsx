@@ -43,6 +43,9 @@ function formatContent(content: string): string {
 	let listType = ""; // "ul" または "ol"
 	let listContent = "";
 	let listIndentLevel = 0;
+	let inTable = false;
+	let tableContent = "";
+	let tableRows = [];
 
 	// テキスト行の装飾を処理する関数
 	const formatTextLine = (text: string): string => {
@@ -50,7 +53,10 @@ function formatContent(content: string): string {
 			.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // 太字
 			.replace(/\*(.*?)\*/g, "<em>$1</em>") // 斜体
 			.replace(/~~(.*?)~~/g, "<del>$1</del>") // 打ち消し線
-			.replace(/`([^`]+)`/g, '<code class="bg-gray-200  px-1.5 py-0.5 rounded font-mono text-sm">$1</code>') // コードスパン
+			.replace(
+				/`([^`]+)`/g,
+				'<code class="bg-gray-200  px-1.5 py-0.5 rounded font-mono text-sm">$1</code>',
+			) // コードスパン
 			.replace(
 				/\[\[カードOGP:(.*?)\]\]\(([^)]+)\)/g,
 				'<div data-ogp-card-link data-title="$1" data-url="$2"></div>',
@@ -129,7 +135,7 @@ function formatContent(content: string): string {
 		const { className } = getAlertStyle(alertType);
 
 		// アラートHTML生成
-		const alertHtml = `<div class="alert ${className} p-4 my-4 border-l-4 rounded-r">
+		const alertHtml = `<div class="alert ${className} rounded p-4 my-4 border-l-4">
 			<div class="flex">
 				<div>
 					<div class="font-bold mb-1">${alertType.toUpperCase()}</div>
@@ -194,6 +200,67 @@ function formatContent(content: string): string {
 		return result;
 	};
 
+	// テーブルを処理する関数
+	const isTableRow = (line: string): boolean => {
+		return line.trim().startsWith("|") && line.trim().endsWith("|");
+	};
+
+	// テーブル区切り行かどうか確認
+	const isTableDividerRow = (line: string): boolean => {
+		// '|---|---|---|' のようなパターンを検出
+		return (
+			isTableRow(line) &&
+			line.replace(/\|/g, "").trim().replace(/[-:]/g, "").length === 0
+		);
+	};
+
+	// テーブルの行をHTMLに変換
+	const processTableRow = (line: string, isHeader: boolean): string => {
+		// 先頭と末尾の | を削除し、セルに分割
+		const cells = line
+			.trim()
+			.substring(1, line.trim().length - 1)
+			.split("|");
+
+		// 各セルの内容を処理
+		const cellsHtml = cells
+			.map((cell) => {
+				const cellContent = formatTextLine(cell.trim());
+				return isHeader
+					? `<th class="border border-gray-300 px-4 py-2">${cellContent}</th>`
+					: `<td class="border border-gray-300 px-4 py-2">${cellContent}</td>`;
+			})
+			.join("");
+
+		return isHeader
+			? `<tr class="bg-gray-100">${cellsHtml}</tr>`
+			: `<tr>${cellsHtml}</tr>`;
+	};
+
+	// テーブルを完了する関数
+	const finalizeTable = (): string => {
+		if (!inTable || tableRows.length === 0) return "";
+
+		inTable = false;
+		// 見出し行と本体行を分離
+		const headerRow = tableRows[0];
+		const bodyRows = tableRows.slice(2); // 区切り行(index 1)をスキップ
+
+		const tableHtml = `<div class="overflow-x-auto my-4">
+			<table class="min-w-full border-collapse table-auto">
+				<thead>
+					${headerRow}
+				</thead>
+				<tbody>
+					${bodyRows.join("")}
+				</tbody>
+			</table>
+		</div>\n`;
+
+		tableRows = [];
+		return tableHtml;
+	};
+
 	// 各行を処理
 	for (let i = 0; i < lines.length; i++) {
 		const line = lines[i];
@@ -203,6 +270,11 @@ function formatContent(content: string): string {
 			// リストの途中でコードブロックが始まった場合、リストを閉じる
 			if (inList) {
 				formattedContent += finalizeList();
+			}
+
+			// テーブルの途中でコードブロックが始まった場合、テーブルを閉じる
+			if (inTable) {
+				formattedContent += finalizeTable();
 			}
 
 			inCodeBlock = true;
@@ -254,6 +326,28 @@ function formatContent(content: string): string {
 			formattedContent += finalizeList();
 		}
 
+		// テーブル行の処理
+		if (isTableRow(line)) {
+			// テーブル区切り行の場合
+			if (isTableDividerRow(line)) {
+				continue;
+			}
+
+			// テーブルの開始
+			if (!inTable) {
+				inTable = true;
+				tableRows.push(processTableRow(line, true)); // 見出し行として処理
+			} else {
+				tableRows.push(processTableRow(line, false)); // 本体行として処理
+			}
+			continue;
+		}
+
+		// 非テーブル行に到達した場合、テーブルを終了
+		if (inTable && line.trim() !== "") {
+			formattedContent += finalizeTable();
+		}
+
 		// 見出しの処理
 		const headingResult = processHeading(line);
 		if (headingResult.content || headingResult.skip) {
@@ -278,8 +372,12 @@ function formatContent(content: string): string {
 		}
 
 		// 水平線（HR）の処理
-		if (line.trim() === "---" || line.trim() === "***" || line.trim() === "___") {
-			formattedContent += "<hr class=\"my-8 border-t border-gray-700\" />\n";
+		if (
+			line.trim() === "---" ||
+			line.trim() === "***" ||
+			line.trim() === "___"
+		) {
+			formattedContent += '<hr class="my-8 border-t border-gray-700" />\n';
 			continue;
 		}
 
@@ -299,6 +397,11 @@ function formatContent(content: string): string {
 	// 文書の最後にリストが閉じられていない場合は閉じる
 	if (inList) {
 		formattedContent += finalizeList();
+	}
+
+	// 文書の最後にテーブルが閉じられていない場合は閉じる
+	if (inTable) {
+		formattedContent += finalizeTable();
 	}
 
 	return formattedContent;
