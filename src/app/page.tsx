@@ -77,7 +77,7 @@ export default function Home() {
 				<iframe
 					title="spotify playlist"
 					className="rounded-lg"
-					src={`https://open.spotify.com/embed/playlist/0irS3jb6iHhwCCIoEVYjeV?utm_source=generator`}	
+					src={`https://open.spotify.com/embed/playlist/0irS3jb6iHhwCCIoEVYjeV?utm_source=generator`}
 					width="100%"
 					height="160"
 					allowFullScreen={false}
