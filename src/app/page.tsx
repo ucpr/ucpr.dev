@@ -71,6 +71,20 @@ export default function Home() {
 					</Link>
 				</div>
 			</section>
+
+			<div>
+				<h2 className="text-2xl font-bold mb-4">Recent Articles</h2>
+				<iframe
+					title="spotify playlist"
+					className="rounded-lg"
+					src={`https://open.spotify.com/embed/playlist/0irS3jb6iHhwCCIoEVYjeV?utm_source=generator`}	
+					width="100%"
+					height="160"
+					allowFullScreen={false}
+					allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+					loading="lazy"
+				/>
+			</div>
 		</main>
 	);
 }
