@@ -1,35 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getArticles } from "@/lib/api";
 
-// 最新の記事データ
-const latestArticles = [
-	{
-		id: "1",
-		title: "tracetest で Trace-based Testing に触れてみる",
-		date: "2024-12-18",
-		excerpt:
-			"分散システムのテストを Trace ベースで行う新しいテスト手法について解説します。",
-		slug: "tracetest-trace-based-testing",
-	},
-	{
-		id: "2",
-		title: "Cloud Trace のデータを BigQuery にエクスポートする",
-		date: "2024-12-02",
-		excerpt:
-			"Google Cloud の Trace データを BigQuery に連携し分析する方法を紹介します。",
-		slug: "cloud-trace-bigquery-export",
-	},
-	{
-		id: "3",
-		title: "telemetrygenで行うOpenTelemetry Collectorの負荷試験",
-		date: "2024-08-25",
-		excerpt:
-			"OpenTelemetry Collector の性能評価と負荷テストのアプローチについて解説します。",
-		slug: "telemetrygen-otel-collector-load-testing",
-	},
-];
+async function getLatestArticles() {
+	const allArticles = await getArticles();
+	return allArticles
+		.sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+		.slice(0, 3);
+}
 
-export default function Home() {
+export default async function Home() {
+	const latestArticles = await getLatestArticles();
+
 	return (
 		<main className="container mx-auto px-4 py-8 max-w-3xl">
 			<div className="flex flex-col items-center mb-8">
@@ -47,15 +29,15 @@ export default function Home() {
 				<h2 className="text-2xl font-bold mb-4">Recent Articles</h2>
 				<div className="space-y-4">
 					{latestArticles.map((article) => (
-						<article key={article.id} className="border-b pb-4">
+						<article key={article.slug} className="border-b pb-4">
 							<div className="text-sm text-gray-500 dark:text-gray-400 mb-1">
-								{article.date}
+								{new Date(article.publishedAt).toLocaleDateString('ja-JP', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/\//g, '/')}
 							</div>
 							<Link href={`/articles/${article.slug}`}>
 								<h3 className="font-medium hover:underline">{article.title}</h3>
 							</Link>
 							<p className="mt-1 text-gray-600 dark:text-gray-400 text-sm">
-								{article.excerpt}
+								{article.description}
 							</p>
 						</article>
 					))}
