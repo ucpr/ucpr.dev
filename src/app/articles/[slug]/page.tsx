@@ -190,7 +190,7 @@ function formatContent(content: string): string {
 			.join("<br>");
 
 		// 引用ブロックHTML生成
-		const blockquoteHtml = `<blockquote class="border-l-4 border-gray-500 bg-gray-50 dark:bg-gray-800 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">
+		const blockquoteHtml = `<blockquote class="border-l-4 border-gray-500 rounded bg-gray-50 dark:bg-gray-800 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">
 			${quoteContent}
 		</blockquote>\n`;
 
