@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "dayjs/locale/ja";
 import ArticleContent from "@/components/ArticleContent";
+import Giscus from "@/components/Giscus";
 
 import "highlight.js/styles/github-dark.css";
 import { highlightCodeBlocks } from "@/utils/syntax-highlighter";
@@ -501,6 +502,10 @@ export default async function ArticlePage({
 
 				<ArticleContent content={highlightedContent} />
 			</article>
+
+			<div className="mt-16 pt-8 border-t border-gray-700">
+				<Giscus />
+			</div>
 		</main>
 	);
 }

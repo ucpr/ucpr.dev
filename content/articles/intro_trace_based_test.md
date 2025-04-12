@@ -9,7 +9,7 @@ tags: ["Observability", "OpenTelemetry", "tracetest"]
 
 本記事は、[OpenTelemetry Advent Calendar 2024](https://qiita.com/advent-calendar/2024/opentelemetry) の 18 日目の記事です。
 
-Trace データを利用してテストを行う、Trace-based Testing という手法があります。本記事では、[tracetest][tracetest] というツールを使って Trace-based Testing を実践してみます。
+Trace データを利用してテストを行う、Trace-based Testing という手法があります。本記事では、[tracetest][https://github.com/kubeshop/tracetest] というツールを使って Trace-based Testing を実践してみます。
 
 ## 前提
 
