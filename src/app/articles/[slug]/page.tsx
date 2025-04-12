@@ -185,7 +185,7 @@ function formatContent(content: string): string {
 		// 引用内部のテキストをフォーマット
 		quoteContent = quoteContent
 			.split("\n")
-			.map(line => formatTextLine(line))
+			.map((line) => formatTextLine(line))
 			.join("<br>");
 
 		// 引用ブロックHTML生成
