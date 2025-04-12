@@ -28,6 +28,34 @@ export async function generateMetadata({
 	return {
 		title: `${article.title} | ucpr.dev`,
 		description: article.description,
+		robots: {
+			index: true,
+			follow: true,
+		},
+		openGraph: {
+			title: `${article.title} | ucpr.dev`,
+			description: article.description,
+			type: 'article',
+			publishedTime: article.publishedAt,
+			url: `https://ucpr.dev/articles/${params.slug}`,
+			siteName: 'ucpr.dev',
+			locale: 'ja_JP',
+			authors: ['ucpr'],
+			images: [
+				{
+					url: `https://ogpgen.ucpr.dev/?text=${article.title}&author=@ucpr&title=ucpr.dev`,
+					width: 1200,
+					height: 630,
+					alt: article.title,
+				}
+			],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: article.title,
+			description: article.description,
+			images: [`https://ogpgen.ucpr.dev/?text=${article.title}&author=@ucpr&title=%23+ucpr.dev`],
+		},
 	};
 }
 

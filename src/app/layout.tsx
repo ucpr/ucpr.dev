@@ -17,7 +17,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
 	title: "ucpr.dev",
-	description: "ucprの個人ウェブサイト",
+	description: "uuccpprr",
+	robots: {
+		index: false,
+		follow: true,
+	},
+	openGraph: {
+		title: "ucpr.dev",
+		description: "uuccpprr",
+		siteName: "ucpr.dev",
+		locale: "ja_JP",
+		type: "website",
+		url: "https://ucpr.dev",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "ucpr.dev",
+		description: "uuccpprrs",
+	},
 };
 
 export default function RootLayout({

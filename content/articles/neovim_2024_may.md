@@ -133,13 +133,13 @@ packer.nvim で設定していた際は問題ありませんでしたが、移�
 
 - ref. [Changing the parser install directory | nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
-```diff lua
-+local pasers_path = vim.fn.expand("$XDG_CACHE_HOME/nvim/treesitter/parsers")
-+vim.opt.runtimepath:append(pasers_path)
+```lua
+local pasers_path = vim.fn.expand("$XDG_CACHE_HOME/nvim/treesitter/parsers")
+vim.opt.runtimepath:append(pasers_path)
 
 require 'nvim-treesitter.configs'.setup {
-+  parser_install_dir = pasers_path,
- ...
+  parser_install_dir = pasers_path,
+-- ...
 }
 ```
 
