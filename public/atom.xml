@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ucpr.dev</id>
     <title>ucpr.dev</title>
-    <updated>2025-04-12T06:08:02.247Z</updated>
+    <updated>2025-04-12T08:17:54.251Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>ucpr</name>
@@ -13,12 +13,20 @@
     <icon>https://ucpr.dev/favicon.ico</icon>
     <rights>All rights reserved 2025, ucpr</rights>
     <entry>
-        <title type="html"><![CDATA[Test Article]]></title>
-        <id>https://ucpr.dev/articles/example</id>
-        <link href="https://ucpr.dev/articles/example"/>
-        <updated>2024-12-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Test Description]]></summary>
-        <content type="html"><![CDATA[Test Description]]></content>
+        <title type="html"><![CDATA[ABEMA のオブザーバビリティアーキテクチャ変遷]]></title>
+        <id>https://ucpr.dev/articles/external-Findy-aHR0cHM6</id>
+        <link href="https://ucpr.dev/articles/external-Findy-aHR0cHM6"/>
+        <updated>2024-12-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[本記事では、ABEMAにおけるオブザーバビリティの進化とこれまでの取り組みについてご紹介します]]></summary>
+        <content type="html"><![CDATA[本記事では、ABEMAにおけるオブザーバビリティの進化とこれまでの取り組みについてご紹介します]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[tracetest で Trace-based Testing に触れてみる]]></title>
+        <id>https://ucpr.dev/articles/intro_trace_based_test</id>
+        <link href="https://ucpr.dev/articles/intro_trace_based_test"/>
+        <updated>2024-12-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Trace データの活用方法の一つとして、Trace-based Testing という手法があります。本記事では、tracetest というツールを使って Trace-based Testing を実践します。]]></summary>
+        <content type="html"><![CDATA[Trace データの活用方法の一つとして、Trace-based Testing という手法があります。本記事では、tracetest というツールを使って Trace-based Testing を実践します。]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Cloud Trace のデータを BigQuery にエクスポートする]]></title>
@@ -29,19 +37,67 @@
         <content type="html"><![CDATA[Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法を紹介します。]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Next.js 15の新機能について]]></title>
-        <id>https://ucpr.dev/articles/nextjs-15-features</id>
-        <link href="https://ucpr.dev/articles/nextjs-15-features"/>
-        <updated>2023-04-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。]]></summary>
-        <content type="html"><![CDATA[Next.js 15がリリースされました。このバージョンでの主な変更点と新機能について解説します。]]></content>
+        <title type="html"><![CDATA[telemetrygenで行うOpenTelemetry Collectorの負荷試験]]></title>
+        <id>https://ucpr.dev/articles/otelcol-loadtest-with-telemetrygen</id>
+        <link href="https://ucpr.dev/articles/otelcol-loadtest-with-telemetrygen"/>
+        <updated>2024-08-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[telemetrygen を利用して OpenTelemetry Collector の負荷試験を行う方法について紹介します]]></summary>
+        <content type="html"><![CDATA[telemetrygen を利用して OpenTelemetry Collector の負荷試験を行う方法について紹介します]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[TypeScriptの型システム入門]]></title>
-        <id>https://ucpr.dev/articles/typescript-type-system-introduction</id>
-        <link href="https://ucpr.dev/articles/typescript-type-system-introduction"/>
-        <updated>2023-03-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。]]></summary>
-        <content type="html"><![CDATA[TypeScriptの型システムの基本から応用までを解説します。型安全なコードの書き方を学びましょう。]]></content>
+        <title type="html"><![CDATA[Astro+SolidJS+Tailwindでブログを作り直した]]></title>
+        <id>https://ucpr.dev/articles/recreate_blog_by_astro</id>
+        <link href="https://ucpr.dev/articles/recreate_blog_by_astro"/>
+        <updated>2024-07-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[AstroとSolidJSとTailwindでブログを作り直しました。]]></summary>
+        <content type="html"><![CDATA[AstroとSolidJSとTailwindでブログを作り直しました。]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Neovimのプラグイン管理をdpp.vimに移行した]]></title>
+        <id>https://ucpr.dev/articles/neovim_2024_may</id>
+        <link href="https://ucpr.dev/articles/neovim_2024_may"/>
+        <updated>2024-05-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Neovimのプラグイン管理をdpp.vimに移行しました]]></summary>
+        <content type="html"><![CDATA[Neovimのプラグイン管理をdpp.vimに移行しました]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[log/slog への移行について考えてみる]]></title>
+        <id>https://ucpr.dev/articles/external-Zenn Scraps-aHR0cHM6</id>
+        <link href="https://ucpr.dev/articles/external-Zenn Scraps-aHR0cHM6"/>
+        <updated>2024-04-27T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[log/slog の移行事例について調査して、移行を検討する Zenn Scrap]]></summary>
+        <content type="html"><![CDATA[log/slog の移行事例について調査して、移行を検討する Zenn Scrap]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Go で XML の CDATA に XML を埋め込む]]></title>
+        <id>https://ucpr.dev/articles/go_nested_xml_in_cdata</id>
+        <link href="https://ucpr.dev/articles/go_nested_xml_in_cdata"/>
+        <updated>2024-04-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[GoでXMLのCDATAにXMLをネストさせて、Marshalする方法について紹介します]]></summary>
+        <content type="html"><![CDATA[GoでXMLのCDATAにXMLをネストさせて、Marshalする方法について紹介します]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[markdown-rsでfront matterの値を参照する]]></title>
+        <id>https://ucpr.dev/articles/markdown-rs_front-matter</id>
+        <link href="https://ucpr.dev/articles/markdown-rs_front-matter"/>
+        <updated>2024-04-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[markdown-rs で front matter の値を参照する]]></summary>
+        <content type="html"><![CDATA[markdown-rs で front matter の値を参照する]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Atlantis on Cloud Run の動作検証]]></title>
+        <id>https://ucpr.dev/articles/external-Zenn Scraps-aHR0cHM6</id>
+        <link href="https://ucpr.dev/articles/external-Zenn Scraps-aHR0cHM6"/>
+        <updated>2024-04-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Atlantis を Cloud Run で動かすことができるかを検証する Zenn Scrap]]></summary>
+        <content type="html"><![CDATA[Atlantis を Cloud Run で動かすことができるかを検証する Zenn Scrap]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Test Article]]></title>
+        <id>https://ucpr.dev/articles/example</id>
+        <link href="https://ucpr.dev/articles/example"/>
+        <updated>1999-12-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Test Description]]></summary>
+        <content type="html"><![CDATA[Test Description]]></content>
     </entry>
 </feed>

@@ -42,3 +42,7 @@ next-env.d.ts
 
 out/
 .vscode
+
+public/rss.xml
+public/atom.xml
+public/feed.json
