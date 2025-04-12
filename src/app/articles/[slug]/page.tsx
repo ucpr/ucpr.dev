@@ -371,7 +371,11 @@ function formatContent(content: string): string {
 
 		// コードブロック内の行を処理
 		if (inCodeBlock) {
-			codeBlockContent += line + "\n";
+			codeBlockContent += line;
+			// 最後の行以外には改行を追加
+			if (!(i === lines.length - 1 || (i < lines.length - 1 && lines[i + 1].trim() === "```"))) {
+				codeBlockContent += "\n";
+			}
 			continue;
 		}
 
