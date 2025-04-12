@@ -72,7 +72,7 @@ resource "google_bigquery_dataset_iam_member" "trace_sink_bigquery_data_editor" 
 
 ### テーブルスキーマ
 
-トレース データを格納するテーブルのスキーマは、Google Cloud の [Span Trace V2 API 定義][1]によって決まるようです。
+トレース データを格納するテーブルのスキーマは、Google Cloud の [Span Trace V2 API 定義](https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span)によって決まるようです。
 
 実際にデータを確認すると、以下のようなスキーマでデータが保存されていることが確認できます。
 
@@ -115,7 +115,4 @@ BigQuery への Trace データのエクスポートを行うことで、Cloud T
 
 ## 参考
 
-- [Google Cloud - Trace data exports overview][0]
-
-[0]: https://cloud.google.com/trace/docs/trace-export-overview
-[1]: https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span
+- [Google Cloud - Trace data exports overview](https://cloud.google.com/trace/docs/trace-export-overview)
