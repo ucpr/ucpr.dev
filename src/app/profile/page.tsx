@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function ProfilePage() {
 	return (
 		<main className="container mx-auto px-4 py-8 max-w-3xl">
-			{/* アイコン画像とJust do it!メッセージをここに追加 */}
 			<div className="flex flex-col items-center mb-8">
 				<Image
 					src="https://avatars.githubusercontent.com/u/17886370"
@@ -26,16 +25,16 @@ export default function ProfilePage() {
 
 			<div className="space-y-8">
 				<section>
-					<h2 className="text-xl font-semibold mb-4">About</h2>
+					<h2 className="text-xl font-semibold mb-4">## About</h2>
 					<ul className="list-disc list-inside space-y-2">
 						<li>name: Taichi Uchihara</li>
-						<li>age: 24</li>
+						<li>age: 25</li>
 						<li>timezone: Asia/Tokyo +9</li>
 					</ul>
 				</section>
 
 				<section>
-					<h2 className="text-xl font-semibold mb-4">Work Experiences</h2>
+					<h2 className="text-xl font-semibold mb-4">## Work Experiences</h2>
 
 					<div className="mb-6">
 						<h3 className="text-lg font-medium">AbemaTV, Inc.</h3>
@@ -46,8 +45,7 @@ export default function ProfilePage() {
 								2024/04 ~ now
 							</p>
 							<p className="my-2">
-								developer productivity engineer
-								として、開発者生産性向上に取り組む
+								developer productivity engineer として、開発者生産性向上に従事
 							</p>
 							<div className="flex flex-wrap gap-2 mt-2">
 								<Link
@@ -122,7 +120,7 @@ export default function ProfilePage() {
 				</section>
 
 				<section>
-					<h2 className="text-xl font-semibold mb-4">Certifications</h2>
+					<h2 className="text-xl font-semibold mb-4">## Certifications</h2>
 					<ul className="space-y-4">
 						<li>
 							<a
