@@ -13,6 +13,7 @@
 		"cheerio": "^1.0.0",
 		"date-fns": "^4.1.0",
 		"dayjs": "^1.11.13",
+		"feed": "^4.2.2",
 		"gray-matter": "^4.0.3",
 		"highlight.js": "^11.11.1",
 		"next": "15.2.5",

@@ -2,7 +2,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	// ビルド出力を標準モードに設定
-	// output: 'export',
+	output: "export",
 	images: {
 		remotePatterns: [
 			{
