@@ -1,0 +1,15 @@
+{
+	"name": "ogpinfo",
+	"scripts": {
+		"dev": "wrangler dev",
+		"deploy": "wrangler deploy --minify"
+	},
+	"dependencies": {
+		"cheerio": "^1.0.0",
+		"hono": "^4.7.6"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20250214.0",
+		"wrangler": "^4.4.0"
+	}
+}
