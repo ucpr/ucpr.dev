@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllArticles, getArticleBySlug } from "@/utils/article";
 import { format } from "date-fns";
 import Link from "next/link";
+import Image from "next/image";
 import "dayjs/locale/ja";
 import ArticleContent from "@/components/ArticleContent";
 
@@ -57,6 +58,10 @@ function formatContent(content: string): string {
 				/`([^`]+)`/g,
 				'<code class="bg-gray-200  px-1.5 py-0.5 rounded font-mono text-sm">$1</code>',
 			) // コードスパン
+			.replace(
+				/!\[([^\]]*)\]\(([^)]+)(?:\s+"([^"]+)")?\)/g,
+				'<img src="$2" alt="$1" title="$3" class="my-6 max-w-full h-auto rounded-lg shadow-md mx-auto" loading="lazy" />',
+			) // 画像
 			.replace(
 				/\[\[カードOGP:(.*?)\]\]\(([^)]+)\)/g,
 				'<div data-ogp-card-link data-title="$1" data-url="$2"></div>',
