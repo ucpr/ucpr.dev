@@ -152,6 +152,50 @@ function formatContent(content: string): string {
 		return { content: alertHtml, newIndex: i2 - 1 };
 	};
 
+	// 引用ブロックを処理する関数
+	const processBlockquote = (
+		line: string,
+		currentIndex: number,
+	): { content: string; newIndex: number } => {
+		// アラートブロックの場合は処理しない（別の関数で処理される）
+		if (line.match(/> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/)) {
+			return { content: "", newIndex: currentIndex };
+		}
+
+		// 通常の引用ブロックかどうかチェック
+		if (!line.trim().startsWith(">")) {
+			return { content: "", newIndex: currentIndex };
+		}
+
+		let quoteContent = line.replace(/^>\s?/, "") + "\n";
+		let i = currentIndex + 1;
+
+		// 引用ブロックの内容を収集
+		while (i < lines.length && lines[i].trim().startsWith(">")) {
+			// アラートブロックの開始行に到達したら停止
+			if (lines[i].match(/> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]/)) {
+				break;
+			}
+			// '> ' の後の内容を追加
+			quoteContent += lines[i].replace(/^>\s?/, "") + "\n";
+			i++;
+		}
+
+		// 引用ブロックの内容を処理
+		// 引用内部のテキストをフォーマット
+		quoteContent = quoteContent
+			.split("\n")
+			.map(line => formatTextLine(line))
+			.join("<br>");
+
+		// 引用ブロックHTML生成
+		const blockquoteHtml = `<blockquote class="border-l-4 border-gray-500 bg-gray-50 pl-4 py-2 my-4 italic text-gray-700 dark:text-gray-300">
+			${quoteContent}
+		</blockquote>\n`;
+
+		return { content: blockquoteHtml, newIndex: i - 1 };
+	};
+
 	// リスト行を処理する関数
 	const processListItem = (
 		line: string,
@@ -372,6 +416,16 @@ function formatContent(content: string): string {
 			if (alertResult.content) {
 				formattedContent += alertResult.content;
 				i = alertResult.newIndex;
+				continue;
+			}
+		}
+
+		// 引用ブロックの処理
+		if (line.trim().startsWith(">")) {
+			const blockquoteResult = processBlockquote(line, i);
+			if (blockquoteResult.content) {
+				formattedContent += blockquoteResult.content;
+				i = blockquoteResult.newIndex;
 				continue;
 			}
 		}

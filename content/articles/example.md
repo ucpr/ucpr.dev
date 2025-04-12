@@ -124,12 +124,6 @@ tree.children().into_iter().for_each(|node| {
 
 [Google](https://www.google.com)
 
-### 定義参照リンク
-
-[Google][1]
-
-[1]: https://www.google.com
-
 ## コメント
 
 {/* コメント */}
