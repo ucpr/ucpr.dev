@@ -2,9 +2,9 @@
  * Platform のスタイル情報を取得する
  */
 export function getPlatformStyle(platform: string): {
-	backgroundColor: string;
+	borderColor: string;
 	textColor: string;
-	darkBackgroundColor: string;
+	darkBorderColor: string;
 	darkTextColor: string;
 } {
 	// プラットフォームごとに色を設定
@@ -12,51 +12,52 @@ export function getPlatformStyle(platform: string): {
 		case "Zenn":
 		case "Zenn Scraps":
 			return {
-				backgroundColor: "#edf2f7", // light blue-gray
+				borderColor: "#3b82f6", // blue-500
 				textColor: "#3b82f6", // blue-500
-				darkBackgroundColor: "#1e293b", // dark blue-gray
+				darkBorderColor: "#60a5fa", // blue-400
 				darkTextColor: "#60a5fa", // blue-400
 			};
 		case "Qiita":
 			return {
-				backgroundColor: "#e6f0ff", // light green-blue
+				borderColor: "#55c500", // qiita green
 				textColor: "#55c500", // qiita green
-				darkBackgroundColor: "#0d3321", // dark green
+				darkBorderColor: "#55c500", // qiita green
 				darkTextColor: "#55c500", // qiita green
 			};
 		case "note":
 			return {
-				backgroundColor: "#f3f4f6", // light gray
+				borderColor: "#41c9b4", // note teal
 				textColor: "#41c9b4", // note teal
-				darkBackgroundColor: "#1f2937", // dark gray
+				darkBorderColor: "#41c9b4", // note teal
 				darkTextColor: "#41c9b4", // note teal
 			};
+        case "Findy Tools":
 		case "Findy":
 			return {
-				backgroundColor: "#ffedd5", // light orange
+				borderColor: "#ea580c", // orange-600
 				textColor: "#ea580c", // orange-600
-				darkBackgroundColor: "#431407", // dark orange
+				darkBorderColor: "#fdba74", // orange-300
 				darkTextColor: "#fdba74", // orange-300
 			};
 		case "Speaker Deck":
 			return {
-				backgroundColor: "#ecfdf5", // light green
+				borderColor: "#10b981", // emerald-500
 				textColor: "#10b981", // emerald-500
-				darkBackgroundColor: "#064e3b", // dark emerald
+				darkBorderColor: "#6ee7b7", // emerald-300
 				darkTextColor: "#6ee7b7", // emerald-300
 			};
 		case "YouTube":
 			return {
-				backgroundColor: "#fee2e2", // light red
+				borderColor: "#ef4444", // red-500
 				textColor: "#ef4444", // red-500
-				darkBackgroundColor: "#450a0a", // dark red
+				darkBorderColor: "#fca5a5", // red-300
 				darkTextColor: "#fca5a5", // red-300
 			};
 		default:
 			return {
-				backgroundColor: "#f3f4f6", // light gray
+				borderColor: "#6b7280", // gray-500
 				textColor: "#6b7280", // gray-500
-				darkBackgroundColor: "#374151", // dark gray
+				darkBorderColor: "#9ca3af", // gray-400
 				darkTextColor: "#9ca3af", // gray-400
 			};
 	}

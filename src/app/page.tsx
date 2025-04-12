@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getArticles } from "@/lib/api";
-import { getPlatformStyle } from "@/utils/platform";
+import PlatformBadge from "@/components/PlatformBadge";
 
 async function getLatestArticles() {
 	const allArticles = await getArticles();
@@ -42,24 +42,9 @@ export default async function Home() {
 										day: "2-digit",
 									})
 									.replace(/\//g, "/")}
-								{article.isExternal &&
-									article.platform &&
-									(() => {
-										const style = getPlatformStyle(article.platform);
-										return (
-											<span
-												className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium platform-tag"
-												style={{
-													backgroundColor: style.backgroundColor,
-													color: style.textColor,
-													"--dark-bg": style.darkBackgroundColor,
-													"--dark-text": style.darkTextColor,
-												}}
-											>
-												{article.platform}
-											</span>
-										);
-									})()}
+								{article.isExternal && article.platform && (
+									<PlatformBadge platform={article.platform} className="ml-2" />
+								)}
 							</div>
 							{article.isExternal && article.url ? (
 								<a href={article.url} target="_blank" rel="noopener noreferrer">

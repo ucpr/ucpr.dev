@@ -21,7 +21,7 @@
 			"description": "本記事では、ABEMAにおけるオブザーバビリティの進化とこれまでの取り組みについてご紹介します",
 			"url": "https://findy-tools.io/articles/abematv/37",
 			"publishedAt": "2024-12-25",
-			"platform": "Findy",
+			"platform": "Findy Tools",
 			"tags": [
 				"Observability",
 				"OpenTelemetry",
