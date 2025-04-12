@@ -1,39 +1,34 @@
 {
-  "articles": [
-    {
-      "title": "log/slog への移行について考えてみる",
-      "description": "log/slog の移行事例について調査して、移行を検討する Zenn Scrap",
-      "url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
-      "publishedAt": "2024-04-27",
-      "platform": "Zenn Scraps",
-      "tags": [
-        "Go"
-      ]
-    },
-    {
-      "title": "Atlantis on Cloud Run の動作検証",
-      "description": "Atlantis を Cloud Run で動かすことができるかを検証する Zenn Scrap",
-      "url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
-      "publishedAt": "2024-04-02",
-      "platform": "Zenn Scraps",
-      "tags": [
-        "Atlantis",
-        "Google Cloud"
-      ]
-    },
-    {
-      "title": "ABEMA のオブザーバビリティアーキテクチャ変遷",
-      "description": "本記事では、ABEMAにおけるオブザーバビリティの進化とこれまでの取り組みについてご紹介します",
-      "url": "https://findy-tools.io/articles/abematv/37",
-      "publishedAt": "2024-12-25",
-      "platform": "Findy",
-      "tags": [
-        "Observability",
-        "OpenTelemetry",
-        "Google Cloud",
-        "AWS",
-        "Grafana"
-      ]
-    }
-  ]
+	"articles": [
+		{
+			"title": "log/slog への移行について考えてみる",
+			"description": "log/slog の移行事例について調査して、移行を検討する Zenn Scrap",
+			"url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
+			"publishedAt": "2024-04-27",
+			"platform": "Zenn Scraps",
+			"tags": ["Go"]
+		},
+		{
+			"title": "Atlantis on Cloud Run の動作検証",
+			"description": "Atlantis を Cloud Run で動かすことができるかを検証する Zenn Scrap",
+			"url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
+			"publishedAt": "2024-04-02",
+			"platform": "Zenn Scraps",
+			"tags": ["Atlantis", "Google Cloud"]
+		},
+		{
+			"title": "ABEMA のオブザーバビリティアーキテクチャ変遷",
+			"description": "本記事では、ABEMAにおけるオブザーバビリティの進化とこれまでの取り組みについてご紹介します",
+			"url": "https://findy-tools.io/articles/abematv/37",
+			"publishedAt": "2024-12-25",
+			"platform": "Findy",
+			"tags": [
+				"Observability",
+				"OpenTelemetry",
+				"Google Cloud",
+				"AWS",
+				"Grafana"
+			]
+		}
+	]
 }

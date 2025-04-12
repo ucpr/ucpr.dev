@@ -90,6 +90,14 @@ a {
 }
 
 /* Shiki シンタックスハイライトのスタイル */
+/* Platform タグのダークモードスタイル */
+@media (prefers-color-scheme: dark) {
+	.platform-tag {
+		background-color: var(--dark-bg) !important;
+		color: var(--dark-text) !important;
+	}
+}
+
 .shiki {
 	@apply p-4 text-sm overflow-auto my-4 rounded-md font-mono;
 	background-color: #0d1117 !important; /* GitHub Dark のコードブロック背景色 */

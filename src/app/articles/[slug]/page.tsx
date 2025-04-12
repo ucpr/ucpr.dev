@@ -35,26 +35,28 @@ export async function generateMetadata({
 		openGraph: {
 			title: `${article.title} | ucpr.dev`,
 			description: article.description,
-			type: 'article',
+			type: "article",
 			publishedTime: article.publishedAt,
 			url: `https://ucpr.dev/articles/${params.slug}`,
-			siteName: 'ucpr.dev',
-			locale: 'ja_JP',
-			authors: ['ucpr'],
+			siteName: "ucpr.dev",
+			locale: "ja_JP",
+			authors: ["ucpr"],
 			images: [
 				{
 					url: `https://ogpgen.ucpr.dev/?text=${article.title}&author=@ucpr&title=ucpr.dev`,
 					width: 1200,
 					height: 630,
 					alt: article.title,
-				}
+				},
 			],
 		},
 		twitter: {
-			card: 'summary_large_image',
+			card: "summary_large_image",
 			title: article.title,
 			description: article.description,
-			images: [`https://ogpgen.ucpr.dev/?text=${article.title}&author=@ucpr&title=%23+ucpr.dev`],
+			images: [
+				`https://ogpgen.ucpr.dev/?text=${article.title}&author=@ucpr&title=%23+ucpr.dev`,
+			],
 		},
 	};
 }
@@ -373,7 +375,12 @@ function formatContent(content: string): string {
 		if (inCodeBlock) {
 			codeBlockContent += line;
 			// 最後の行以外には改行を追加
-			if (!(i === lines.length - 1 || (i < lines.length - 1 && lines[i + 1].trim() === "```"))) {
+			if (
+				!(
+					i === lines.length - 1 ||
+					(i < lines.length - 1 && lines[i + 1].trim() === "```")
+				)
+			) {
 				codeBlockContent += "\n";
 			}
 			continue;
