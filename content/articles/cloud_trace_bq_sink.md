@@ -99,12 +99,7 @@ GROUP BY extendedFields.traceId
 
 個人で作成しているプロジェクトの [weathercal](https://weathercal.ucpr.dev) のデータで確認してみると、以下のような結果が得られました。
 
-<img
-  src="/cloud_trace_bq_sink-01.png"
-  alt=""
-  width="800"
-  height="600"
-/>
+![cloud_trace_bq_sink-01](https://ucprdev-image-proxy.ucpr.workers.dev/images/articles/cloud_trace_bq_sink/cloud_trace_bq_sink-01.png)
 
 計装が入っている場合は、トレースデータを元に様々な分析・可視化を行うことできそうです。
 

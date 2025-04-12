@@ -20,7 +20,13 @@ export default async function ArticlesPage() {
 				{articles.map((article) => (
 					<article key={article.slug} className="border-b pb-4">
 						<div className="text-sm text-gray-500 dark:text-gray-400 mb-1">
-							{new Date(article.publishedAt).toLocaleDateString('ja-JP', {year: 'numeric', month: '2-digit', day: '2-digit'}).replace(/\//g, '/')}
+							{new Date(article.publishedAt)
+								.toLocaleDateString("ja-JP", {
+									year: "numeric",
+									month: "2-digit",
+									day: "2-digit",
+								})
+								.replace(/\//g, "/")}
 							{article.isExternal && article.platform && (
 								<span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
 									{article.platform}

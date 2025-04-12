@@ -1,20 +1,20 @@
 {
-  "articles": [
-    {
-      "title": "Zennで書いた記事の例",
-      "description": "Zennプラットフォームで公開した技術記事です。",
-      "url": "https://zenn.dev/example/articles/example-article",
-      "publishedAt": "2025-03-15T00:00:00Z",
-      "platform": "zenn",
-      "tags": ["JavaScript", "React", "Frontend"]
-    },
-    {
-      "title": "Qiitaで書いた記事の例",
-      "description": "Qiitaプラットフォームで公開した技術記事です。",
-      "url": "https://qiita.com/example/items/example-article",
-      "publishedAt": "2025-02-10T00:00:00Z",
-      "platform": "qiita",
-      "tags": ["Go", "API", "Backend"]
-    }
-  ]
+	"articles": [
+		{
+			"title": "log/slog への移行について考えてみる",
+			"description": "log/slog の移行事例について調査して、移行を検討する Zenn Scrap",
+			"url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
+			"publishedAt": "2024-04-27T04:49:57.000Z",
+			"platform": "Zenn Scraps",
+			"tags": ["Go"]
+		},
+		{
+			"title": "Atlantis on Cloud Run の動作検証",
+			"description": "Atlantis を Cloud Run で動かすことができるかを検証する Zenn Scrap",
+			"url": "https://zenn.dev/ucpr/scraps/7c8b8b8fdb3a8f",
+			"publishedAt": "2024-04-27T04:49:57.000Z",
+			"platform": "Zenn Scraps",
+			"tags": ["Atlantis", "Google Cloud"]
+		}
+	]
 }

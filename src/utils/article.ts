@@ -16,7 +16,11 @@ export type Article = {
 };
 
 const articlesDirectory = path.join(process.cwd(), "content", "articles");
-const externalArticlesPath = path.join(process.cwd(), "content", "external-articles.json");
+const externalArticlesPath = path.join(
+	process.cwd(),
+	"content",
+	"external-articles.json",
+);
 
 /**
  * すべての記事を取得
@@ -25,7 +29,7 @@ export async function getAllArticles(): Promise<Article[]> {
 	try {
 		// ローカルの記事を取得
 		let localArticles: Article[] = [];
-		
+
 		// ディレクトリが存在しない場合は空の配列を返す
 		if (fs.existsSync(articlesDirectory)) {
 			const fileNames = fs.readdirSync(articlesDirectory);
@@ -59,15 +63,18 @@ export async function getAllArticles(): Promise<Article[]> {
 
 		// 外部記事を取得
 		let externalArticles: Article[] = [];
-		
+
 		if (fs.existsSync(externalArticlesPath)) {
-			const externalArticlesContent = fs.readFileSync(externalArticlesPath, "utf8");
+			const externalArticlesContent = fs.readFileSync(
+				externalArticlesPath,
+				"utf8",
+			);
 			const externalArticlesData = JSON.parse(externalArticlesContent);
-			
+
 			externalArticles = externalArticlesData.articles.map((article: any) => {
 				// 外部記事のスラッグをURLから生成
-				const slug = `external-${article.platform}-${Buffer.from(article.url).toString('base64').slice(0, 8)}`;
-				
+				const slug = `external-${article.platform}-${Buffer.from(article.url).toString("base64").slice(0, 8)}`;
+
 				return {
 					slug,
 					title: article.title,
@@ -102,16 +109,19 @@ export async function getAllArticles(): Promise<Article[]> {
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
 	try {
 		// 外部記事かどうかを判断
-		if (slug.startsWith('external-')) {
+		if (slug.startsWith("external-")) {
 			// 外部記事の情報を取得
 			if (fs.existsSync(externalArticlesPath)) {
-				const externalArticlesContent = fs.readFileSync(externalArticlesPath, "utf8");
+				const externalArticlesContent = fs.readFileSync(
+					externalArticlesPath,
+					"utf8",
+				);
 				const externalArticlesData = JSON.parse(externalArticlesContent);
-				
+
 				// 全ての外部記事からマッチするものを検索
 				for (const article of externalArticlesData.articles) {
-					const articleSlug = `external-${article.platform}-${Buffer.from(article.url).toString('base64').slice(0, 8)}`;
-					
+					const articleSlug = `external-${article.platform}-${Buffer.from(article.url).toString("base64").slice(0, 8)}`;
+
 					if (articleSlug === slug) {
 						return {
 							slug,
@@ -128,10 +138,10 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 					}
 				}
 			}
-			
+
 			return null;
 		}
-		
+
 		// ローカル記事の処理（既存のコード）
 		const fullPath = path.join(articlesDirectory, `${slug}.md`);
 
@@ -180,22 +190,22 @@ export async function getAllTags(): Promise<{ tag: string; count: number }[]> {
 
 	articles.forEach((article) => {
 		if (!article.tags) return;
-		
+
 		article.tags.forEach((tag) => {
 			if (!tag) return;
-			
+
 			const normalizedTag = tag.toLowerCase();
 			const existing = tagMap.get(normalizedTag);
-			
+
 			if (existing) {
-				tagMap.set(normalizedTag, { 
-					originalTag: existing.originalTag, 
-					count: existing.count + 1 
+				tagMap.set(normalizedTag, {
+					originalTag: existing.originalTag,
+					count: existing.count + 1,
 				});
 			} else {
-				tagMap.set(normalizedTag, { 
+				tagMap.set(normalizedTag, {
 					originalTag: tag, // オリジナルの表記を保持
-					count: 1 
+					count: 1,
 				});
 			}
 		});
