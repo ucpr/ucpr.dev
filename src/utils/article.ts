@@ -176,17 +176,33 @@ export async function getAllTags(): Promise<{ tag: string; count: number }[]> {
 	const articles = await getAllArticles();
 
 	// すべての記事からタグを収集
-	const tagMap = new Map<string, number>();
+	const tagMap = new Map<string, { originalTag: string; count: number }>();
 
 	articles.forEach((article) => {
+		if (!article.tags) return;
+		
 		article.tags.forEach((tag) => {
+			if (!tag) return;
+			
 			const normalizedTag = tag.toLowerCase();
-			tagMap.set(normalizedTag, (tagMap.get(normalizedTag) || 0) + 1);
+			const existing = tagMap.get(normalizedTag);
+			
+			if (existing) {
+				tagMap.set(normalizedTag, { 
+					originalTag: existing.originalTag, 
+					count: existing.count + 1 
+				});
+			} else {
+				tagMap.set(normalizedTag, { 
+					originalTag: tag, // オリジナルの表記を保持
+					count: 1 
+				});
+			}
 		});
 	});
 
 	// タグと記事数の配列に変換
 	return Array.from(tagMap.entries())
-		.map(([tag, count]) => ({ tag, count }))
+		.map(([_, { originalTag, count }]) => ({ tag: originalTag, count }))
 		.sort((a, b) => b.count - a.count); // 記事数が多い順にソート
 }

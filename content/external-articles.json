@@ -5,14 +5,16 @@
       "description": "Zennプラットフォームで公開した技術記事です。",
       "url": "https://zenn.dev/example/articles/example-article",
       "publishedAt": "2025-03-15T00:00:00Z",
-      "platform": "zenn"
+      "platform": "zenn",
+      "tags": ["JavaScript", "React", "Frontend"]
     },
     {
       "title": "Qiitaで書いた記事の例",
       "description": "Qiitaプラットフォームで公開した技術記事です。",
       "url": "https://qiita.com/example/items/example-article",
       "publishedAt": "2025-02-10T00:00:00Z",
-      "platform": "qiita"
+      "platform": "qiita",
+      "tags": ["Go", "API", "Backend"]
     }
   ]
 }
