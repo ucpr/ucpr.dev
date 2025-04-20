@@ -23,13 +23,16 @@ export async function generateRssFeed(): Promise<Feed> {
 	});
 
 	articles.forEach((article: Article) => {
+		const itemLink = article.isExternal && article.url ? article.url : `${SITE_URL}/articles/${article.slug}/`;
+		const itemId = article.isExternal && article.url ? article.url : `${SITE_URL}/articles/${article.slug}/`; // IDもURLに合わせる
+
 		feed.addItem({
 			title: article.title,
-			id: `${SITE_URL}/articles/${article.slug}`,
-			link: `${SITE_URL}/articles/${article.slug}`,
+			id: itemId,
+			link: itemLink,
 			description: article.description,
 			date: new Date(article.publishedAt),
-			content: article.description,
+			content: article.description, // contentもdescriptionと同じで良いか確認
 		});
 	});
 
