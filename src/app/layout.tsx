@@ -87,7 +87,7 @@ export default function RootLayout({
 								GitHub
 							</a>
 							<a
-								href="https://twitter.com/ucpr_"
+								href="https://twitter.com/u_chi_ha_ra_"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="hover:underline"

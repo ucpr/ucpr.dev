@@ -31,7 +31,7 @@ export function getPlatformStyle(platform: string): {
 				darkBorderColor: "#41c9b4", // note teal
 				darkTextColor: "#41c9b4", // note teal
 			};
-        case "Findy Tools":
+		case "Findy Tools":
 		case "Findy":
 			return {
 				borderColor: "#ea580c", // orange-600
