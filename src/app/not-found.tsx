@@ -12,7 +12,7 @@ export default function NotFound() {
 			</p>
 			<Link
 				href="/"
-				className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+				className="px-4 py-2 rounded-lg transition-colors border border-gray-700 hover:bg-gray-200 hover:border-gray-600"
 			>
 				ホームに戻る
 			</Link>
