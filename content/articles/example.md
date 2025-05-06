@@ -3,6 +3,7 @@ title: "Test Article"
 description: "Test Description"
 publishedAt: '1999-12-29'
 tags: ["test", "article"]
+noindex: true
 ---
 
 ## h2

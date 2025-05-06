@@ -29,7 +29,7 @@ export async function generateMetadata({
 		title: `${article.title} | ucpr.dev`,
 		description: article.description,
 		robots: {
-			index: true,
+			index: !article.noindex,
 			follow: true,
 		},
 		openGraph: {

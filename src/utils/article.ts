@@ -13,6 +13,7 @@ export type Article = {
 	isExternal?: boolean; // 外部プラットフォームの記事かどうか
 	url?: string; // 外部プラットフォームの記事の場合のURL
 	platform?: string; // 外部プラットフォーム名（zenn, qiitaなど）
+	noindex?: boolean; // インデックスしないかどうか
 };
 
 const articlesDirectory = path.join(process.cwd(), "content", "articles");
@@ -57,6 +58,7 @@ export async function getAllArticles(): Promise<Article[]> {
 						date: matterResult.data.date || new Date().toISOString(),
 						tags: matterResult.data.tags || [],
 						isExternal: false,
+						noindex: matterResult.data.noindex || false,
 					};
 				});
 		}
@@ -86,6 +88,7 @@ export async function getAllArticles(): Promise<Article[]> {
 					isExternal: true,
 					url: article.url,
 					platform: article.platform,
+					noindex: article.noindex || false,
 				};
 			});
 		}
@@ -134,6 +137,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 							isExternal: true,
 							url: article.url,
 							platform: article.platform,
+							noindex: article.noindex || false,
 						};
 					}
 				}
@@ -162,6 +166,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 			date: matterResult.data.date || new Date().toISOString(),
 			tags: matterResult.data.tags || [],
 			isExternal: false,
+			noindex: matterResult.data.noindex || false,
 		};
 	} catch (error) {
 		console.error(`記事 ${slug} の取得中にエラーが発生しました:`, error);
