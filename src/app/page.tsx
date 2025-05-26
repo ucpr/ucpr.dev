@@ -78,7 +78,7 @@ export default async function Home() {
 			</section>
 
 			<div>
-				<h2 className="text-2xl font-bold mb-4">Recent Articles</h2>
+				<h2 className="text-2xl font-bold mb-4">Playlist</h2>
 				<iframe
 					title="spotify playlist"
 					className="rounded-lg"
