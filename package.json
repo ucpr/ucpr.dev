@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"generate-rss": "bun scripts/generate-rss.ts",
-		"deploy": "bun run build && bunx wrangler pages deploy ./out",
+		"deploy": "bun run build && bunx wrangler deploy",
 		"format": "bunx @biomejs/biome format --write ."
 	},
 	"dependencies": {
