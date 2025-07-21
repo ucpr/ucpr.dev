@@ -76,7 +76,7 @@ resource "google_bigquery_dataset_iam_member" "trace_sink_bigquery_data_editor" 
 
 実際にデータを確認すると、以下のようなスキーマでデータが保存されていることが確認できます。
 
-![trace_bq_sink](https://opentelemetry.io/blog/2023/testing-otel-demo/trace-based-testing-diagram.png)
+![trace_bq_sink](https://ucprdev-image-proxy.ucpr.workers.dev/images/articles/cloud_trace_bq_sink/cloud_trace_bq_sink-00.png)
 
 Attribute など、Span ごとに既存のテーブルスキーマに無いデータが新しく送信されてきた場合、そのデータは都度新しいカラムとしてパッチが適用されて追加されるようです。
 
