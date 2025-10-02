@@ -19,7 +19,7 @@ export default function ProfilePage() {
 					className="rounded-full mb-4"
 				/>
 				<h1 className="text-2xl font-bold mb-2">Taichi Uchihara</h1>
-				<p className="text-lg text-gray-600 dark:text-gray-400">Developer Productivity Engineer @ AbemaTV</p>
+				<p className="text-lg text-gray-600 dark:text-gray-400">Site Reliability Engineer @ AbemaTV</p>
 				<p className="text-gray-600 dark:text-gray-400 mt-2">Just do it!</p>
 			</div>
 
@@ -50,9 +50,9 @@ export default function ProfilePage() {
 							<div className="space-y-4">
 								<div className="bg-gray-50 dark:bg-gray-800 p-4 rounded">
 									<div className="mb-2">
-										<h4 className="font-bold">Developer Productivity Engineer</h4>
+										<h4 className="font-bold">Site Reliability Engineer</h4>
 										<div className="flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-400 mt-1">
-											<span>2024/04 - Present</span>
+											<span>2025/10 - Present</span>
 										</div>
 									</div>
 									
@@ -91,6 +91,54 @@ export default function ProfilePage() {
 										</div>
 									</div>
 									
+									<p className="text-sm">
+										Site Reliability Engineer として、システムの信頼性向上に従事
+									</p>
+								</div>
+
+								<div className="bg-gray-50 dark:bg-gray-800 p-4 rounded">
+									<div className="mb-2">
+										<h4 className="font-bold">Developer Productivity Engineer</h4>
+										<div className="flex flex-wrap gap-4 text-xs text-gray-600 dark:text-gray-400 mt-1">
+											<span>2024/04 - 2025/09</span>
+										</div>
+									</div>
+
+									<div className="mb-3">
+										<div className="flex flex-wrap gap-1 mt-2">
+											<Link
+												href="/tags/Go"
+												className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs hover:bg-blue-200 dark:hover:bg-blue-800"
+											>
+												Go
+											</Link>
+											<Link
+												href="/tags/Google Cloud"
+												className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs hover:bg-blue-200 dark:hover:bg-blue-800"
+											>
+												Google Cloud
+											</Link>
+											<Link
+												href="/tags/Kubernetes"
+												className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs hover:bg-blue-200 dark:hover:bg-blue-800"
+											>
+												Kubernetes
+											</Link>
+											<Link
+												href="/tags/Observability"
+												className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs hover:bg-blue-200 dark:hover:bg-blue-800"
+											>
+												Observability
+											</Link>
+											<Link
+												href="/tags/Monitoring"
+												className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs hover:bg-blue-200 dark:hover:bg-blue-800"
+											>
+												Monitoring
+											</Link>
+										</div>
+									</div>
+
 									<p className="text-sm">
 										developer productivity engineer として、開発者生産性向上に従事
 									</p>
