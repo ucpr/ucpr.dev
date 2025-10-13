@@ -7,7 +7,7 @@ tags: ["Observability", "OpenTelemetry", "Go"]
 
 ## はじめに
 
-OpenTelemetry SDK には SpanProcessor というアプリケーションで生成された Span を加工するための機構を加えることが出来ます。
+OpenTelemetry SDK には SpanProcessor というアプリケーションで生成された Span を加工するための機構があります。
 
 本記事では、 SpanProcessor を利用して、 Span の属性を加工する方法について解説します。
 
@@ -35,7 +35,7 @@ OpenTelemetry SDK の `SpanProcessor` は、アプリケーション内で生成
 
 SpanProcessor でできることの例としては、
 
-- 属性の追加
+- 属性の追加・変更・削除
 - 独自のログ出力やフィルタ処理
 
 などが挙げられます。
@@ -51,11 +51,11 @@ type SpanProcessor interface {
 }
 ```
 
-このインターフェースを満たした実装を用意することで、カスタムの SpanProcessor を作成することが出来ます。
+このインターフェースを満たした実装を用意することで、カスタム SpanProcessor を作成することが出来ます。
 
 ## span.SetAttributes で追加した属性を加工する
 
-`span.SetAttributes` で追加した属性は `SpanProcessor.OnStart` では参照することは出来ず、`SpanProcessor.OnEnd` でのみ参照可能になります。しかし、`SpanProcessor.OnEnd` では引数で受け取る span が `ReadOnlySpan` となっており変更することが出来ません。
+`span.SetAttributes` で追加した属性は、Span の開始後に設定されるため、`OnStart` 時点では存在せず、`SpanProcessor.OnEnd` でのみ参照可能になります。しかし、`SpanProcessor.OnEnd` では引数で受け取る span が `ReadOnlySpan` となっており変更することが出来ません。
 
 そこで、以下のような Span 実装を追加することで、 属性の書き換えを実現します。
 
@@ -82,6 +82,8 @@ func (s *customSpan) Attributes() []attribute.KeyValue {
 
 ```go
 import (
+	"context"
+
 	"go.opentelemetry.io/otel/attribute"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 )
@@ -90,6 +92,10 @@ var _ sdktrace.SpanProcessor = (*CustomSpanProcessor)(nil)
 
 type CustomSpanProcessor struct {
 	spanProcessor sdktrace.SpanProcessor
+}
+
+func (p *CustomSpanProcessor) OnStart(parent context.Context, s sdktrace.ReadWriteSpan) {
+	p.spanProcessor.OnStart(parent, s)
 }
 
 func (p *CustomSpanProcessor) OnEnd(span sdktrace.ReadOnlySpan) {
@@ -105,16 +111,24 @@ func (p *CustomSpanProcessor) OnEnd(span sdktrace.ReadOnlySpan) {
 		}
 	}
 
-	p.spanProcessor.OnEnd(&modifiedSpan{
+	p.spanProcessor.OnEnd(&customSpan{
 		ReadOnlySpan: span,
 		attrs:        newAttrs,
 	})
+}
+
+func (p *CustomSpanProcessor) Shutdown(ctx context.Context) error {
+	return p.spanProcessor.Shutdown(ctx)
+}
+
+func (p *CustomSpanProcessor) ForceFlush(ctx context.Context) error {
+	return p.spanProcessor.ForceFlush(ctx)
 }
 ```
 
 上記のように OnEnd で実装することで、 属性を変更できるようになります。
 
-テストで動作確認をしてみます。
+次に、実装した SpanProcessor の動作を確認するテストを作成します。
 
 ```go
 func TestCustomSpanProcessor_OnEnd(t *testing.T) {
@@ -161,14 +175,15 @@ ok      github.com/ucpr/workspace2025/otel-span-processor-example       0.225s
 
 ## おわりに
 
-本記事では、 opentelemetry-go の `SpanProcessor.OnEnd` で属性の書き換えを行う方法について解説しました。 
+本記事では、`SpanProcessor` を実装して Span 属性を加工する方法を解説しました。
 
-OpenTelemetry では属性の命名に関して、 semantic convention で定義されていないものでアプリケーション固有の属性は `com.acme.shopname` などドメインを逆順にした文字列を prefix につけることを推奨しています。
+`ReadOnlySpan` の制約を回避するためにカスタム Span 実装でラップすることで、`OnEnd` での属性変更を実現できます。この方法は、組織固有のドメインプレフィックス付与、機密情報のマスキング、属性の正規化など、さまざまな用途に応用可能です。
+
+特に OpenTelemetry の Semantic Convention では、アプリケーション固有の属性に `com.acme.shopname` のようなドメイン逆順プレフィックスの使用を推奨しており、本記事の手法を用いることで、この規約への準拠を強制することなどが可能です。
 
 [[カードOGP:opentelemetry.io/docs | Naming]](https://opentelemetry.io/docs/specs/semconv/general/naming/#recommendations-for-application-developers)
 
-すべての属性にこの prefix をつけることを実装で強制することが難しい場合は、このように SpanProcessor を実装して一律で付与するなど様々な使い道が考えられます。
-
+SpanProcessor は強力な拡張ポイントですが、パフォーマンスへの影響を考慮し、処理は軽量に保つことが重要です。
 本記事において、異なっている説明や表現がありましたらご連絡ください。
 
 ## 参考
