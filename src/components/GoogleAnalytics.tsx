@@ -22,7 +22,9 @@ export default function GoogleAnalytics() {
 	}, [pathname, searchParams]);
 
 	// Google Analytics が無効な場合は何も表示しない
-	if (!GA_MEASUREMENT_ID) return null;
+	// 開発環境では無効化
+	if (!GA_MEASUREMENT_ID || process.env.NODE_ENV !== "production")
+		return null;
 
 	return (
 		<>
