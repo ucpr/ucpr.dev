@@ -34,9 +34,11 @@ Semantic Conventions とは、テレメトリデータに関する命名規則�
 - ドキュメントの不足
 - バージョン管理の欠如
 
+例えば、注文IDを表す属性が `order_id`、`orderId`、`order-id` のように開発者ごとに異なる命名で実装されてしまうと、障害調査時に「特定の注文に関連するトレースを検索したい」といった場面でクエリが複雑化します。また、ダッシュボードを作成する際にも、同じ意味を持つ属性が複数存在することで、集計漏れやメトリクスの不整合が発生する原因となります。
+
 今回紹介する Otel Weaver はこれらの課題を解決するツールです。
 
-## Otel Wweaver とは
+## Otel Weaver とは
 
 weaver は Semantic Conventions とオブザーバビリティワークフローの管理、検証、進化をサポートするツールです。
 
@@ -113,7 +115,7 @@ groups:
 
       - id: ec.order.total_amount
         type: double
-        brief: Total amount charged for the order (including tax/shipping/discounts) in minor units is not used here.
+        brief: Total amount charged for the order, including tax, shipping, and discounts.
         stability: development
         examples: [129.99]
 
@@ -158,7 +160,7 @@ Total execution time: 0.4966055s
 
 コード生成を行うには、以下の手順を実行します。
 
-1. `./registry/{言語}` のパス形式でディレクトリを作成
+1. `./templates/registry/{言語}` のパス形式でディレクトリを作成
 2. 言語ごとの `weaver.yaml` ファイルを作成
 3. テンプレートファイルを作成
 4. コード生成コマンドを実行
@@ -229,8 +231,7 @@ const (
 	ecOrderId = "ec.order.id"
 	// Current lifecycle state of the order.
 	ecOrderStatus = "ec.order.status"
-	// Total amount charged for the order (including tax/shipping/discounts) in minor
-	// units is not used here.
+	// Total amount charged for the order, including tax, shipping, and discounts.
 	ecOrderTotalAmount = "ec.order.total_amount"
 	// ISO 4217 currency code for monetary amounts.
 	ecOrderCurrency = "ec.order.currency"
@@ -267,7 +268,7 @@ Attributes for e-commerce order domain signals.
 | <a id="ec-order-id" href="#ec-order-id">`ec.order.id`</a> | string | Unique identifier of the order. | `ord_20251212_001234` | ![Development](https://img.shields.io/badge/-development-blue) |
 | <a id="ec-order-item-count" href="#ec-order-item-count">`ec.order.item_count`</a> | int | Number of line items in the order. | `3` | ![Development](https://img.shields.io/badge/-development-blue) |
 | <a id="ec-order-status" href="#ec-order-status">`ec.order.status`</a> | string | Current lifecycle state of the order. | `created`; `paid`; `fulfilled`; `cancelled`; `refunded` | ![Development](https://img.shields.io/badge/-development-blue) |
-| <a id="ec-order-total-amount" href="#ec-order-total-amount">`ec.order.total_amount`</a> | double | Total amount charged for the order (including tax/shipping/discounts) in minor units is not used here. | `129.99` | ![Development](https://img.shields.io/badge/-development-blue) |
+| <a id="ec-order-total-amount" href="#ec-order-total-amount">`ec.order.total_amount`</a> | double | Total amount charged for the order, including tax, shipping, and discounts. | `129.99` | ![Development](https://img.shields.io/badge/-development-blue) |
 ```
 
 このようにして、独自のテンプレートもしくは他のレジストリのテンプレートを利用して、コードの生成やドキュメントの生成を行うことができます。
