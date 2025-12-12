@@ -1,6 +1,6 @@
 ---
-title: "open-telemetry/weaver を利用したカスタム属性の標準化と管理"
-description: "本記事では、open-telemetry/weaver を利用してテレメトリのカスタム属性を標準化して管理する方法についてまとめます"
+title: "open-telemetry/weaver を利用したカスタム Semantic Conventions の管理"
+description: "本記事では、open-telemetry/weaver を利用してテレメトリシグナルの Semantic Conventions を標準化して管理する方法についてまとめます"
 publishedAt: '2025-12-12'
 tags: ["Observability", "OpenTelemetry", "weaver"]
 noindex: false
