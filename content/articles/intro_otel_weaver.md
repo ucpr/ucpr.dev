@@ -28,8 +28,8 @@ Semantic Conventions とは、テレメトリデータに関する命名規則�
 
 [[カードOGP:https://opentelemetry.io/docs/concepts/semantic-conventions/]](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 
-実際の開発現場では、プロジェクト固有の要件やドメインに応じてカスタム属性の追加が必要になる場面があると思います。これらのカスタム属性も一貫性を持たせるために、独自の Semantic Conventions を定義し、チーム全体で共有することが重要です。
-しかし、属性に一貫性をもたせ、独自で定義した semantic conventions を運用することは容易ではなく、以下のような課題が存在します。
+実際の開発現場では、プロジェクト固有の要件やドメインに応じてカスタム属性の追加が必要になる場面があると思います。これらのカスタム属性も一貫性を持たせるために、独自に Semantic Conventions を定義し、チーム全体で共有することが重要です。
+しかし、属性に一貫性をもたせ、独自で定義した Semantic Conventions を運用することは容易ではなく、以下のような課題が存在します。
 - 命名規則の不統一
 - ドキュメントの不足
 - バージョン管理の欠如
@@ -75,7 +75,7 @@ model
 
 **registry_manifest.yaml**
 
-registry_manifest.yaml では、Semantic Conventions のカスタムレジストリのメタデータと、他のレジストリへの依存関係を定義するのに利用します。
+`registry_manifest.yaml` では、Semantic Conventions のカスタムレジストリのメタデータと、他のレジストリへの依存関係を定義するのに利用します。
 
 ```yaml
 name: otel-weaver-example
@@ -89,7 +89,7 @@ dependencies:
 
 **attributes.yaml**
 
-attributes.yaml では、カスタムの属性を定義します。ここでは、 E-commerce ドメインに関連する属性を例として示します。
+`attributes.yaml` では、カスタムの属性を定義します。ここでは、 E-commerce ドメインに関連する属性を例として示します。
 ec.order という属性グループを定義し、注文に関する属性をまとめています。
 
 ```yaml
@@ -149,6 +149,8 @@ Total execution time: 0.4966055s
 
 本記事では詳細なポリシー設定については割愛しますが、rego を用いて独自のポリシーを定義することも可能です。詳細は[公式ドキュメント](https://github.com/open-telemetry/weaver/blob/main/crates/weaver_checker/README.md)を参照してください。
 
+レジストリの継続運用では、差分の確認と破壊的変更の検知が重要です。`weaver registry diff` でバージョン間の差分（属性の追加・削除・型変更）を機械的に確認でき、`stability` が `development` → `stable` へ昇格する際に Breaking になる変更を検知できます。
+
 ### コード生成
 
 先程のように YAML 形式で定義した Semantic Conventions を元に、各言語向けのコード生成が可能です。これにより、属性名の一貫性が保たれ、手動実装によるミスを防ぐことができます。
@@ -157,7 +159,7 @@ Total execution time: 0.4966055s
 コード生成を行うには、以下の手順を実行します。
 
 1. `./registry/{言語}` のパス形式でディレクトリを作成
-2. 言語ごとの weaver.yaml テンプレートファイルを作成
+2. 言語ごとの `weaver.yaml` ファイルを作成
 3. テンプレートファイルを作成
 4. コード生成コマンドを実行
 
@@ -174,7 +176,7 @@ templates
 
 **weaver.yaml**
 
-weaver.yaml では、コード生成に関する設定を行います。
+`weaver.yaml` では、コード生成に関する設定を行います。
 pattern には、テンプレートファイルのパスを指定します。この pattern に基づくテンプレートファイルを元に、weaver がコードを生成します。
 
 ```yaml
@@ -272,7 +274,7 @@ Attributes for e-commerce order domain signals.
 
 ## おわりに
 
-本記事では、open-telemetry/weaver を利用してテレメトリのカスタム属性を標準化して管理して、そのスキーマからコードの自動生成をする方法について紹介しました。今回は、コード生成がメインの紹介になってしまいましたが、 weaver は Semantic Conventions の定義やバージョン管理、ポリシーベースの検証など、オブザーバビリティワークフロー全体をサポートする強力なツールです。これらの機能を活用することで、オブザーバビリティの品質向上に寄与できると考えています。
+本記事では、open-telemetry/weaver を利用してテレメトリのカスタム属性を標準化して管理し、そのスキーマからコードの自動生成をする方法について紹介しました。今回は、コード生成がメインの紹介になってしまいましたが、 weaver は Semantic Conventions の定義やバージョン管理、ポリシーベースの検証など、オブザーバビリティワークフロー全体をサポートする強力なツールです。これらの機能を活用することで、オブザーバビリティの品質向上に寄与できると考えています。
 
 設定も難しめかつ、記事等もまだ少ないですが、opentelemetry-go の semconv パッケージでも利用されているため、それらの設定を参考にすることで、比較的スムーズに導入できると思います。
 興味を持った方はぜひ、実際にお試しいただけると良いなと思います。
