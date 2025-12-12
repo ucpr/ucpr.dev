@@ -16,7 +16,7 @@ noindex: false
 
 本記事において、利用しているツールのバージョンは以下の通りです。
 
-- open-telemetry/weaver: [v0.19.0](https://github.com/open-telemetry/weaver/releases/tag/v0.19.0)
+- open-telemetry/weaver: [v0.20.0](https://github.com/open-telemetry/weaver/releases/tag/v0.20.0)
 
 また、記事中に利用した設定や実装は以下のリポジトリで公開されています。
 
@@ -28,7 +28,7 @@ Semantic Conventions とは、テレメトリデータに関する命名規則�
 
 [[カードOGP:https://opentelemetry.io/docs/concepts/semantic-conventions/]](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 
-実際の開発現場では、プロジェクト固有の要件やドメインに応じてカスタム属性を追加が必要になる場面があると思います。これらのカスタム属性も一貫性を持たせるために、独自の Semantic Conventions を定義し、チーム全体で共有することが重要です。
+実際の開発現場では、プロジェクト固有の要件やドメインに応じてカスタム属性の追加が必要になる場面があると思います。これらのカスタム属性も一貫性を持たせるために、独自の Semantic Conventions を定義し、チーム全体で共有することが重要です。
 しかし、属性に一貫性をもたせ、独自で定義した semantic conventions を運用することは容易ではなく、以下のような課題が存在します。
 - 命名規則の不統一
 - ドキュメントの不足
@@ -272,7 +272,7 @@ Attributes for e-commerce order domain signals.
 
 ## おわりに
 
-本記事では、open-telemetry/weaver を利用してテレメトリのカスタム属性を標準化して管理して、そのスキーマからコードの自動生成をする方法について紹介しました。。今回は、コード生成がメインの紹介になってしまいましたが、 weaver は Semantic Conventions の定義やバージョン管理、ポリシーベースの検証など、オブザーバビリティワークフロー全体をサポートする強力なツールです。これらの機能を活用することで、オブザーバビリティの品質向上に寄与できると考えています。
+本記事では、open-telemetry/weaver を利用してテレメトリのカスタム属性を標準化して管理して、そのスキーマからコードの自動生成をする方法について紹介しました。今回は、コード生成がメインの紹介になってしまいましたが、 weaver は Semantic Conventions の定義やバージョン管理、ポリシーベースの検証など、オブザーバビリティワークフロー全体をサポートする強力なツールです。これらの機能を活用することで、オブザーバビリティの品質向上に寄与できると考えています。
 
 設定も難しめかつ、記事等もまだ少ないですが、opentelemetry-go の semconv パッケージでも利用されているため、それらの設定を参考にすることで、比較的スムーズに導入できると思います。
 興味を持った方はぜひ、実際にお試しいただけると良いなと思います。
