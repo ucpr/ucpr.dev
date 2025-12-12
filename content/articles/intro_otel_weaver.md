@@ -36,9 +36,9 @@ Semantic Conventions とは、テレメトリデータに関する命名規則�
 
 今回紹介する Otel Weaver はこれらの課題を解決するツールです。
 
-## otel weaver とは
+## Otel Wweaver とは
 
-Otel Weaver は Semantic Conventions とオブザーバビリティワークフローの管理、検証、進化をサポートするツールです。
+weaver は Semantic Conventions とオブザーバビリティワークフローの管理、検証、進化をサポートするツールです。
 
 具体的には、以下のような機能を提供します。
 - 独自の Semantic Conventions の定義とそのバージョン管理
@@ -47,7 +47,7 @@ Otel Weaver は Semantic Conventions とオブザーバビリティワークフ�
 
 ![weaver architecture](https://github.com/open-telemetry/weaver/raw/main/docs/images/otel-weaver-platform.svg)
 
-Weaver は実際に open-telemetry/opentelemetry-go 内の semconv パッケージでのコード生成でも利用されていたり、OpenTelemetry コミュニティ内でも活用が進んでいます。
+weaver は実際に open-telemetry/opentelemetry-go 内の semconv パッケージでのコード生成でも利用されており、OpenTelemetry コミュニティ内でも活用が進んでいます。
 
 [[カードOGP:/semconv/templates/registry/go/weaver.yaml]](https://github.com/open-telemetry/opentelemetry-go/blob/v1.39.0/semconv/templates/registry/go/weaver.yaml)
 
