@@ -80,6 +80,9 @@ function formatContent(content: string): string {
 	let tableContent = "";
 	let tableRows = [];
 
+	// 脚注を格納するマップ
+	const footnotes = new Map<string, string>();
+
 	// テキスト行の装飾を処理する関数
 	const formatTextLine = (text: string): string => {
 		return text
@@ -112,6 +115,10 @@ function formatContent(content: string): string {
 				/\[\[カード:(.*?)\]\]\(([^)]+)\)/g,
 				'<div class="card-link my-4 p-4 border border-gray-700 rounded-lg hover:border-blue-500 transition-colors"><a href="$2" target="_blank" rel="noopener noreferrer" class="flex items-center"><div class="flex-1"><div class="text-blue-500 dark:text-blue-400 font-medium mb-1">$1</div><div class="text-sm text-gray-500 truncate">$2</div></div><div class="ml-4 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg></div></a></div>',
 			)
+			.replace(
+				/\[\^([^\]]+)\]/g,
+				'<sup class="text-xs"><a href="#fn-$1" id="fnref-$1" class="text-blue-500 dark:text-blue-400 hover:underline">[$1]</a></sup>',
+			) // 脚注参照
 			.replace(
 				/\[([^\]]+)\]\(([^)]+)\)/g,
 				'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>',
@@ -397,6 +404,14 @@ function formatContent(content: string): string {
 			continue;
 		}
 
+		// 脚注定義の処理 [^id]: 内容
+		const footnoteMatch = line.match(/^\[\^([^\]]+)\]:\s*(.+)$/);
+		if (footnoteMatch) {
+			const [, id, content] = footnoteMatch;
+			footnotes.set(id, content);
+			continue;
+		}
+
 		// リスト項目の処理
 		const listItemResult = processListItem(line);
 		if (listItemResult.isListItem) {
@@ -512,6 +527,24 @@ function formatContent(content: string): string {
 	// 文書の最後にテーブルが閉じられていない場合は閉じる
 	if (inTable) {
 		formattedContent += finalizeTable();
+	}
+
+	// 脚注セクションを生成
+	if (footnotes.size > 0) {
+		formattedContent += '<hr class="my-8 border-t border-gray-300 dark:border-gray-600" />\n';
+		formattedContent +=
+			'<section class="footnotes text-sm text-gray-600 dark:text-gray-400">\n';
+		formattedContent += '<ul class="list-none pl-0">\n';
+		footnotes.forEach((content, id) => {
+			// 脚注内容にもリンク記法を適用
+			const formattedFootnoteContent = content.replace(
+				/\[([^\]]+)\]\(([^)]+)\)/g,
+				'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>',
+			);
+			formattedContent += `<li id="fn-${id}" class="my-2"><span class="font-medium text-gray-700 dark:text-gray-300">[${id}]</span> ${formattedFootnoteContent} <a href="#fnref-${id}" class="text-blue-500 dark:text-blue-400 hover:underline">↩</a></li>\n`;
+		});
+		formattedContent += "</ul>\n";
+		formattedContent += "</section>\n";
 	}
 
 	return formattedContent;

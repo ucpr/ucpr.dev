@@ -157,3 +157,13 @@ tree.children().into_iter().for_each(|node| {
 ## 画像（キャプション内にリンク）
 
 ![ucpr](https://avatars.githubusercontent.com/u/17886370?v=4 "出典: [GitHub](https://github.com/ucpr)")
+
+## 脚注
+
+これは脚注のテストです[^1]。複数の脚注も使えます[^2]。
+
+脚注内にリンクを含めることもできます[^link]。
+
+[^1]: これは最初の脚注です。
+[^2]: これは2番目の脚注です。
+[^link]: 詳細は[GitHub](https://github.com)を参照してください。
