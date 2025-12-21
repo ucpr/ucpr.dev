@@ -26,7 +26,7 @@ Endpoint Profiling は、Datadog Profiler の機能の一つで、Web サービ�
 
 エンドポイントごとにプロファイルデータを分析することで、調査したいエンドポイント以外のノイズを排除でき、特定のエンドポイントで発生しているパフォーマンスの問題やボトルネックを特定しやすくなります。
 
-![endpoint profiling](https://datadog-docs.imgix.net/images/profiler/endpoint_agg.fe615c5594a27f1bcac90f13a144d038.png?auto=format)
+![endpoint profiling](https://datadog-docs.imgix.net/images/profiler/endpoint_agg.fe615c5594a27f1bcac90f13a144d038.png?auto=format "ref. [遅いトレースまたはエンドポイントを調査する - docs.datadoghq.com](https://docs.datadoghq.com/ja/profiler/connect_traces_and_profiles/?tab=go)")
 
 上記画像のように、Datadog Profiler の UI 上でエンドポイントごとにプロファイルデータをフィルタリングし、特定のエンドポイントに関連するプロファイルデータを詳細に分析できます。
 

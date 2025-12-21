@@ -91,9 +91,19 @@ function formatContent(content: string): string {
 				'<code class="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded font-mono text-sm">$1</code>',
 			) // コードスパン
 			.replace(
-				/!\[([^\]]*)\]\(([^)]+)(?:\s+"([^"]+)")?\)/g,
-				'<img src="$2" alt="$1" title="$3" class="my-6 max-w-full h-auto rounded-lg shadow-md mx-auto" loading="lazy" />',
-			) // 画像
+				/!\[([^\]]*)\]\(([^\s"]+)(?:\s+"([^"]+)")?\)/g,
+				(_, alt, src, caption) => {
+					if (caption) {
+						// キャプション内のリンク記法を処理
+						const formattedCaption = caption.replace(
+							/\[([^\]]+)\]\(([^)]+)\)/g,
+							'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>',
+						);
+						return `<figure class="my-6"><img src="${src}" alt="${alt}" class="max-w-full h-auto rounded-lg shadow-md mx-auto" loading="lazy" /><figcaption class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">${formattedCaption}</figcaption></figure>`;
+					}
+					return `<img src="${src}" alt="${alt}" class="my-6 max-w-full h-auto rounded-lg shadow-md mx-auto" loading="lazy" />`;
+				},
+			) // 画像（キャプション対応）
 			.replace(
 				/\[\[カードOGP:(.*?)\]\]\(([^)]+)\)/g,
 				'<div data-ogp-card-link data-title="$1" data-url="$2"></div>',

@@ -149,3 +149,11 @@ tree.children().into_iter().for_each(|node| {
 ## 画像
 
 ![ucpr](https://avatars.githubusercontent.com/u/17886370?v=4)
+
+## 画像（キャプション付き）
+
+![ucpr](https://avatars.githubusercontent.com/u/17886370?v=4 "これはキャプションです")
+
+## 画像（キャプション内にリンク）
+
+![ucpr](https://avatars.githubusercontent.com/u/17886370?v=4 "出典: [GitHub](https://github.com/ucpr)")
