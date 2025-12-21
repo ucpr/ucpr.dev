@@ -46,3 +46,6 @@ out/
 public/rss.xml
 public/atom.xml
 public/feed.json
+
+# Override global gitignore for tags directory
+!src/app/tags/
