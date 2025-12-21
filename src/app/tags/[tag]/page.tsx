@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getAllArticles } from "@/utils/article";
 import PlatformBadge from "@/components/PlatformBadge";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
 	const articles = await getAllArticles();
 	const tags = new Set<string>();
