@@ -1,6 +1,6 @@
 ---
 title: "dd-trace-go で計装していないアプリケーションで Datadog Profiler の Endpoint Profiling を実現する"
-description: "dd-trace-go で計装していないアプリケーションで Datadog Profiler を導入しているケースにおいて、Endpoint Profiling を実現する方法について説明します。"
+description: "dd-trace-go で計装していないアプリケーションかつ Datadog Profiler を導入しているケースにおいて、Endpoint Profiling を実現する方法について説明します。"
 publishedAt: '2025-12-19'
 tags: ["Observability", "Datadog", "Go", "pprof"]
 noindex: false
