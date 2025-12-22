@@ -257,7 +257,7 @@ func interceptor() grpc.UnaryServerInterceptor {
 本記事では、 dd-trace-go で計装していないアプリケーションで Datadog Profiler の Endpoint Profiling を実現する方法について解説しました。
 Datadog Profiler の Endpoint Profiling 機能は、特定のエンドポイントに関連するプロファイルデータを詳細に分析するのに非常に有用です。pprof ラベルを適切に設定することで、OpenTelemetry など dd-trace-go を利用していないケースでもこの機能を活用できます。
 
-また、Datadog Profiler の [Code Hostspots](https://docs.datadoghq.com/ja/profiler/#%E3%83%97%E3%83%AD%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AA%E3%83%B3%E3%82%B0%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AB%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B9%E3%82%92%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B) も pprof ラベルを用いてプロファイルデータとトレースデータを関連付けを行っているため、同様の方法で Code Hotspots 機能も利用できると思います。
+また、Datadog のProfiler と Trace の相関付けも pprof ラベルを用いて行っているようなので、まだ未検証ですが同様の方法で実現できる可能性があるため、興味がある方はぜひ試してみて結果を共有していただけると嬉しいです。
 
 本記事において、異なっている説明や表現がありましたらご連絡ください。
 
