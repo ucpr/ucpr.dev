@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 import { toString } from "hast-util-to-string";
-import type { Root, Element, Text } from "hast";
+import type { Root, Element } from "hast";
 import { getSingletonHighlighter } from "@/utils/syntax-highlighter";
 
 /**
