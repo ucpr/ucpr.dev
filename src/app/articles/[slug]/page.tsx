@@ -78,7 +78,7 @@ export default async function ArticlePage({
 		<main className="container mx-auto px-4 py-8 max-w-3xl">
 			<article className="prose prose-invert max-w-none">
 				<h1 className="text-3xl font-bold mb-4">{article.title}</h1>
-				<div className="text-gray-400 mb-4">
+				<div className="text-gray-600 dark:text-gray-300 mb-4">
 					{format(new Date(article.publishedAt), "yyyy年MM月dd日")}
 				</div>
 				<div className="flex space-x-2 mb-8">

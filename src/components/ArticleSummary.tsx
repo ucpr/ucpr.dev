@@ -85,12 +85,12 @@ const ArticleSummary: FC<ArticleSummaryProps> = ({ content }) => {
 						}`}
 					>
 						{isLoading && !summary && (
-							<div className="flex items-center gap-2 opacity-70">
+							<div className="flex items-center gap-2 opacity-80">
 								<span className="animate-pulse">🤖 要約を生成中... ✨</span>
 								<button
 									type="button"
 									onClick={handleCancel}
-									className="ml-auto px-3 py-1 text-sm rounded border border-current/30 transition-opacity hover:opacity-70"
+									className="ml-auto px-3 py-1 text-sm rounded border border-current/30 transition-opacity hover:opacity-80"
 								>
 									キャンセル
 								</button>
@@ -100,12 +100,12 @@ const ArticleSummary: FC<ArticleSummaryProps> = ({ content }) => {
 						{summary && (
 							<div>
 								<div className="flex items-center justify-between mb-2">
-									<span className="text-sm opacity-70">🤖 AI による要約 ✨</span>
+									<span className="text-sm opacity-80">🤖 AI による要約 ✨</span>
 									{isLoading && (
 										<button
 											type="button"
 											onClick={handleCancel}
-											className="px-3 py-1 text-sm rounded border border-current/30 transition-opacity hover:opacity-70"
+											className="px-3 py-1 text-sm rounded border border-current/30 transition-opacity hover:opacity-80"
 										>
 											キャンセル
 										</button>
