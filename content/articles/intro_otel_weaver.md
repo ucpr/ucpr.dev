@@ -20,13 +20,13 @@ noindex: false
 
 また、記事中に利用した設定や実装は以下のリポジトリで公開されています。
 
-[[カードOGP:github.com/ucpr/otel-weaver-example]](https://github.com/ucpr/otel-weaver-example)
+[github.com/ucpr/otel-weaver-example](https://github.com/ucpr/otel-weaver-example)
 
 ## Semantic Conventions
 
 Semantic Conventions とは、テレメトリデータに関する命名規則や属性の標準化を定義したものです。OpenTelemetry では、トレース、メトリクス、ログに関する様々な Semantic Conventions が定義されています。この定義に従うことで、異なるシステムやサービス間でのデータの一貫性が保たれ、分析やモニタリングが容易になります。
 
-[[カードOGP:https://opentelemetry.io/docs/concepts/semantic-conventions/]](https://opentelemetry.io/docs/concepts/semantic-conventions/)
+[https://opentelemetry.io/docs/concepts/semantic-conventions/](https://opentelemetry.io/docs/concepts/semantic-conventions/)
 
 実際の開発現場では、プロジェクト固有の要件やドメインに応じてカスタム属性の追加が必要になる場面があると思います。これらのカスタム属性も一貫性を持たせるために、独自に Semantic Conventions を定義し、チーム全体で共有することが重要です。
 しかし、属性に一貫性をもたせ、独自で定義した Semantic Conventions を運用することは容易ではなく、以下のような課題が存在します。
@@ -51,7 +51,7 @@ weaver は Semantic Conventions とオブザーバビリティワークフロー
 
 weaver は実際に open-telemetry/opentelemetry-go 内の semconv パッケージでのコード生成でも利用されており、OpenTelemetry コミュニティ内でも活用が進んでいます。
 
-[[カードOGP:/semconv/templates/registry/go/weaver.yaml]](https://github.com/open-telemetry/opentelemetry-go/blob/v1.39.0/semconv/templates/registry/go/weaver.yaml)
+[/semconv/templates/registry/go/weaver.yaml](https://github.com/open-telemetry/opentelemetry-go/blob/v1.39.0/semconv/templates/registry/go/weaver.yaml)
 
 ## weaver で Semantic Conventions を管理する
 

@@ -11,7 +11,7 @@ Cloud Trace は Google Cloud のサービスの一つで、アプリケーショ
 
 本記事では、Cloud Trace の BigQuery Sink を使って Cloud Trace のデータを BigQuery にエクスポートする方法について紹介します。
 
-[[カードOGP:Google Cloud - Trace data exports overview]](https://cloud.google.com/trace/docs/trace-export-overview)
+[Google Cloud - Trace data exports overview](https://cloud.google.com/trace/docs/trace-export-overview)
 
 > [!WARNING]
 > 本記事の執筆時点 (2024/12/02) では、Cloud Trace の BigQuery Sink はベータ版の機能として提供されています。そのため、本記事で紹介する内容は今後変更される可能性があるため、利用時は公式ドキュメントも合わせてご確認ください。
@@ -80,7 +80,7 @@ resource "google_bigquery_dataset_iam_member" "trace_sink_bigquery_data_editor" 
 
 Attribute など、Span ごとに既存のテーブルスキーマに無いデータが新しく送信されてきた場合、そのデータは都度新しいカラムとしてパッチが適用されて追加されるようです。
 
-[[カードOGP:Google Cloud - BigQuery へのエクスポート#スキーマ]](https://cloud.google.com/trace/docs/trace-export-bigquery#schema)
+[Google Cloud - BigQuery へのエクスポート#スキーマ](https://cloud.google.com/trace/docs/trace-export-bigquery#schema)
 
 ### データのクエリ例
 

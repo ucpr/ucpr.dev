@@ -27,7 +27,7 @@ go.opentelemetry.io/otel/sdk v1.34.0
 
 また、本記事で利用しているコードは以下のリポジトリに公開しています。
 
-[[カードOGP:github.com/ucpr/workspace2025]](https://github.com/ucpr/workspace2025/tree/main/otel-span-processor-example)
+[github.com/ucpr/workspace2025](https://github.com/ucpr/workspace2025/tree/main/otel-span-processor-example)
 
 ## SpanProcessor について
 
@@ -181,7 +181,7 @@ ok      github.com/ucpr/workspace2025/otel-span-processor-example       0.225s
 
 特に OpenTelemetry の Semantic Convention では、アプリケーション固有の属性に `com.acme.shopname` のようなドメイン逆順プレフィックスの使用を推奨しており、本記事の手法を用いることで、この規約への準拠を強制することなどが可能です。
 
-[[カードOGP:opentelemetry.io/docs | Naming]](https://opentelemetry.io/docs/specs/semconv/general/naming/#recommendations-for-application-developers)
+[opentelemetry.io/docs | Naming](https://opentelemetry.io/docs/specs/semconv/general/naming/#recommendations-for-application-developers)
 
 SpanProcessor は強力な拡張ポイントですが、パフォーマンスへの影響を考慮し、処理は軽量に保つことが重要です。
 本記事において、異なっている説明や表現がありましたらご連絡ください。

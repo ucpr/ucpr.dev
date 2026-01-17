@@ -19,7 +19,7 @@ Trace データを利用してテストを行う、Trace-based Testing という
 
 また、アプリケーション実装や設定ファイルは以下のリポジトリに格納しています。
 
-[[カードOGP:github.com/ucpr/tracetest-example]](https://github.com/ucpr/tracetest-example)
+[github.com/ucpr/tracetest-example](https://github.com/ucpr/tracetest-example)
 
 ## Trace-based Testing とは
 
@@ -198,7 +198,7 @@ Tracetest Cloud の EOL の影響なのか、 OSS の tracetest の開発が止�
 
 今回は紹介として、説明をだいぶ省略してしまっているので実際に触ってみたい方や深掘りたい方は tracetest のドキュメントとサンプルが充実しているのでそちらを参考にしていただけると良いと思います。
 
-[[カードOGP:github.com/kubeshop/tracetest/examples]](https://github.com/kubeshop/tracetest/blob/main/examples)
+[github.com/kubeshop/tracetest/examples](https://github.com/kubeshop/tracetest/blob/main/examples)
 
 本記事において、異なっている説明や表現がありましたらご連絡ください。
 

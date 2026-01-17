@@ -32,7 +32,7 @@ Endpoint Profiling は、Datadog Profiler の機能の一つで、Web サービ�
 
 しかし、OpenTelemetry で計装したアプリケーションに Datadog Profiler を導入した場合、Endpoint Profiling 機能はデフォルトでは有効になりません。これは、dd-trace-go のトレース計装時に自動的に設定される pprof ラベルに依存しているためです。
 
-[[カードOGP:Datadog Endpoint Profiling]](https://docs.datadoghq.com/ja/profiler/connect_traces_and_profiles/?tab=go)
+[Datadog Endpoint Profiling](https://docs.datadoghq.com/ja/profiler/connect_traces_and_profiles/?tab=go)
 
 ## dd-trace-go での Endpoint Profiling の実装
 

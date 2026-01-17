@@ -142,9 +142,9 @@ tree.children().into_iter().for_each(|node| {
 
 ## LinkCard
 
-[[カードOGP:SolidJS]](https://solidjs.com/)
+[SolidJS](https://solidjs.com/)
 
-[[カードOGP:ucpr.dev]](https://ucpr.dev)
+[ucpr.dev](https://ucpr.dev)
 
 ## 画像
 

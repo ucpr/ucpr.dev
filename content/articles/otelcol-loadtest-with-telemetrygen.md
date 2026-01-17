@@ -23,7 +23,7 @@ OpenTelemetry Collector を運用していく際には、Collector がどの程�
 > [!NOTE]
 > 本記事では設定ファイルを部分的に抜粋して記載している部分があるため、全体の設定ファイルについてはリポジトリを参照してください
 
-[[カードOGP:ucpr/tlgen-loadtest-example]](https://github.com/ucpr/tlgen-loadtest-example)
+[ucpr/tlgen-loadtest-example](https://github.com/ucpr/tlgen-loadtest-example)
 
 ## telemetrygen
 
@@ -64,9 +64,8 @@ Use "telemetrygen [command] --help" for more information about a command.
 それぞれのサブコマンドには、`--duration` や `--rate`, `--workers` などのオプションがあり、これを用いて負荷試験を行います。
 また、Attributes などのカスタム属性を追加することも可能なため、実際のアプリケーションに寄せた形で負荷試験を行うこともできます。
 
-<Info>
-  telemetrygen では徐々に負荷をかけるようなことはできないため、そのような試験を行いたい場合は別途スクリプトを作成する必要があります。
-</Info>
+> [!NOTE]
+> telemetrygen では徐々に負荷をかけるようなことはできないため、そのような試験を行いたい場合は別途スクリプトを作成する必要があります。
 
 ## 検証環境の構築
 

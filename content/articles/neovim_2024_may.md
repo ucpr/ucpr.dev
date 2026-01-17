@@ -12,7 +12,7 @@ tags: ["neovim"]
 本記事では、移行後の構成やハマりポイントについて紹介します。
 設定は下記のリポジトリで公開しています。
 
-[[カードOGP:github.com/ucpr/dotfiles/nvim]](https://github.com/ucpr/dotfiles/tree/master/nvim)
+[github.com/ucpr/dotfiles/nvim](https://github.com/ucpr/dotfiles/tree/master/nvim)
 
 ## 前提
 
