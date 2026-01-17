@@ -18,7 +18,7 @@ const CLASS_MAP: Record<string, string[]> = {
 		"rounded",
 		"bg-gray-50",
 		"dark:bg-gray-800",
-		"pl-4",
+		"px-4",
 		"py-2",
 		"my-4",
 		"italic",
