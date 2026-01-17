@@ -38,10 +38,11 @@ export async function summarizeStreaming(
 	const summarizer = await Summarizer.create({
 		type: "tldr",
 		format: "plain-text",
-		length: "short",
+		length: "medium",
 		expectedInputLanguages: ["ja", "en"],
 		outputLanguage: "ja",
-		sharedContext: "技術ブログ記事の要約",
+		sharedContext:
+			"技術ブログ記事の要約です。以下の3点を含めてください：1. 記事が解決しようとしている課題、2. 課題に対するアプローチや手法、3. 得られた結果や学び",
 	});
 
 	try {
