@@ -38,7 +38,7 @@ export function rehypeShiki() {
 				className
 					?.find((c) => typeof c === "string" && c.startsWith("language-"))
 					?.replace("language-", "") || "text";
-			const code = toString(codeNode);
+			const code = toString(codeNode).trimEnd();
 
 			try {
 				const highlighted = highlighter.codeToHtml(code, {
