@@ -62,8 +62,7 @@ tracetest は、OpenTelemetry のトレースデータを活用して、Trace-ba
 tracetest を起動するために、tracetest サーバーの設定を作成する必要があります。
 tracetest はテスト結果や設定情報の永続化に PostgreSQL を利用するため、PostgreSQL の接続情報を設定します。
 
-```yaml
-# tracetest/config.yaml
+```yaml:tracetest/config.yaml
 postgres:
   host: postgres
   user: user
@@ -75,8 +74,7 @@ postgres:
 
 さらに、データストアの設定を追加するために、以下の設定を追加します。
 
-```yaml
-# tracetest/provision.yaml
+```yaml:tracetest/provision.yaml
 type: DataStore
 spec:
   name: OpenTelemetry Collector
@@ -86,8 +84,7 @@ spec:
 
 上記の設定を元に、docker compose を利用して tracetest を起動します。
 
-```yaml
-# compose.yaml
+```yaml:compose.yaml
 tracetest:
     image: kubeshop/tracetest:${TAG:-latest}
     volumes:
@@ -119,8 +116,7 @@ tracetest:
 
 をテストするように定義します。
 
-```yaml
-# tracetest/testspec.yaml
+```yaml:tracetest/testspec.yaml
 type: Test
 spec:
   id: Mr56ftSHg

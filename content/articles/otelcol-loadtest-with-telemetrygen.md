@@ -71,9 +71,7 @@ Use "telemetrygen [command] --help" for more information about a command.
 
 OpenTelemetry Collector のパイプラインは、以下のように設定しています。
 
-```yaml
-# config.yaml
-
+```yaml:config.yaml
 # ...
 service:
   telemetry:
@@ -96,8 +94,7 @@ service:
 
 OpenTelemetry Collector とモニタリング用のツールとして Prometheus、Grafana を利用するため、Docker Compose を利用して実行環境を構築します。
 
-```yaml
-# compose.yaml
+```yaml:compose.yaml
 services:
   otelcol:
     image: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:0.107.0

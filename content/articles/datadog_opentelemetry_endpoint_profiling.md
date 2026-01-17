@@ -80,9 +80,7 @@ go func() {
 Datadog Profiler は、収集された pprof プロファイルのラベルのうち、特定のキーをエンドポイント識別子として解釈し、UI 上の Endpoint フィルタとして表示します。
 dd-trace-go は Span 開始時にこのラベルを自動的に設定しています。
 
-```go
-// dd-trace-go/ddtrace/tracer/tracer.go
-
+```go:dd-trace-go/ddtrace/tracer/tracer.go
 func (t *tracer) StartSpan(operationName string, options ...StartSpanOption) *Span {
 	// ... 省略 ...
 	if t.config.internalConfig.ProfilerHotspotsEnabled() || t.config.internalConfig.ProfilerEndpoints() {
@@ -121,9 +119,7 @@ func (t *tracer) applyPPROFLabels(ctx gocontext.Context, span *Span) {
 
 pprof ラベルのキーは以下のように定義されています。
 
-```go
-// internal/traceprof/traceprof.go
-
+```go:internal/traceprof/traceprof.go
 // pprof labels applied by the tracer to show up in the profiler's profiles.
 const (
     // ...
