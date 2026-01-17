@@ -2,68 +2,85 @@ import { visit } from "unist-util-visit";
 import { toString } from "hast-util-to-string";
 import type { Root, Element } from "hast";
 import { getSingletonHighlighter } from "@/utils/syntax-highlighter";
+import * as simpleIcons from "simple-icons";
 
-/**
- * 言語名から devicon クラス名へのマッピング
- */
-const LANG_ICON_MAP: Record<string, string> = {
-	typescript: "devicon-typescript-plain colored",
-	ts: "devicon-typescript-plain colored",
-	javascript: "devicon-javascript-plain colored",
-	js: "devicon-javascript-plain colored",
-	jsx: "devicon-react-original colored",
-	tsx: "devicon-react-original colored",
-	bash: "devicon-bash-plain",
-	shell: "devicon-bash-plain",
-	css: "devicon-css3-plain colored",
-	html: "devicon-html5-plain colored",
-	json: "devicon-json-plain colored",
-	markdown: "devicon-markdown-original",
-	md: "devicon-markdown-original",
-	yaml: "devicon-yaml-plain colored",
-	yml: "devicon-yaml-plain colored",
-	go: "devicon-go-original-wordmark colored",
-	rust: "devicon-rust-original",
-	python: "devicon-python-plain colored",
-	py: "devicon-python-plain colored",
-	java: "devicon-java-plain colored",
-	cpp: "devicon-cplusplus-plain colored",
-	"c++": "devicon-cplusplus-plain colored",
-	c: "devicon-c-plain colored",
-	php: "devicon-php-plain colored",
-	ruby: "devicon-ruby-plain colored",
-	rb: "devicon-ruby-plain colored",
-	swift: "devicon-swift-plain colored",
-	kotlin: "devicon-kotlin-plain colored",
-	kt: "devicon-kotlin-plain colored",
-	dart: "devicon-dart-plain colored",
-	sql: "devicon-azuresqldatabase-plain colored",
-	powershell: "devicon-powershell-plain colored",
-	xml: "devicon-xml-plain colored",
-	tf: "devicon-terraform-plain colored",
-	hcl: "devicon-terraform-plain colored",
-	terraform: "devicon-terraform-plain colored",
-	lua: "devicon-lua-plain colored",
-	docker: "devicon-docker-plain colored",
-	dockerfile: "devicon-docker-plain colored",
-	graphql: "devicon-graphql-plain colored",
-	vue: "devicon-vuejs-plain colored",
-	svelte: "devicon-svelte-plain colored",
-	nginx: "devicon-nginx-original colored",
-	redis: "devicon-redis-plain colored",
-	postgresql: "devicon-postgresql-plain colored",
-	mysql: "devicon-mysql-plain colored",
+type SimpleIcon = {
+	title: string;
+	slug: string;
+	svg: string;
+	path: string;
+	hex: string;
 };
 
 /**
- * 言語名から devicon アイコンの HTML を取得
+ * 言語名から simple-icons のアイコンキーへのマッピング
+ */
+const LANG_ICON_MAP: Record<string, string> = {
+	typescript: "siTypescript",
+	ts: "siTypescript",
+	javascript: "siJavascript",
+	js: "siJavascript",
+	jsx: "siReact",
+	tsx: "siReact",
+	bash: "siGnubash",
+	shell: "siGnubash",
+	css: "siCss3",
+	html: "siHtml5",
+	json: "siJson",
+	markdown: "siMarkdown",
+	md: "siMarkdown",
+	yaml: "siYaml",
+	yml: "siYaml",
+	go: "siGo",
+	rust: "siRust",
+	python: "siPython",
+	py: "siPython",
+	java: "siOpenjdk",
+	cpp: "siCplusplus",
+	"c++": "siCplusplus",
+	c: "siC",
+	php: "siPhp",
+	ruby: "siRuby",
+	rb: "siRuby",
+	swift: "siSwift",
+	kotlin: "siKotlin",
+	kt: "siKotlin",
+	dart: "siDart",
+	sql: "siMysql",
+	powershell: "siPowershell",
+	xml: "siXml",
+	tf: "siTerraform",
+	hcl: "siTerraform",
+	terraform: "siTerraform",
+	lua: "siLua",
+	docker: "siDocker",
+	dockerfile: "siDocker",
+	graphql: "siGraphql",
+	vue: "siVuedotjs",
+	svelte: "siSvelte",
+	nginx: "siNginx",
+	redis: "siRedis",
+	postgresql: "siPostgresql",
+	mysql: "siMysql",
+	toml: "siToml",
+};
+
+/**
+ * 言語名から SVG アイコンの HTML を取得
  */
 function getLanguageIcon(lang: string): string {
-	const iconClass = LANG_ICON_MAP[lang.toLowerCase()];
-	if (iconClass) {
-		return `<i class="${iconClass}"></i>`;
+	const iconKey = LANG_ICON_MAP[lang.toLowerCase()];
+	if (!iconKey) {
+		return "";
 	}
-	return "";
+
+	const icon = (simpleIcons as Record<string, SimpleIcon>)[iconKey];
+	if (!icon) {
+		return "";
+	}
+
+	// SVGをインラインで埋め込み（サイズとカラーを調整）
+	return `<svg role="img" viewBox="0 0 24 24" width="16" height="16" fill="#${icon.hex}" style="vertical-align: middle;"><path d="${icon.path}"/></svg>`;
 }
 
 /**
