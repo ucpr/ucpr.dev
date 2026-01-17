@@ -13,6 +13,7 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }) => {
 
 	useEffect(() => {
 		if (contentRef.current) {
+			// OGP カードの処理
 			const ogpElements = contentRef.current.querySelectorAll(
 				"[data-ogp-card-link]",
 			);
@@ -40,6 +41,31 @@ const ArticleContent: FC<ArticleContentProps> = ({ content }) => {
 						ReactDOM.createRoot(container).render(<OgpCardLink {...props} />);
 					}
 				}
+			});
+
+			// コードブロックのコピーボタン処理
+			const copyButtons =
+				contentRef.current.querySelectorAll(".code-copy-button");
+			copyButtons.forEach((button) => {
+				button.addEventListener("click", async () => {
+					const code = button.getAttribute("data-code");
+					if (code) {
+						// HTML エンティティをデコード
+						const textarea = document.createElement("textarea");
+						textarea.innerHTML = code;
+						const decodedCode = textarea.value;
+
+						try {
+							await navigator.clipboard.writeText(decodedCode);
+							button.classList.add("copied");
+							setTimeout(() => {
+								button.classList.remove("copied");
+							}, 2000);
+						} catch (err) {
+							console.error("Failed to copy code:", err);
+						}
+					}
+				});
 			});
 		}
 	}, [content]);

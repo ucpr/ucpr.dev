@@ -108,15 +108,49 @@ a {
 	@apply mt-0 rounded-t-none;
 }
 
-.code-block-title {
-	@apply px-4 py-2 text-sm font-mono text-gray-300 rounded-t-md flex items-center gap-2;
+.code-block-header {
+	@apply px-3 py-1.5 rounded-t-md flex items-center justify-between;
 	background-color: #161b22;
 	border-bottom: 1px solid #30363d;
+}
+
+.code-block-title {
+	@apply text-sm font-mono text-gray-300 flex items-center gap-2;
 }
 
 .code-block-title i {
 	font-size: 1.1em;
 	transform: translateY(1px);
+}
+
+/* コピーボタン */
+.code-copy-button {
+	@apply p-1 rounded text-gray-400 hover:text-gray-200 hover:bg-gray-700 transition-colors;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.code-copy-button svg {
+	width: 14px;
+	height: 14px;
+}
+
+.code-copy-button .copy-icon {
+	display: block;
+}
+
+.code-copy-button .check-icon {
+	display: none;
+	color: #22c55e;
+}
+
+.code-copy-button.copied .copy-icon {
+	display: none;
+}
+
+.code-copy-button.copied .check-icon {
+	display: block;
 }
 
 .shiki {
