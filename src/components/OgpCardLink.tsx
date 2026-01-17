@@ -80,7 +80,7 @@ export const OgpCardLink: FC<OgpCardLinkProps> = ({ url, title }) => {
 				rel="noopener noreferrer"
 				className="block bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 my-4 hover:bg-gray-100 dark:hover:bg-gray-750 transition-colors no-underline"
 			>
-				<div className="font-bold text-gray-900 dark:text-gray-100 mb-1">
+				<div className="font-bold text-gray-900 dark:text-gray-100 pb-2 mb-2 border-b border-gray-200 dark:border-gray-600">
 					{title || url}
 				</div>
 				<div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2">
@@ -99,7 +99,7 @@ export const OgpCardLink: FC<OgpCardLinkProps> = ({ url, title }) => {
 		>
 			<div className="flex justify-between items-start gap-4">
 				<div className="flex-1 min-w-0">
-					<div className="font-bold text-gray-900 dark:text-gray-100 line-clamp-2 mb-1">
+					<div className="font-bold text-gray-900 dark:text-gray-100 line-clamp-2 pb-2 mb-2 border-b border-gray-200 dark:border-gray-600">
 						{ogpData.title || title || "タイトルなし"}
 					</div>
 					{ogpData.description && (

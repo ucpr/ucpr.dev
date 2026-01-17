@@ -83,6 +83,13 @@ a {
 	color: #2563eb; /* Tailwind blue-600 */
 }
 
+/* OGPカード内のリンクは下線なし */
+.article-content a.no-underline,
+.article-content a.no-underline * {
+	text-decoration: none;
+	color: inherit;
+}
+
 @media (prefers-color-scheme: dark) {
 	.article-content a {
 		color: #93c5fd; /* Tailwind blue-300 */
