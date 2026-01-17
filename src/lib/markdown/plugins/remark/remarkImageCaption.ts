@@ -46,6 +46,6 @@ function processCaption(caption: string): string {
 	// キャプション内のリンク記法を処理
 	return caption.replace(
 		/\[([^\]]+)\]\(([^)]+)\)/g,
-		'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>',
+		'<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-300 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">$1</a>',
 	);
 }

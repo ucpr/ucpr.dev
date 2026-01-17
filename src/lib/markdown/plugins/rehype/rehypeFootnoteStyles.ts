@@ -23,7 +23,7 @@ export function rehypeFootnoteStyles() {
 						child.properties.className = [
 							...childExisting,
 							"text-blue-500",
-							"dark:text-blue-400",
+							"dark:text-blue-300",
 							"hover:underline",
 						];
 					}
@@ -71,7 +71,7 @@ export function rehypeFootnoteStyles() {
 				node.properties.className = [
 					...existing,
 					"text-blue-500",
-					"dark:text-blue-400",
+					"dark:text-blue-300",
 					"hover:underline",
 					"ml-1",
 				];

@@ -4,7 +4,7 @@ import type { Root, Element } from "hast";
 const CLASS_MAP: Record<string, string[]> = {
 	a: [
 		"text-blue-500",
-		"dark:text-blue-400",
+		"dark:text-blue-300",
 		"underline",
 		"hover:text-blue-600",
 		"dark:hover:text-blue-300",

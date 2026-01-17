@@ -57,7 +57,7 @@ export function remarkGithubAlerts() {
 							if (c.type === "inlineCode")
 								return `<code class="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded font-mono text-sm">${escapeHtml((c as any).value)}</code>`;
 							if (c.type === "link")
-								return `<a href="${(c as any).url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-400 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">${escapeHtml(extractText(c))}</a>`;
+								return `<a href="${(c as any).url}" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-300 underline hover:text-blue-600 dark:hover:text-blue-300 transition-colors">${escapeHtml(extractText(c))}</a>`;
 							return "";
 						})
 						.join("");

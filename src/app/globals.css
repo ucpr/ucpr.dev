@@ -85,11 +85,11 @@ a {
 
 @media (prefers-color-scheme: dark) {
 	.article-content a {
-		color: #60a5fa; /* Tailwind blue-400 */
+		color: #93c5fd; /* Tailwind blue-300 */
 	}
 
 	.article-content a:hover {
-		color: #93c5fd; /* Tailwind blue-300 */
+		color: #bfdbfe; /* Tailwind blue-200 */
 	}
 }
 

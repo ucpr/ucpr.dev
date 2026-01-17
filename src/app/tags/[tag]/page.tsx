@@ -97,7 +97,7 @@ export default async function TagPage({
 			<div className="mt-8">
 				<Link
 					href="/articles"
-					className="text-blue-600 dark:text-blue-400 hover:underline"
+					className="text-blue-600 dark:text-blue-300 hover:underline"
 					style={{ color: "#3B6BF6" }}
 				>
 					All Articles
