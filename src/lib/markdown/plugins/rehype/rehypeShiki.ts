@@ -116,15 +116,19 @@ export function rehypeShiki() {
 					theme: "github-dark",
 				});
 
-				// ファイル名がある場合はタイトルバーを追加
-				let html = highlighted;
-				if (filename) {
-					const icon = getLanguageIcon(lang || "");
-					const iconHtml = icon ? `${icon} ` : "";
-					const encodedCode = escapeHtml(code);
-					html = `<div class="code-block-wrapper">
+				// ヘッダーを追加（ファイル名がある場合はファイル名、なければ言語名を表示）
+				const icon = getLanguageIcon(lang || "");
+				const iconHtml = icon ? `${icon} ` : "";
+				const titleText = filename
+					? escapeHtml(filename)
+					: lang && lang !== "text"
+						? lang
+						: "";
+				const encodedCode = escapeHtml(code);
+
+				const html = `<div class="code-block-wrapper">
 	<div class="code-block-header">
-		<div class="code-block-title">${iconHtml}${escapeHtml(filename)}</div>
+		<div class="code-block-title">${iconHtml}${titleText}</div>
 		<button class="code-copy-button" data-code="${encodedCode}" aria-label="Copy code">
 			<svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
 			<svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -132,7 +136,6 @@ export function rehypeShiki() {
 	</div>
 	${highlighted}
 </div>`;
-				}
 
 				nodesToReplace.push({
 					index,
