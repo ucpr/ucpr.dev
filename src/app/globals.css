@@ -98,6 +98,21 @@ a {
 	}
 }
 
+/* コードブロックのタイトルバー */
+.code-block-wrapper {
+	@apply my-4;
+}
+
+.code-block-wrapper .shiki {
+	@apply mt-0 rounded-t-none;
+}
+
+.code-block-title {
+	@apply px-4 py-2 text-sm font-mono text-gray-300 rounded-t-md;
+	background-color: #161b22;
+	border-bottom: 1px solid #30363d;
+}
+
 .shiki {
 	@apply p-4 text-sm overflow-auto my-4 rounded-md font-mono;
 	background-color: #0d1117 !important; /* GitHub Dark のコードブロック背景色 */

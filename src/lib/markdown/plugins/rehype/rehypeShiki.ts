@@ -5,7 +5,7 @@ import { getSingletonHighlighter } from "@/utils/syntax-highlighter";
 
 /**
  * Shiki を使ったシンタックスハイライトプラグイン
- * 既存の syntax-highlighter.ts を再利用
+ * ```lang:filename 形式でファイル名を指定可能
  */
 export function rehypeShiki() {
 	return async (tree: Root) => {
@@ -34,22 +34,38 @@ export function rehypeShiki() {
 			if (!codeNode) return;
 
 			const className = codeNode.properties?.className as string[] | undefined;
-			const lang =
-				className
-					?.find((c) => typeof c === "string" && c.startsWith("language-"))
-					?.replace("language-", "") || "text";
+			const langClass =
+				className?.find(
+					(c) => typeof c === "string" && c.startsWith("language-"),
+				) || "";
+			const langWithFilename = langClass.replace("language-", "") || "text";
+
+			// lang:filename 形式を解析
+			const [lang, filename] = langWithFilename.includes(":")
+				? langWithFilename.split(":")
+				: [langWithFilename, null];
+
 			const code = toString(codeNode).trimEnd();
 
 			try {
 				const highlighted = highlighter.codeToHtml(code, {
-					lang,
+					lang: lang || "text",
 					theme: "github-dark",
 				});
+
+				// ファイル名がある場合はタイトルバーを追加
+				let html = highlighted;
+				if (filename) {
+					html = `<div class="code-block-wrapper">
+	<div class="code-block-title">${escapeHtml(filename)}</div>
+	${highlighted}
+</div>`;
+				}
 
 				nodesToReplace.push({
 					index,
 					parent: parent as Element | Root,
-					html: highlighted,
+					html,
 				});
 			} catch (error) {
 				console.error(`Failed to highlight code with lang: ${lang}`, error);
@@ -65,4 +81,13 @@ export function rehypeShiki() {
 			parent.children[index] = rawNode;
 		}
 	};
+}
+
+function escapeHtml(str: string): string {
+	return str
+		.replace(/&/g, "&amp;")
+		.replace(/</g, "&lt;")
+		.replace(/>/g, "&gt;")
+		.replace(/"/g, "&quot;")
+		.replace(/'/g, "&#039;");
 }

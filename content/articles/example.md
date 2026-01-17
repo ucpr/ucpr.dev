@@ -51,6 +51,26 @@ body
 
 ## pre & codeblock
 
+### ファイル名付きコードブロック
+
+```go:main.go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+}
+```
+
+```typescript:src/utils/example.ts
+export function greet(name: string): string {
+	return `Hello, ${name}!`;
+}
+```
+
+### 通常のコードブロック
+
 ```rust
 const body = "---
 title: Test Title
