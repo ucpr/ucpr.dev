@@ -12,7 +12,7 @@
 		"format": "bunx @biomejs/biome format --write ."
 	},
 	"dependencies": {
-		"@shikijs/core": "^3.19.0",
+		"@shikijs/core": "^3.21.0",
 		"cheerio": "^1.1.2",
 		"date-fns": "^4.1.0",
 		"dayjs": "^1.11.18",
@@ -21,10 +21,10 @@
 		"gray-matter": "^4.0.3",
 		"hast-util-to-string": "^3.0.1",
 		"highlight.js": "^11.11.1",
-		"hono": "^4.10.7",
+		"hono": "^4.11.4",
 		"js-yaml": "^4.1.1",
 		"mdast-util-to-hast": "^13.2.1",
-		"next": "16.0.9",
+		"next": "16.0.10",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
 		"rehype-raw": "^7.0.0",
@@ -32,9 +32,9 @@
 		"remark-gfm": "^4.0.1",
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.2",
-		"shiki": "^3.13.0",
+		"shiki": "^3.21.0",
 		"simple-icons": "^16.5.0",
-		"tar": "^7.5.2",
+		"tar": "^7.5.3",
 		"unified": "^11.0.5",
 		"unist-util-visit": "^5.0.0"
 	},
