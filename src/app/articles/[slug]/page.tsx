@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import Link from "next/link";
 import "dayjs/locale/ja";
 import ArticleContent from "@/components/ArticleContent";
+import ArticleSummary from "@/components/ArticleSummary";
 import Giscus from "@/components/Giscus";
 
 import "highlight.js/styles/github-dark.css";
@@ -92,6 +93,7 @@ export default async function ArticlePage({
 					))}
 				</div>
 
+				<ArticleSummary content={article.content} />
 				<ArticleContent content={htmlContent} />
 			</article>
 

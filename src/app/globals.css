@@ -1,6 +1,46 @@
 @import "tailwindcss";
 @import "devicon/devicon.min.css";
 
+/* AI 要約コンポーネントの虹色ボーダー */
+.article-summary {
+	position: relative;
+	background: var(--background);
+}
+
+.article-summary::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	padding: 1px;
+	border-radius: 0.5rem;
+	background: linear-gradient(
+		90deg,
+		#ff6b6b,
+		#feca57,
+		#48dbfb,
+		#ff9ff3,
+		#54a0ff,
+		#5f27cd,
+		#ff6b6b
+	);
+	background-size: 200% 100%;
+	animation: rainbow-flow 10s linear infinite;
+	mask:
+		linear-gradient(#fff 0 0) content-box,
+		linear-gradient(#fff 0 0);
+	mask-composite: exclude;
+	pointer-events: none;
+}
+
+@keyframes rainbow-flow {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 200% 50%;
+	}
+}
+
 :root {
 	--background: #ffffff;
 	--foreground: #1a1a1a;
