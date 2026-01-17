@@ -1,0 +1,1 @@
+export { processMarkdown } from "./processor";
