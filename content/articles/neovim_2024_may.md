@@ -32,7 +32,7 @@ Run "nvim -V1 -v" for more info
 
 詳しくは、Shougo さんが書かれた以下の記事を参照すると良いと思います。
 
-- [プラグインマネージャーの歴史と新世代のプラグインマネージャー dpp.vim | zenn.dev](https://github.com/Shougo/dein.vim)
+[プラグインマネージャーの歴史と新世代のプラグインマネージャー dpp.vim | zenn.dev](https://zenn.dev/shougo/articles/dpp-vim-beta)
 
 ## 移行
 
