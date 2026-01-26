@@ -1,6 +1,8 @@
 {
-	"name": "MyWebSite",
-	"short_name": "MySite",
+	"name": "ucpr.dev",
+	"short_name": "ucpr.dev",
+	"description": "uuccpprr",
+	"start_url": "/",
 	"icons": [
 		{
 			"src": "/web-app-manifest-192x192.png",
